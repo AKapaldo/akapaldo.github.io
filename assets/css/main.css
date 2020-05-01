@@ -175,7 +175,7 @@ input, select, textarea {
 	}
 
 		a:hover {
-			color: #E27689;
+			color: rgb(112, 223, 223);
 			border-bottom-color: rgba(255, 255, 255, 0);
 		}
 
@@ -1869,7 +1869,7 @@ input, select, textarea {
 		form input[type="password"]:focus,
 		form select:focus,
 		form textarea:focus {
-			box-shadow: 0 0 2px 1px #8ebebc;
+			box-shadow: 0 0 2px 1px #70dfdf;
 			background: #fff;
 		}
 
@@ -2169,7 +2169,7 @@ input, select, textarea {
 				}
 
 					#nav ul li a.active span:before {
-						color: #e27689;
+						color: #57bbda;
 					}
 
 /* Footer */
