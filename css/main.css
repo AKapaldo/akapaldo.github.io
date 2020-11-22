@@ -1,7 +1,7 @@
 body {
   padding: 0;
   margin: 0;
-  background: #006072;
+  background: #fff;
 }
 .nav-link,
 .navbar-brand {
@@ -17,7 +17,7 @@ body {
 .navbar-collapse {
   justify-content: flex-end;
 }
-.header {
+.jumbotron {
   background-image: url('/images/GitHub_Banner.png');
   background-size: auto;
   background-repeat: no-repeat;
