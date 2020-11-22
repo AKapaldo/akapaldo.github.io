@@ -96,6 +96,9 @@ body {
 .jumbotron {
 	background-color: #8597a1;
 }
+.navbar-custom {
+	background-color: #fff;
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
