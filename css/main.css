@@ -8,6 +8,10 @@ body {
   color: #fff;
   cursor: pointer;
 }
+.navbar-brand {
+	transform: translateX(-50%);
+	position: absolute;
+}
 .nav-link {
   margin-right: 1em !important;
 }
