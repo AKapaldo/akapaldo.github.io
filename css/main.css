@@ -8,16 +8,16 @@ body {
   color: #fff;
   cursor: pointer;
 }
-navbar-primary, .navbar-nav { 
+navbar-primary .navbar-nav { 
   background: #ededed;
   width: 100%;
   text-align: center;
 }
-.navbar-nav li {
+navbar-primary .navbar-nav li {
 	display: inline-block;
     float: none;
 }
-.navbar-nav a {
+navbar-primary .navbar-nav a {
     padding-left: 30px;
     padding-right: 30px;
 }
