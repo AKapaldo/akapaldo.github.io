@@ -8,6 +8,23 @@ body {
   color: #fff;
   cursor: pointer;
 }
+navbar-primary, .navbar-nav { 
+  background: #ededed;
+  width: 100%;
+  text-align: center;
+}
+.navbar-nav li {
+	display: inline-block;
+    float: none;
+}
+.navbar-nav a {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+  
+
+
+
 .navbar-brand {
 	transform: translateX(-50%);
 	position: absolute;
