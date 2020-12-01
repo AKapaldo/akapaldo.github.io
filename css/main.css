@@ -1,161 +1,119 @@
-body {
-  padding: 0;
-  margin: 0;
-  background: #ababab;
-}
-.nav-link,
-.navbar-brand {
-  color: #fff;
-  cursor: pointer;
-}
-navbar-primary .navbar-nav { 
-  background: #ededed;
-  width: 100%;
-  text-align: center;
-}
-navbar-primary .navbar-nav li {
-	display: inline-block;
-    float: none;
-}
-navbar-primary .navbar-nav a {
-    padding-left: 30px;
-    padding-right: 30px;
-}
-  
 
+body{
+    font-family: 'Oxygen', sans-serif;
+    background: #ffffff;
+}
+p {
+    font-family: 'Roboto', sans-serif;
+}
 
+.navbar {
+    height: 4rem;
+    z-index: 2;
+    background: #1d3557;  
+}
 
-.navbar-brand {
-	transform: translateX(-50%);
-	position: absolute;
+.navbar a {
+    color: #f1faee;
 }
-.nav-link {
-  margin-right: 1em !important;
+
+.navbar .nav-link:hover {
+    transition: border 0.2s;
+    border-bottom: 1px solid #f1faee; }
+
+.navbar #brand {
+    height: 5rem;
+    z-index: 3;
+    margin-top: 1rem;
+    border: #f1faee solid 1px;
+    border-radius: 100%;
 }
-.nav-link:hover {
-  color: #006072;
+
+#sep {
+    border-top: #f4f4f4 solid 5px;
 }
-.navbar-collapse {
-  justify-content: flex-end;
-}
+
 .jumbotron {
-  background-image: url('/images/GitHub_Banner.png');
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  
-}
-.description {
-  left: 50%;
-  position: absolute;
-  top: 45%;
-  transform: translate(-50%, -55%);
-  text-align: center;
-}
-.description h1 {
-  color: #349beb;
-}
-.display-4 h1 {
-  color: #349beb;
-}
-.description p {
-  color: #fff;
-  font-size: 1.3rem;
-  line-height: 1.5;
-}
-.description button {
-  border:1px solid #349beb;
-  background:#349beb;
-  border-radius: 5;
-  color:#fff;
-}
-.description button:hover {
-  border:1px solid #fff;
-  background:#fff;
-  color:#000;
-}
-.features {
-  margin: 4em auto;
-  padding: 1em;
-  position: relative;
-}
-.features button {
-	border:3px solid #006072;
-	background: #349beb;
-	border-radius: 5;
-	color:#fff;
-}
-.feature-title {
-  color: #333;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-.features img {
-  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  margin-bottom: 16px;
-}
-.features h1 {
-	color: #006072;
-	font-align: center;
-}
-.features h3 {
-	font-align: center;
-}
-.page-footer {
-  background-color: #222;
-  color: #ccc;
-  padding: 60px 0 30px;
-}
-.footer-copyright {
-  color: #666;
-  padding: 40px 0;
-}
-.navbar-custom {
-	background-color: #fff;
+    background: #15243c;
+    background-image: url("/images/keyboard.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    min-height: 400px;
+    position: relative;
 }
 
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-  .description {
-    left: 0;
-    padding: 0 15px;
+#header {
+    z-index: 3;
+    color: #f1faee;
+    position: relative;
+}
+
+#welcome {
+    color: #f1faee;
+}
+
+.overlay {
+    
+    background: rgba(0, 0, 0, 0.6);
     position: absolute;
-    top: 10%;
-    transform: none;
-    text-align: center;
-  }
-  
-  .description h1 {
-    font-size: 2em;
-  }
-  
-  .description p {
-    font-size: 1.2rem;
-  }
-  
-  .features {
-    margin: 0;
-  }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
 }
 
-/* Small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {  
-
+#whoami {
+    background: #012456;
+    }
+#whoami samp {
+    color: #ffffff;
 }
 
-/* Medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {  
-.navbar-custom { 
-     background-color: #006072; 
-   } 
+#whoami samp #cmdlet {
+    color: #ffff00;
 }
 
-/* Large devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) {  
+#whoami samp #bool {
+    color: #00FF00;
+}
 
+#whoami samp #oper {
+    color: #80726C
+}
+
+#whoami samp #var {
+    color: #008073
+}
+
+.footer {
+    background: #1d3557;
+}
+
+.footer a {
+    color: #f1faee;
+}
+
+#title h1 {
+    color: #1d3557;
+}
+
+#social i {
+    border: 1px solid #1f1f1f;
+    border-radius: 100%;
+    background:#457b9d;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-link:hover {
+        border-bottom: none; 
+        color: #008073;
+    }
+    .jumbotron {
+        background-repeat: no-repeat;
+        background-position: top;
+        min-height: 250px;
+    }
 }
