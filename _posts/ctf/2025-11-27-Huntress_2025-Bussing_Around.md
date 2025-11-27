@@ -1,8 +1,12 @@
 ---
-title: "Huntress_2025 – Bussing_Around"
+title: "Huntress 2025 – Bussing Around"
 layout: post
-competition: Huntress_2025
-challenge: Bussing_Around
+competition: Huntress 2025
+challenge: Bussing Around
+tags: 
+  - Huntress
+  - 2025
+  - Forensics
 ---
 
 # 🔍 Bussing Around
