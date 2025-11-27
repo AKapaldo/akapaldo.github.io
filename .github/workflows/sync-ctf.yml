@@ -6,19 +6,22 @@ on:
     paths:
       - "ctf/**"
   schedule:
-    - cron: "0 * * * *"   # hourly backup sync
-  workflow_dispatch:       # run manually if needed
+    - cron: "0 2 * * *"   # Daily sync
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
+    # Checkout your website repo (akapaldo.github.io)
     - name: Checkout website repo
       uses: actions/checkout@v4
       with:
-        persist-credentials: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+        persist-credentials: true    # must be true to push later
 
+    # Checkout CTF repo
     - name: Checkout CTF repo
       uses: actions/checkout@v4
       with:
@@ -36,21 +39,22 @@ jobs:
           DATE=$(date +"%Y-%m-%d")
           OUT="_posts/ctf/${DATE}-${COMPETITION}-${CHALLENGE}.md"
 
-          echo "---" > "$OUT"
-          echo "title: \"${COMPETITION} – ${CHALLENGE}\"" >> "$OUT"
-          echo "layout: post" >> "$OUT"
-          echo "competition: ${COMPETITION}" >> "$OUT"
-          echo "challenge: ${CHALLENGE}" >> "$OUT"
-          echo "---" >> "$OUT"
-          echo "" >> "$OUT"
-
-          cat "$FILE" >> "$OUT"
+          {
+            echo "---"
+            echo "title: \"${COMPETITION} – ${CHALLENGE}\""
+            echo "layout: post"
+            echo "competition: ${COMPETITION}"
+            echo "challenge: ${CHALLENGE}"
+            echo "---"
+            echo
+            cat "$FILE"
+          } > "$OUT"
         done
 
     - name: Commit and push changes
       run: |
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        git commit -m "Auto-sync CTF writeups" || echo "No changes"
+        git commit -m "Auto-sync CTF writeups" || echo "No changes to commit"
         git push
