@@ -3,6 +3,10 @@ title: "Huntress_2025 – Arika"
 layout: post
 competition: Huntress_2025
 challenge: Arika
+tags: 
+  - Huntress
+  - 2025
+  - Web
 ---
 
 # 🌐 ARIKA
