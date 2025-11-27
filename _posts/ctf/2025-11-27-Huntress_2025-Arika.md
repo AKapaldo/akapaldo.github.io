@@ -1,7 +1,7 @@
 ---
-title: "Huntress_2025 – Arika"
+title: "Huntress 2025 – Arika"
 layout: post
-competition: Huntress_2025
+competition: Huntress 2025
 challenge: Arika
 tags: 
   - Huntress
