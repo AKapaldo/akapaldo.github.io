@@ -1,25 +1,16 @@
-<nav class="navbar navbar-expand-md">  
-  <span>
-    <a class="navbar-brand d-inline d-md-none" href="index.html">\\Andrew Kapaldo</a>
-    <a href="https://github.com/AKapaldo" aria-label="GitHub"><i class="fab fa-github fa-lg mr-2" id="git"></i></a>
-    <a href="https://www.linkedin.com/in/andrew-kapaldo/" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg" id="linked"></i></a> 
-  </span>
-  <button class="divided-hamburger navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="border:0;">
-    <input type="checkbox" class="trigger">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <div class="collapse navbar-collapse justify-content-md-around" id="navbar">
-    <a class="nav-link d-inline d-md-none" href="index.html">Home</a>
-    <a class="nav-link" href="index.html#whoAmITop">WhoAmI</a>
-    <a class="nav-link" href="index.html#projects">Projects</a>
-    <a class="navbar-brand d-none d-md-inline" href="index.html"><img src="https://github.com/AKapaldo/akapaldo.github.io/images/Avatar.jpg" id="brand" alt="Avatar of Andrew"></a>
-    <a class="nav-link" href="resume.html">Resume</a>
-    <a class="nav-link" href="#"></a>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ '/' | relative_url }}">Andrew Kapaldo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/projects' | relative_url }}">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/resume' | relative_url }}">Resume</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/blog' | relative_url }}">Blog</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
