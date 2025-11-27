@@ -1,0 +1,56 @@
+name: Sync CTF Writeups
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "ctf/**"
+  schedule:
+    - cron: "0 * * * *"   # hourly backup sync
+  workflow_dispatch:       # run manually if needed
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout website repo
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+
+    - name: Checkout CTF repo
+      uses: actions/checkout@v4
+      with:
+        repository: AKapaldo/CTF-Writeups
+        path: ctf-src
+
+    - name: Sync all writeups
+      run: |
+        mkdir -p _posts/ctf
+
+        find ctf-src -type f -iname "readme.md" | while read FILE; do
+          COMPETITION=$(echo "$FILE" | cut -d'/' -f2)
+          CHALLENGE=$(echo "$FILE" | cut -d'/' -f3)
+
+          DATE=$(date +"%Y-%m-%d")
+          OUT="_posts/ctf/${DATE}-${COMPETITION}-${CHALLENGE}.md"
+
+          echo "---" > "$OUT"
+          echo "title: \"${COMPETITION} – ${CHALLENGE}\"" >> "$OUT"
+          echo "layout: post" >> "$OUT"
+          echo "competition: ${COMPETITION}" >> "$OUT"
+          echo "challenge: ${CHALLENGE}" >> "$OUT"
+          echo "---" >> "$OUT"
+          echo "" >> "$OUT"
+
+          cat "$FILE" >> "$OUT"
+        done
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add .
+        git commit -m "Auto-sync CTF writeups" || echo "No changes"
+        git push
