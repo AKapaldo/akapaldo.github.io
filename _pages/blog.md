@@ -1,6 +1,7 @@
 ---
-layout: default
-title: CTF Writeups
+title: "CTF Writeups"
+layout: home
+permalink: /blog/
 ---
 
 <div class="container mt-5">
