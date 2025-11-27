@@ -35,22 +35,29 @@ jobs:
         mkdir -p _posts/ctf
 
         find ctf-src -type f -iname "readme.md" | while read FILE; do
-          COMPETITION=$(echo "$FILE" | cut -d'/' -f2)
-          CHALLENGE=$(echo "$FILE" | cut -d'/' -f3)
-
-          DATE=$(date +"%Y-%m-%d")
-          OUT="_posts/ctf/${DATE}-${COMPETITION}-${CHALLENGE}.md"
-
-          {
-            echo "---"
-            echo "title: \"${COMPETITION} – ${CHALLENGE}\""
-            echo "layout: post"
-            echo "competition: ${COMPETITION}"
-            echo "challenge: ${CHALLENGE}"
-            echo "---"
-            echo
-            cat "$FILE"
-          } > "$OUT"
+          # Get the number of slashes in the path relative to ctf-src
+          RELATIVE_PATH="${FILE#ctf-src/}"
+          SLASH_COUNT=$(echo "$RELATIVE_PATH" | awk -F"/" '{print NF-1}')
+        
+          # Only process if it’s in a subfolder (competition/challenge/readme.md)
+          if [ "$SLASH_COUNT" -eq 2 ]; then
+              COMPETITION=$(echo "$RELATIVE_PATH" | cut -d'/' -f1)
+              CHALLENGE=$(echo "$RELATIVE_PATH" | cut -d'/' -f2)
+        
+              DATE=$(date +"%Y-%m-%d")
+              OUT="_posts/ctf/${DATE}-${COMPETITION}-${CHALLENGE}.md"
+        
+              {
+                echo "---"
+                echo "title: \"${COMPETITION} – ${CHALLENGE}\""
+                echo "layout: post"
+                echo "competition: ${COMPETITION}"
+                echo "challenge: ${CHALLENGE}"
+                echo "---"
+                echo
+                cat "$FILE"
+              } > "$OUT"
+          fi
         done
 
     - name: Commit and push changes
