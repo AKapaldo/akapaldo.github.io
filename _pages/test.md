@@ -19,7 +19,7 @@ I specialize in:
 I live in Morgantown, WV, work in IT, volunteer on a SAR team, and I'm currently pursuing my **MS in Business Cybersecurity Management** (expected Summer 2026).
 
 I also hold:
-- CompTIA A+, Network+, Security+  
+- CompTIA A+, Network+, Security+, Pentest+
 - (ISC)² SSCP and CCSP  
 - BS in Cybersecurity & Information Assurance  
 - AAS in Information Systems  
