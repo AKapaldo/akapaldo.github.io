@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Cybersecurity professional, CTF enthusiast, web developer, and technology geek.
 twitter_username: Akapaldo
 github_username: Akapaldo
-minimal_mistakes_skin: custom-dark
+minimal_mistakes_skin: "slate"
 search: true
 
 # Build settings
