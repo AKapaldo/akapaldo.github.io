@@ -1,8 +1,12 @@
 ---
-title: "Huntress_2025 – Beyblade"
+title: "Huntress 2025 – Beyblade"
 layout: post
-competition: Huntress_2025
+competition: Huntress 2025
 challenge: Beyblade
+tags: 
+  - Huntress
+  - 2025
+  - Forensics
 ---
 
 # 🔍 Beyblade
