@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CTF Writeups</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <!-- Your existing navbar goes here -->
+
+  <div class="container mt-5">
+    <h1 class="mb-4">CTF Writeups</h1>
+    <div id="posts" class="list-group"></div>
+  </div>
+
+  <script>
+    fetch('/ctf/')
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const list = [...doc.querySelectorAll('a')];
+        const posts = list
+          .map(a => a.getAttribute('href'))
+          .filter(v => v.endsWith('.md'));
+
+        const container = document.getElementById('posts');
+        posts.forEach(file => {
+          const name = file.replace('.md', '');
+          const el = document.createElement('a');
+          el.className = "list-group-item list-group-item-action";
+          el.href = `/post.html?file=${encodeURIComponent(file)}`;
+          el.textContent = name;
+          container.appendChild(el);
+        });
+      });
+  </script>
+</body>
+</html>
