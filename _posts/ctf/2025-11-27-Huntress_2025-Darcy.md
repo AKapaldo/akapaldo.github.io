@@ -1,8 +1,12 @@
 ---
-title: "Huntress_2025 – Darcy"
+title: "Huntress 2025 – Darcy"
 layout: post
-competition: Huntress_2025
+competition: Huntress 2025
 challenge: Darcy
+tags: 
+  - Huntress
+  - 2025
+  - Forensics
 ---
 
 # 🔍 Darcy
