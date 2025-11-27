@@ -1,0 +1,68 @@
+---
+# Only front matter so Jekyll processes this file!
+---
+
+/* Import default skin */
+@import "minimal-mistakes/skins/dark"; // start from the dark theme
+@import "minimal-mistakes"; // base theme styles
+
+/* === Custom Slate Blue Theme Overrides === */
+
+/* Background */
+body,
+.page__content,
+.page__hero {
+  background-color: #1a2238 !important; /* deep slate blue */
+}
+
+/* Text */
+body,
+.page__content {
+  color: #e6e8f0 !important; /* soft light gray-blue */
+}
+
+/* Links */
+a {
+  color: #7aa2f7; /* bright slate-cornflower blue */
+}
+a:hover {
+  color: #9bbcff;
+}
+
+/* Navbar */
+.masthead,
+.masthead__menu,
+.masthead__menu-item {
+  background-color: #141a2b !important;
+  color: #e6e8f0 !important;
+}
+
+.masthead__menu-item a {
+  color: #e6e8f0 !important;
+}
+
+.masthead__menu-item a:hover {
+  color: #9bbcff !important;
+}
+
+/* Footer */
+.page__footer {
+  background: #141a2b !important;
+  color: #e6e8f0 !important;
+}
+
+/* Sidebar + author box */
+.sidebar,
+.author__avatar,
+.author__content,
+.author__urls-wrapper {
+  background: #141a2b !important;
+  color: #e6e8f0 !important;
+}
+
+/* Post cards on blog page */
+.archive__item {
+  background: #222b45 !important;
+  border-radius: 8px;
+  padding: 1rem;
+}
