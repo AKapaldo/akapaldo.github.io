@@ -1,9 +1,14 @@
 ---
-title: "Huntress_2025 – Angler"
+title: "Huntress 2025 – Angler"
 layout: post
-competition: Huntress_2025
+competition: Huntress 2025
 challenge: Angler
+tags: 
+  - Huntress
+  - 2025
+  - Miscellaneous
 ---
+
 
 # 📦 Angler
 
