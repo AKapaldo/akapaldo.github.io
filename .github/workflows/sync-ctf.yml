@@ -19,7 +19,9 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        persist-credentials: true    # must be true to push later
+        persist-credentials: true
+        submodules: false
+
 
     # Checkout CTF repo
     - name: Checkout CTF repo
