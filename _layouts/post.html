@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="container mt-5">
+  <h1>{{ page.title }}</h1>
+  <p class="text-muted">
+    {{ page.competition }} → {{ page.challenge }}  
+    • {{ page.date | date: "%B %d, %Y" }}
+  </p>
+  <hr>
+
+  <article class="markdown-body">
+    {{ content }}
+  </article>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css" />
