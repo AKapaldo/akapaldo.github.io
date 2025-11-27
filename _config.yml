@@ -11,8 +11,7 @@ search: true
 
 markdown: kramdown
 
-# Absolutely no `theme:` key — only this:
-remote_theme: "mmistakes/minimal-mistakes@latest"
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 
 # Blog pagination
 permalink: /:categories/:title/
