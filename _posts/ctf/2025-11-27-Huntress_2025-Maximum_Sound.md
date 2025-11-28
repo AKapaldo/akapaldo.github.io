@@ -16,7 +16,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-|🔈 Audio      |John Hammond           |
+|🔈 Audio       |John Hammond           |
 
 ## Challenge Prompt
 
