@@ -1,8 +1,18 @@
 ---
-title: "Huntress_2025 – I_Forgot"
-layout: post
-competition: Huntress_2025
-challenge: I_Forgot
+title: "I Forgot"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Forensics
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 🔍 I Forgot
