@@ -1,9 +1,35 @@
 main:
-  - title: "Posts"
-    url: /posts/
+  - title: "Writeups"
+    url: /writeups/
   - title: "Categories"
     url: /categories/
   - title: "Tags"
     url: /tags/
   - title: "About"
     url: /about/
+
+writeups:
+  - title: "By Platform"
+    children:
+      - title: "Huntress"
+        url: /categories/#huntress
+      - title: "Flare"
+        url: /categories/#flare
+      - title: "HackTheBox"
+        url: /categories/#hackthebox
+      - title: "TryHackMe"
+        url: /categories/#tryhackme
+      - title: "PicoCTF"
+        url: /categories/#picoctf
+  - title: "By Category"
+    children:
+      - title: "Web"
+        url: /tags/#web
+      - title: "Binary"
+        url: /tags/#binary
+      - title: "Crypto"
+        url: /tags/#crypto
+    - title: "By Year"
+    children:
+      - title: "2025"
+        url: /tags/#2025
