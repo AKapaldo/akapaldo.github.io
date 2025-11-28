@@ -1,8 +1,18 @@
 ---
-title: "Huntress_2025 – Spaghetti"
-layout: post
-competition: Huntress_2025
-challenge: Spaghetti
+title: "Spaghetti"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Malware
+  - Easy
+difficulty: Easy
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 🐞 Spaghetti
