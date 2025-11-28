@@ -5,7 +5,7 @@ twitter_username: Akapaldo
 github_username: Akapaldo
 
 # Minimal Mistakes theme
-minimal_mistakes_skin: "slate"
+minimal_mistakes_skin: "dark"
 search: true
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes"
