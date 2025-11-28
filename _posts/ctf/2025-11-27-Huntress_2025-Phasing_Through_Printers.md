@@ -6,7 +6,7 @@ categories:
 tags:
   - Huntress
   - "2025"
-  - Malware
+  - Miscellaneous
   - Medium
 difficulty: Medium
 platform: Huntress CTF
