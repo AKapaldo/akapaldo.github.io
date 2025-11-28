@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # or master
+  workflow_dispatch:   # <-- add this to allow manual runs
 
 jobs:
   build:
