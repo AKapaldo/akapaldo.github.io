@@ -42,7 +42,6 @@ jobs:
               CHALLENGE=$(echo "$RELATIVE_PATH" | cut -d'/' -f2)
         
               # Get the date when this file was first added to git
-              # If file is not in git yet, use today's date
               FILE_DATE=$(git log --follow --format=%ad --date=short --diff-filter=A -- "$FILE" | tail -1)
               if [ -z "$FILE_DATE" ]; then
                 FILE_DATE=$(date +"%Y-%m-%d")
@@ -62,8 +61,21 @@ jobs:
               
               cd ctf-src
         
-              # Clean up competition name for category (remove spaces, special chars)
-              COMPETITION_CATEGORY=$(echo "$COMPETITION" | sed 's/ /_/g' | sed 's/[^a-zA-Z0-9_-]//g')
+              # Extract category from the markdown table
+              # Look for lines like "|🐞 Malware       |" or "|📦 Miscellaneous |"
+              CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🔐 ]*//' | awk '{print $1}' | xargs)
+              
+              # If no category found, default to "CTF"
+              if [ -z "$CHALLENGE_TYPE" ]; then
+                CHALLENGE_TYPE="CTF"
+              fi
+              
+              # Clean up competition name for category
+              COMPETITION_CLEAN=$(echo "$COMPETITION" | sed 's/_/ /g')
+              COMPETITION_CATEGORY=$(echo "$COMPETITION" | sed 's/[^a-zA-Z0-9_-]//g')
+              
+              # Extract year from competition name if present (e.g., "Huntress_2025" -> "2025")
+              YEAR=$(echo "$COMPETITION" | grep -oE '[0-9]{4}' || echo "")
               
               # Clean up challenge name for title (replace underscores with spaces)
               CHALLENGE_TITLE=$(echo "$CHALLENGE" | sed 's/_/ /g')
@@ -75,8 +87,14 @@ jobs:
                 echo "categories:"
                 echo "  - ${COMPETITION_CATEGORY}"
                 echo "tags:"
-                echo "  - CTF"
-                echo "platform: ${COMPETITION}"
+                echo "  - ${CHALLENGE_TYPE}"
+                if [ -n "$YEAR" ]; then
+                  echo "  - ${YEAR}"
+                fi
+                echo "platform: ${COMPETITION_CLEAN}"
+                if [ -n "$YEAR" ]; then
+                  echo "competition_year: ${YEAR}"
+                fi
                 echo "toc: true"
                 echo "toc_sticky: true"
                 echo "---"
