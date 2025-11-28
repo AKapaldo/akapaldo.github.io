@@ -1,8 +1,18 @@
 ---
-title: "Huntress_2025 – Trashcan"
-layout: post
-competition: Huntress_2025
-challenge: Trashcan
+title: "Trashcan"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Forensics
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 🔍 Trashcan
