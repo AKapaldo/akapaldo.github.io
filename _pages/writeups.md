@@ -99,6 +99,7 @@ excerpt: "Documented solutions and learning from CTF competitions"
   <div class="filter-buttons">
     <a href="#huntress" class="filter-btn">🦌 Huntress CTF</a>
     <a href="#flare-on" class="filter-btn">🔥 Flare-On</a>
+    <a href="#flare-io" class="filter-btn">💻 Flare.io</a>
     <a href="#hackthebox" class="filter-btn">📦 HackTheBox</a>
     <a href="#tryhackme" class="filter-btn">🎯 TryHackMe</a>
     <a href="#picoctf" class="filter-btn">🏴‍☠️ PicoCTF</a>
@@ -127,22 +128,21 @@ Huntress CTF is an annual cybersecurity competition focused on realistic threat 
 
 ---
 
-## 🔥 Flare.io {#flare}
+## 💻 Flare.io {#flare-io}
 
-Flare.io is jeopardy style challenge, featuring a varriety of tasks.
+Flare.io offers modern security challenges and training for real-world vulnerabilities.
 
-{% assign flareio_posts = site.posts | where_exp: "post", "post.path contains 'Flare'" | sort: "date" | reverse %}
+{% assign flareio_posts = site.posts | where_exp: "post", "post.path contains 'Flare_' and post.path contains not 'Flare-On'" | sort: "date" | reverse %}
 {% if flareio_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in flareio_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
-<p style="text-align: center;"><a href="/categories/#flare" class="btn btn--primary">View All Flare.io Writeups →</a></p>
+<p style="text-align: center;"><a href="/categories/#flare-io" class="btn btn--primary">View All Flare.io Writeups →</a></p>
 {% else %}
 <p><em>No Flare.io writeups yet. Check back soon!</em></p>
 {% endif %}
-
 
 ---
 
@@ -150,7 +150,7 @@ Flare.io is jeopardy style challenge, featuring a varriety of tasks.
 
 Flare-On is Mandiant's annual reverse engineering challenge, featuring increasingly difficult malware analysis tasks.
 
-{% assign flare_posts = site.posts | where_exp: "post", "post.path contains 'Flare-On'" | sort: "date" | reverse %}
+{% assign flare_posts = site.posts | where_exp: "post", "post.path contains 'Flare'" | sort: "date" | reverse %}
 {% if flare_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in flare_posts limit:20 %}
@@ -215,12 +215,12 @@ TryHackMe provides guided learning paths and CTF-style rooms for all skill level
 
 Prefer to browse by challenge type? Check out these popular categories:
 
-- [🌐 Web Exploitation](/tags/#web) - SQL injection, XSS, authentication bypasses
-- [💾 Binary Exploitation](/tags/#binary) - Buffer overflows, ROP chains, shellcode
-- [🔐 Cryptography](/tags/#crypto) - Classical ciphers, modern cryptanalysis
+- [🌐 Web](/tags/#web) - SQL injection, XSS, authentication bypasses
+- [⚒️ Binary Exploitation](/tags/#binary) - Buffer overflows, ROP chains, shellcode
+- [🔐 Crypto](/tags/#crypto) - Classical ciphers, modern cryptanalysis
 - [🔍 Forensics](/tags/#forensics) - Memory dumps, disk analysis, network captures
-- [🦠 Reverse Engineering](/tags/#reversing) - Malware analysis, binary decompilation
+- [🐞 Malware](/tags/#malware) - Malware analysis, reverse engineering
 - [🕵️ OSINT](/tags/#osint) - Open source intelligence gathering
-- [🔓 Privilege Escalation](/tags/#privesc) - Linux and Windows escalation techniques
+- [📦 Miscellaneous](/tags/#misc) - Unique challenges that don't fit other categories
 
 <p style="text-align: center; margin-top: 2em;"><a href="/tags/" class="btn btn--info btn--large">Browse All Tags →</a></p>
