@@ -18,18 +18,23 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         persist-credentials: true
         submodules: false
-    # Checkout CTF repo
+    # Checkout CTF repo with full history to get creation dates
     - name: Checkout CTF repo
       uses: actions/checkout@v4
       with:
         repository: AKapaldo/CTF-Writeups
         path: ctf-src
+        fetch-depth: 0  # Get full git history
     - name: Sync all writeups
       run: |
         mkdir -p _posts/ctf
-        find ctf-src -type f -iname "readme.md" | while read FILE; do
-          # Get the number of slashes in the path relative to ctf-src
-          RELATIVE_PATH="${FILE#ctf-src/}"
+        
+        # Get existing posts to avoid duplicates
+        cd ctf-src
+        
+        find . -type f -iname "readme.md" | while read FILE; do
+          # Get the number of slashes in the path relative to current dir
+          RELATIVE_PATH="${FILE#./}"
           SLASH_COUNT=$(echo "$RELATIVE_PATH" | awk -F"/" '{print NF-1}')
         
           # Only process if it's in a subfolder (competition/challenge/readme.md)
@@ -37,8 +42,26 @@ jobs:
               COMPETITION=$(echo "$RELATIVE_PATH" | cut -d'/' -f1)
               CHALLENGE=$(echo "$RELATIVE_PATH" | cut -d'/' -f2)
         
-              DATE=$(date +"%Y-%m-%d")
-              OUT="_posts/ctf/${DATE}-${COMPETITION}-${CHALLENGE}.md"
+              # Get the date when this file was first added to git
+              # If file is not in git yet, use today's date
+              FILE_DATE=$(git log --follow --format=%ad --date=short --diff-filter=A -- "$FILE" | tail -1)
+              if [ -z "$FILE_DATE" ]; then
+                FILE_DATE=$(date +"%Y-%m-%d")
+              fi
+              
+              # Check if this post already exists with ANY date
+              cd ..
+              EXISTING_POST=$(find _posts/ctf -name "*-${COMPETITION}-${CHALLENGE}.md" | head -1)
+              
+              if [ -n "$EXISTING_POST" ]; then
+                # Post exists, use its existing filename
+                OUT="$EXISTING_POST"
+              else
+                # New post, create with git creation date
+                OUT="_posts/ctf/${FILE_DATE}-${COMPETITION}-${CHALLENGE}.md"
+              fi
+              
+              cd ctf-src
         
               # Clean up competition name for category (remove spaces, special chars)
               COMPETITION_CATEGORY=$(echo "$COMPETITION" | sed 's/ /_/g' | sed 's/[^a-zA-Z0-9_-]//g')
@@ -49,7 +72,7 @@ jobs:
               {
                 echo "---"
                 echo "title: \"${CHALLENGE_TITLE}\""
-                echo "date: ${DATE}"
+                echo "date: ${FILE_DATE}"
                 echo "categories:"
                 echo "  - ${COMPETITION_CATEGORY}"
                 echo "tags:"
@@ -60,9 +83,10 @@ jobs:
                 echo "---"
                 echo
                 cat "$FILE"
-              } > "$OUT"
-          fi
+              } > "../${OUT}"
         done
+        
+        cd ..
     - name: Commit and push changes
       run: |
         git config user.name "github-actions[bot]"
