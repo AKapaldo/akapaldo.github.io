@@ -1,9 +1,20 @@
 ---
-title: "Huntress_2025 – NetSupport"
-layout: post
-competition: Huntress_2025
-challenge: NetSupport
+title: "Net Support"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Malware
+  - Easy
+difficulty: Easy
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
+
 
 # 🐞 NetSupport
 
