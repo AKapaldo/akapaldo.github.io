@@ -1,22 +1,33 @@
 name: Build and Deploy Jekyll site
 
+# Trigger on push to main AND manually via the GitHub Actions UI
 on:
   push:
     branches:
-      - main  # or master
-  workflow_dispatch:   # <-- add this to allow manual runs
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: ruby/setup-ruby@v1
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
-      - run: gem install bundler
-      - run: bundle install
-      - run: bundle exec jekyll build
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
