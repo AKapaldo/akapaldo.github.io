@@ -5,18 +5,18 @@ twitter_username: Akapaldo
 github_username: Akapaldo
 
 # Minimal Mistakes theme
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 minimal_mistakes_skin: "dark"
-search: true
-markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes"
 theme_switch: true
 
+search: true
+markdown: kramdown
 
 # Analytics
 analytics:
-  provider               : "google-gtag"
+  provider: "google-gtag"
   google:
-    tracking_id          : "G-3P6LXJ6C0K"
+    tracking_id: "G-3P6LXJ6C0K"
 
 # Blog pagination
 permalink: /:categories/:title/
