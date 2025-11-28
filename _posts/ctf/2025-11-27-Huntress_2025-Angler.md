@@ -1,14 +1,20 @@
 ---
-title: "Huntress 2025 – Angler"
-layout: post
-competition: Huntress 2025
-challenge: Angler
-tags: 
-  - Huntress
-  - 2025
+title: "Angler"
+date: 2025-11-27
+categories:
+  - Huntress-2025
+tags:
   - Miscellaneous
+  - Azure
+  - Hard
+difficulty: Hard
+platform: Huntress CTF
+competition_year: 2025
+toc: true
+toc_sticky: true
 ---
 
+## Angler <span class="difficulty-badge easy">Hard</span> <span class="platform-badge">Huntress 2025</span>
 
 # 📦 Angler
 
