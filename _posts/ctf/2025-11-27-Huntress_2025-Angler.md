@@ -2,7 +2,7 @@
 title: "Angler"
 date: 2025-11-27
 categories:
-  - Huntress-2025
+  - Huntress
 tags:
   - Miscellaneous
   - Azure
