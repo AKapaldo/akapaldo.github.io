@@ -29,7 +29,6 @@ jobs:
       run: |
         mkdir -p _posts/ctf
         
-        # Get existing posts to avoid duplicates
         cd ctf-src
         
         find . -type f -iname "readme.md" | while read FILE; do
@@ -51,7 +50,7 @@ jobs:
               
               # Check if this post already exists with ANY date
               cd ..
-              EXISTING_POST=$(find _posts/ctf -name "*-${COMPETITION}-${CHALLENGE}.md" | head -1)
+              EXISTING_POST=$(find _posts/ctf -name "*-${COMPETITION}-${CHALLENGE}.md" 2>/dev/null | head -1)
               
               if [ -n "$EXISTING_POST" ]; then
                 # Post exists, use its existing filename
@@ -84,6 +83,7 @@ jobs:
                 echo
                 cat "$FILE"
               } > "../${OUT}"
+          fi
         done
         
         cd ..
