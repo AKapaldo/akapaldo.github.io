@@ -4,8 +4,8 @@ minimal_mistakes_skin: "dark" # Options: "air", "aqua", "contrast", "dark", "dir
 
 # Site Settings
 locale: "en-US"
-title: "Your CTF Journey"
-title_separator: "|"
+title: "Hi, I'm Andrew!"
+title_separator: " | "
 subtitle: "Capture The Flag Writeups & Security Research"
 name: "Andrew Kapaldo"
 description: "CTF writeups, security challenges, and penetration testing notes"
@@ -18,8 +18,8 @@ masthead_title: # overrides site title displayed in masthead
 
 # Site Author
 author:
-  name: "Andrew Kaaldo"
-  avatar: "/assets/images/avatar.jpg" # path to avatar image
+  name: "Andrew Kapaldo"
+  avatar: "/assets/images/bio-photo.jpg" # path to avatar image
   bio: "Security researcher & CTF enthusiast"
   location: "Morgantown, WV"
   links:
