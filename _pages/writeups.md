@@ -7,7 +7,6 @@ classes: wide
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/writeups-header.jpg
 excerpt: "Documented solutions and learning from CTF competitions"
 ---
 
@@ -84,10 +83,6 @@ excerpt: "Documented solutions and learning from CTF competitions"
     <div class="stat-number">{{ site.tags | size }}</div>
     <div class="stat-label">Challenge Types</div>
   </div>
-  <div class="stat-card">
-    <div class="stat-number">{{ site.posts | where_exp: "post", "post.difficulty == 'Hard' or post.difficulty == 'Insane'" | size }}</div>
-    <div class="stat-label">Hard+ Challenges</div>
-  </div>
 </div>
 
 ---
@@ -114,30 +109,32 @@ excerpt: "Documented solutions and learning from CTF competitions"
 
 Huntress CTF is an annual cybersecurity competition focused on realistic threat hunting and incident response scenarios.
 
-{% assign huntress_posts = site.posts | where_exp: "post", "post.categories contains 'Huntress'" | sort: "date" | reverse %}
+{% assign huntress_posts = site.categories.Huntress %}
 {% if huntress_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in huntress_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
-<p style="text-align: center;"><a href="/categories/#huntress" class="btn btn--primary">View All Huntress Writeups →</a></p>
+<p style="text-align: center;"><a href="/categories/#huntress" class="btn btn--primary">View All Huntress Writeups ({{ huntress_posts.size }}) →</a></p>
 {% else %}
 <p><em>No Huntress writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
 
-💻 Flare.io {#flare-io}
+## 💻 Flare.io {#flare-io}
+
 Flare.io offers modern security challenges and training for real-world vulnerabilities.
-{% assign flareio_posts = site.posts | where_exp: "post", "post.categories contains 'Flare-io'" | sort: "date" | reverse %}
+
+{% assign flareio_posts = site.categories.Flare-io %}
 {% if flareio_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in flareio_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
-<p style="text-align: center;"><a href="/categories/#flare-io" class="btn btn--primary">View All Flare.io Writeups →</a></p>
+<p style="text-align: center;"><a href="/categories/#flare-io" class="btn btn--primary">View All Flare.io Writeups ({{ flareio_posts.size }}) →</a></p>
 {% else %}
 <p><em>No Flare.io writeups yet. Check back soon!</em></p>
 {% endif %}
@@ -148,14 +145,14 @@ Flare.io offers modern security challenges and training for real-world vulnerabi
 
 Flare-On is Mandiant's annual reverse engineering challenge, featuring increasingly difficult malware analysis tasks.
 
-{% assign flare_posts = site.posts | where_exp: "post", "post.categories contains 'Flare-On'" | sort: "date" | reverse %}
-{% if flare_posts.size > 0 %}
+{% assign flareon_posts = site.categories.Flare-On %}
+{% if flareon_posts.size > 0 %}
 <div class="grid__wrapper">
-  {% for post in flare_posts limit:20 %}
+  {% for post in flareon_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
-<p style="text-align: center;"><a href="/categories/#flare-on" class="btn btn--primary">View All Flare-On Writeups →</a></p>
+<p style="text-align: center;"><a href="/categories/#flare-on" class="btn btn--primary">View All Flare-On Writeups ({{ flareon_posts.size }}) →</a></p>
 {% else %}
 <p><em>No Flare-On writeups yet. Check back soon!</em></p>
 {% endif %}
@@ -166,14 +163,14 @@ Flare-On is Mandiant's annual reverse engineering challenge, featuring increasin
 
 HackTheBox offers realistic penetration testing labs with vulnerable machines and challenges.
 
-{% assign htb_posts = site.posts | where_exp: "post", "post.categories contains 'HackTheBox' or post.categories contains 'HTB'" | sort: "date" | reverse %}
+{% assign htb_posts = site.categories.HackTheBox %}
 {% if htb_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in htb_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
-<p style="text-align: center;"><a href="/categories/#hackthebox" class="btn btn--primary">View All HTB Writeups →</a></p>
+<p style="text-align: center;"><a href="/categories/#hackthebox" class="btn btn--primary">View All HTB Writeups ({{ htb_posts.size }}) →</a></p>
 {% else %}
 <p><em>No HackTheBox writeups yet. Check back soon!</em></p>
 {% endif %}
@@ -184,14 +181,14 @@ HackTheBox offers realistic penetration testing labs with vulnerable machines an
 
 TryHackMe provides guided learning paths and CTF-style rooms for all skill levels.
 
-{% assign thm_posts = site.posts | where_exp: "post", "post.categories contains 'TryHackMe' or post.categories contains 'THM'" | sort: "date" | reverse %}
+{% assign thm_posts = site.categories.TryHackMe %}
 {% if thm_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in thm_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
-<p style="text-align: center;"><a href="/categories/#tryhackme" class="btn btn--primary">View All THM Writeups →</a></p>
+<p style="text-align: center;"><a href="/categories/#tryhackme" class="btn btn--primary">View All THM Writeups ({{ thm_posts.size }}) →</a></p>
 {% else %}
 <p><em>No TryHackMe writeups yet. Check back soon!</em></p>
 {% endif %}
@@ -200,9 +197,8 @@ TryHackMe provides guided learning paths and CTF-style rooms for all skill level
 
 ## 📚 All Writeups (Chronological)
 
-{% assign all_posts = site.posts | sort: "date" | reverse %}
 <div class="list__wrapper">
-  {% for post in all_posts %}
+  {% for post in site.posts %}
     {% include archive-single.html %}
   {% endfor %}
 </div>
