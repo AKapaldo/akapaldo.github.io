@@ -5,6 +5,8 @@ categories:
   - Huntress
 tags:
   - Miscellaneous
+  - Huntress
+  - "2025"
   - Azure
   - Hard
 difficulty: Hard
