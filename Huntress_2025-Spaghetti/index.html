@@ -1,0 +1,92 @@
+<h1 id="-spaghetti">🐞 Spaghetti</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🐞 Malware</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>You know, I’ve been thinking… at the end of the day, spaghetti is really just strings of pasta!</p>
+
+<p>Anyway, we saw this weird file running on startup. Can you figure out what this is?</p>
+
+<p>I’m sure you’ll get more understanding of the questions below as you explore!</p>
+
+<blockquote>
+  <p>[!CAUTION]
+This is the Malware category, and as such, includes malware. Please be sure to analyze these files within an isolated virtual machine.</p>
+</blockquote>
+
+<blockquote>
+  <p>[!NOTE]
+You may find a public paste URL that is expired. This is an artifact of the original malware sample and is intentional.
+This URL is not necessary for the challenge.</p>
+</blockquote>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!IMPORTANT]
+The ZIP archive password is <code class="language-plaintext highlighter-rouge">infected</code>.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>PowerShell Malware</li>
+</ul>
+
+<h2 id="solve-1">Solve 1</h2>
+<p>Line 1500 has the filename (AYGIW.tmp)
+Line 3228 has that it is bytes and to replace WT with 00
+Paste contents of AYGIW to Cyber Chef</p>
+<ul>
+  <li>Find/Replace WT (simple string) with <code class="language-plaintext highlighter-rouge">00</code></li>
+  <li>From Hex</li>
+  <li>Remove Null Bytes
+Beginning of extract is gibberish but part way down is the flag.</li>
+</ul>
+
+<h2 id="flag-1">Flag 1</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{39544d3b5374ebf7d39b8c260fc4afd8}</code></p>
+
+<h2 id="solve-2">Solve 2</h2>
+<p>Line 3501 “MyOasis4” - copy <code class="language-plaintext highlighter-rouge">~%</code> blob
+Paste to Cyber Chef</p>
+<ul>
+  <li>Find/Replace ~ (simple string) with <code class="language-plaintext highlighter-rouge">0</code></li>
+  <li>Find/Replace % (simple string) with <code class="language-plaintext highlighter-rouge">1</code></li>
+  <li>From Binary</li>
+</ul>
+
+<p>Grab line with HtMldECoDE
+Paste to Cyber Chef</p>
+<ul>
+  <li>From HTML Entity</li>
+</ul>
+
+<h2 id="flag-2">Flag 2</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{b313794dcef335da6206d54af81b6203}</code></p>
+
+<h2 id="solve-3">Solve 3</h2>
+<p>Line 3503 “Tdefo” - copy <code class="language-plaintext highlighter-rouge">~%</code> blob
+Paste to Cyber Chef</p>
+<ul>
+  <li>Find/Replace ~ (simple string) with <code class="language-plaintext highlighter-rouge">0</code></li>
+  <li>Find/Replace % (simple string) with <code class="language-plaintext highlighter-rouge">1</code></li>
+  <li>From Binary</li>
+</ul>
+
+<h2 id="flag-3">Flag 3</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{60814731f508781b9a5f8636c817af9d}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

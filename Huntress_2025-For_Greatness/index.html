@@ -1,0 +1,75 @@
+<h1 id="-for-greatness">🐞 For Greatness</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🐞 Malware</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Oh great, another phishing kit. This has some functionality to even send stolen data over email!</p>
+
+<p>Can you track down the email address they send things to?</p>
+
+<blockquote>
+  <p>[!CAUTION]
+This is the <code class="language-plaintext highlighter-rouge">Malware</code> category, and as such, includes malware.
+Please be sure to analyze these files within an isolated virtual machine.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>PHP Malware</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Extract file and open <code class="language-plaintext highlighter-rouge">j.PHP</code></p>
+
+<p>Inside there is a line that starts <code class="language-plaintext highlighter-rouge">$FRczk</code>
+Put that into CyberChef</p>
+<ul>
+  <li>Find/Replace (Find <code class="language-plaintext highlighter-rouge">\</code> replace with <code class="language-plaintext highlighter-rouge">space</code> (simple string))</li>
+  <li>From Octal, space delimiter</li>
+  <li>Remove Null Bytes</li>
+</ul>
+
+<p>Take that output and save to a file. It is a Base64-encoded zlib/DEFLATE-compressed payload.</p>
+
+<p>Run Python script against it and output to a file.</p>
+<ul>
+  <li>GUI version in folder
+```python
+import base64, zlib</li>
+</ul>
+
+<p>with open(“Octal Decode.txt”, “r”) as f:
+    data = f.read().strip()</p>
+
+<p>decoded = zlib.decompress(base64.b64decode(data))
+print(decoded.decode(errors=”replace”))
+```</p>
+
+<p>Scroll down to Base64 encoded text.</p>
+
+<p>Take back to Cyber Chef, and decode Base64.</p>
+
+<p>Scroll down to find email address, which is reversed flag.</p>
+
+<p><code class="language-plaintext highlighter-rouge">}f7113307018770d52d4f94fec013197f{galf</code></p>
+
+<p>Into CyberChef, reverse function</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{f791310cef49f4d25d0778107033117f}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

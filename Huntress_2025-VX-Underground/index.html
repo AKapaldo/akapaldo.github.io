@@ -1,0 +1,99 @@
+<h1 id="-vx-underground">📦 vx-underground</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>vx-underground, widely known across social media for hosting the largest collection and library of cat pictures, has been plagued since the dawn of time by people asking: “what’s the password?”</p>
+
+<p>Today, we ask the same question. We believe there are secrets shared amongst the cat pictures… but perhaps these also lead to just more cats.</p>
+
+<p>Uncover the flag from the file provided.</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Shamir’s Secret Sharing</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Folder contained many cat pictures and top level had a single cat picture called Prime_Mod.jpg.</p>
+
+<p>Ran:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exiftool prime_mod.jpg
+</code></pre></div></div>
+
+<p>Found a “User Comment”:<br />
+Prime Modulus: 010000000000000000000000000000000000000000000000000000000000000129</p>
+
+<p>Each picture had a User Comment like:
+<code class="language-plaintext highlighter-rouge">111-217a2437dd04b895a758d562b089263808d41ca14a1d5634e142a3c3dbd716ff</code></p>
+
+<p>I went to the folder of cat pictures and ran, to pull the user comments, remove the begining, order them, and save to a file:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exiftool <span class="nt">-a</span> <span class="k">*</span> | <span class="nb">grep</span> <span class="s2">"User Comment"</span> | <span class="nb">awk</span> <span class="s1">'{print $4}'</span> | <span class="nb">sort</span> <span class="nt">-t-</span> <span class="nt">-k1</span>,1n | <span class="nb">sed</span> <span class="s1">'s/-/ /g'</span> | <span class="nb">awk</span> <span class="s1">'{print $2}'</span> <span class="o">&gt;</span> data.txt
+</code></pre></div></div>
+
+<p>Found out about <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir’s Secret Sharing</a>.</p>
+
+<blockquote>
+  <p>[!NOTE]
+SSS is used to secure a secret in a distributed form, most often to secure encryption keys.
+The secret is split into multiple shares, which individually do not give any information about the secret.
+To reconstruct a secret secured by SSS, a number of shares is needed, called the threshold.</p>
+</blockquote>
+
+<p>Use Python to decrypt:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
+
+<span class="n">shares</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="nf">int</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">l</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">cats.txt</span><span class="sh">"</span><span class="p">))</span> <span class="k">if</span> <span class="n">l</span><span class="p">.</span><span class="nf">strip</span><span class="p">()}</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="sh">"</span><span class="s">010000000000000000000000000000000000000000000000000000000000000129</span><span class="sh">"</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">modinv</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">p</span><span class="p">:</span> <span class="nf">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">secret</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="nf">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">j</span><span class="p">:</span><span class="n">x</span><span class="o">*-</span><span class="n">j</span><span class="o">%</span><span class="n">p</span><span class="p">,(</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">shares</span> <span class="k">if</span> <span class="n">j</span><span class="o">!=</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nf">modinv</span><span class="p">(</span><span class="nf">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">j</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="p">,(</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">shares</span> <span class="k">if</span> <span class="n">j</span><span class="o">!=</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">),</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="n">shares</span><span class="p">.</span><span class="nf">items</span><span class="p">())</span> <span class="o">%</span> <span class="n">p</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">hex</span><span class="p">(</span><span class="n">secret</span><span class="p">),</span> <span class="n">secret</span><span class="p">.</span><span class="nf">to_bytes</span><span class="p">((</span><span class="n">secret</span><span class="p">.</span><span class="nf">bit_length</span><span class="p">()</span><span class="o">+</span><span class="mi">7</span><span class="p">)</span><span class="o">//</span><span class="mi">8</span><span class="p">,</span><span class="sh">"</span><span class="s">big</span><span class="sh">"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Ran python program on txt file:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 sss.py
+0x2a5a49502070617373776f72643a20464170656b4a21794a363959616a5773 b<span class="s1">'*ZIP password: FApekJ!yJ69YajWs'</span>
+</code></pre></div></div>
+
+<p>Used the password <code class="language-plaintext highlighter-rouge">FApekJ!yJ69YajWs</code> to open the Zip.</p>
+
+<p>Inside was a file called cute-kitty-noises.txt, which contained <code class="language-plaintext highlighter-rouge">Meow Lang</code>. Which looks like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MeowMeow;MeowMeowMeowMeowMeowMeowMeowMeowMeowMeowMeowMeowMeowMeowMeowMeowMeow
+</code></pre></div></div>
+
+<p>Found Meow Lang script:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">decoded</span> <span class="o">=</span> <span class="sh">''</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span>
+    <span class="nf">chr</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="sh">'</span><span class="s">Meow</span><span class="sh">'</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nc">Path</span><span class="p">(</span><span class="sh">'</span><span class="s">cute-kitty-noises.txt</span><span class="sh">'</span><span class="p">).</span><span class="nf">read_text</span><span class="p">().</span><span class="nf">replace</span><span class="p">(</span><span class="sh">'</span><span class="s">;;</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">;</span><span class="sh">'</span><span class="p">).</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="s">;</span><span class="sh">'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">32</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="sh">'</span><span class="s">Meow</span><span class="sh">'</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">126</span>
+<span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">decoded</span>
+</code></pre></div></div>
+
+<p>Decoded Meow Lang:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">python3</span> <span class="n">meow</span><span class="p">.</span><span class="n">py</span>                                           
+<span class="n">malware</span> <span class="ow">is</span> <span class="n">illegal</span> <span class="ow">and</span> <span class="k">for</span> <span class="n">nerdscats</span> <span class="n">are</span> <span class="n">cool</span> <span class="ow">and</span> <span class="n">badassflag</span><span class="p">{</span><span class="mi">35</span><span class="n">dcba13033459ca799ae2d990d33dd3</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{35dcba13033459ca799ae2d990d33dd3}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

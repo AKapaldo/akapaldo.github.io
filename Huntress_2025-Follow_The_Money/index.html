@@ -1,0 +1,63 @@
+<h1 id="️-follow-the-money">🕵️ Follow The Money</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🕵️ OSINT</td>
+      <td>Brady</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Hey Support Team,</p>
+
+<p>We had a bit of an issue yesterday that I need you to look into ASAP. There’s been a possible case of money fraud involving our client, Harbor Line Bank. They handle a lot of transfers for real estate down payments, but the most recent one doesn’t appear to have gone through correctly.</p>
+
+<p>Here’s the deal, we need to figure out what happened and where the money might have gone. The titling company is looping in their incident response firm to investigate from their end. I need you to quietly review things on our end and see what you can find. Keep it discreet and be passive.</p>
+
+<p>I let Evelyn over at Harbor Line know that someone from our team might reach out. Her main email is offline right now just in case it was compromised, she’s using a temporary address until things get sorted out:</p>
+
+<p><code class="language-plaintext highlighter-rouge">evelyn.carter@51tjxh.onmicrosoft.com</code></p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>OSINT</li>
+</ul>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!NOTE]
+The password to the ZIP archive below is <code class="language-plaintext highlighter-rouge">follow_the_money</code>.</p>
+</blockquote>
+
+<h2 id="solve">Solve</h2>
+<p>Zip file has a bunch of emails. Opened each and reviewed.<br />
+Last email has a different link:
+<a href="https://evergatetltle.netlify.app">https://evergatetltle.netlify.app</a></p>
+
+<p>After clicking the <code class="language-plaintext highlighter-rouge">Transfer Closing Funds</code> button and submitting data gives B64 sting:
+<code class="language-plaintext highlighter-rouge">aHR0cHM6Ly9uMHRydXN0eC1ibG9nLm5ldGxpZnkuYXBwLw==</code></p>
+
+<p>Decodes to:
+<a href="https://n0trustx-blog.netlify.app/">https://n0trustx-blog.netlify.app/</a></p>
+
+<p>Hacker name is <code class="language-plaintext highlighter-rouge">N0trustX</code>.</p>
+
+<p>Visit GitHub<br />
+Open <code class="language-plaintext highlighter-rouge">spectre.html</code> repo<br />
+Part way down in the HTML is</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"encodedPayload"</span> <span class="na">class=</span><span class="s">"hidden"</span><span class="nt">&gt;</span>ZmxhZ3trbDF6a2xqaTJkeWNxZWRqNmVmNnltbHJzZjE4MGQwZn0=<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{kl1zklji2dycqedj6ef6ymlrsf180d0f}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

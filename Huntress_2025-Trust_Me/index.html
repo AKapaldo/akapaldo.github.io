@@ -1,0 +1,71 @@
+<h1 id="-trust-me">📦 Trust Me</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>C’mon bro, trust me! Just trust me!! Trust me bro!!!</p>
+
+<p>The TrustMe.exe program on this Windows desktop “doesn’t trust me?”</p>
+
+<p>It says it will give me the flag, but only if I “have the permissions of Trusted Installer”…?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Windows Trusted Installer</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Set up python HTTP server on local</p>
+<ul>
+  <li>GUI version in folder
+```python
+import http.server
+import socketserver</li>
+</ul>
+
+<h1 id="set-the-file-you-want-to-serve">Set the file you want to serve</h1>
+<p>file_to_serve = ‘path/to/your/file.txt’</p>
+
+<h1 id="specify-the-port-you-want-to-use">Specify the port you want to use</h1>
+<p>port = 8000</p>
+
+<h1 id="define-a-custom-request-handler-to-disable-logging">Define a custom request handler to disable logging</h1>
+<p>class SilentHandler(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, format, *args):
+        pass</p>
+
+<h1 id="create-the-server">Create the server</h1>
+<p>with socketserver.TCPServer((“”, port), SilentHandler) as httpd:
+    print(f”Serving {file_to_serve} at http://localhost:{port}”)
+    # Set the working directory to the folder containing the file
+    httpd.directory = file_to_serve[:file_to_serve.rfind(‘/’)]
+    # Open the file and serve it
+    httpd.serve_forever()
+```</p>
+
+<p>Connected to server/my machine (10.1.241.187:8000) and pulled off <a href="https://www.nirsoft.net/utils/advanced_run.html">Advanced Run Software</a></p>
+<ul>
+  <li>Version saved in folder too</li>
+</ul>
+
+<p>Ran program as TrustedInstaller</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{c6065b1f12395d526595e62cf1f4d82a}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+

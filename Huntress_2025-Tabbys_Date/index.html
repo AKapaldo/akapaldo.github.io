@@ -1,0 +1,55 @@
+<h1 id="-tabbys-date">🔍 Tabby’s Date</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Ohhhh, Tab, Tab, Tab…. what has she done.</p>
+
+<p>My friend Tabby just got a new laptop and she’s been using it to take notes. She says she puts her whole life on there!</p>
+
+<p>She was so excited to finally have a date with a boy she liked, but she completely forgot the details of where and when. She told me she remembers writing it in a note… but she doesn’t think she saved it!!</p>
+
+<p>She shared with us an export of her laptop files.</p>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!IMPORTANT]
+The password to the ZIP archive is <code class="language-plaintext highlighter-rouge">tabbys_date</code>.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Windows Notepad Files</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+
+<p>List out files in the structure</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-lR</span>
+</code></pre></div></div>
+<p>Found <code class="language-plaintext highlighter-rouge">\users\tabby\AppData\Local\Packages\Microsoft.WindowsNotepad_8wekyb3d8bbwe\LocalState\</code><br />
+.bin files located here are notepad files
+<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hexdump <span class="nt">-C</span> <span class="k">*</span>
+</code></pre></div></div>
+<p>Dump hex and ASCII and then did a find for “{“</p>
+
+<h2 id="flag">Flag</h2>
+
+<p><code class="language-plaintext highlighter-rouge">flag{165d19b610c02b283fc1a6b4a54c4a58}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

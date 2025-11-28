@@ -1,0 +1,136 @@
+<h1 id="-trashcan">🔍 Trashcan</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Have you ever done forensics on the Recycle Bin? It’s… a bit of a mess. Looks like the threat actor pulled some tricks to hide data here though.</p>
+
+<p>The metadata might not be what it should be. Can you find a flag?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Windows Recycle Bin</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+
+<p>Check out the files with Hexdump:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hexdump <span class="nt">-C</span> <span class="k">*</span>
+</code></pre></div></div>
+<p>Noticed “when did I throw this out” and file paths in the other.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$I</code> has hex data (file paths etc.)</li>
+  <li><code class="language-plaintext highlighter-rouge">$R</code> has the file text</li>
+</ul>
+
+<p>Ran stat on the files:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>f <span class="k">in</span> <span class="k">*</span><span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="s2">"====== </span><span class="nv">$f</span><span class="s2"> ======"</span><span class="p">;</span> <span class="nb">stat</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
+
+<p>Noticed that the modify times were different</p>
+
+<p>Because only the <code class="language-plaintext highlighter-rouge">$I</code> files matter check the modify times of those:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For f <span class="k">in</span> ./<span class="s1">'$I'</span><span class="k">*</span><span class="p">;</span> <span class="k">do </span><span class="nv">mtime</span><span class="o">=</span><span class="si">$(</span><span class="nb">stat</span> <span class="nt">-c</span> %Y <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="si">)</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$mtime</span><span class="s2"> </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> <span class="nt">-n</span>
+</code></pre></div></div>
+
+<p>Pasted output to txt file. Noticed that there were 3 chunks of similar times.</p>
+
+<p>Moved them to 3 distinct folders based on that:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>f <span class="k">in</span> ./<span class="s1">'$I'</span><span class="k">*</span><span class="p">;</span> <span class="k">do </span><span class="nv">mtime</span><span class="o">=</span><span class="si">$(</span><span class="nb">stat</span> <span class="nt">-c</span> %Y <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="si">)</span><span class="p">;</span> <span class="nb">dirname</span><span class="o">=</span><span class="s2">"</span><span class="nv">$mtime</span><span class="s2">"</span><span class="p">;</span> <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$dirname</span><span class="s2">"</span><span class="p">;</span> <span class="nb">mv</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$dirname</span><span class="s2">/"</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
+
+<p>Pull the hex data for time, move to each folder, then run to pull the first 8 bytes at offset 0x10:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>f <span class="k">in</span> <span class="k">*</span><span class="p">;</span> <span class="k">do </span><span class="nv">hex</span><span class="o">=</span><span class="si">$(</span>hexdump <span class="nt">-C</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> | <span class="nb">awk</span> <span class="s1">'/^00000010/ {print $2$3$4$5$6$7$8$9}'</span><span class="si">)</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"</span><span class="se">\"</span><span class="nv">$f</span><span class="se">\"</span><span class="s2"> : </span><span class="se">\"</span><span class="nv">$hex</span><span class="se">\"</span><span class="s2">,"</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
+
+<p>Copy that less trailing “,” into python script.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+
+<span class="c1"># FILETIME epoch offset (from Jan 1, 1601 to Jan 1, 1970)
+</span><span class="n">EPOCH_AS_FILETIME</span> <span class="o">=</span> <span class="mi">116444736000000000</span>
+<span class="n">HUNDREDS_OF_NANOSECONDS</span> <span class="o">=</span> <span class="mi">10_000_000</span>
+
+<span class="c1"># Your file header data (only the 8 bytes at offset 0x10)
+</span><span class="n">files_data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="sh">"</span><span class="s">$I0AP14L.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">802782285d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I01XCGF.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">8073bd235d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I1WD5RF.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80ec29205d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I2CVFM2.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00dd24235d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I2FNXOW.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">0091e9275d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I4VAGUQ.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80ae152c5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I7MXUTD.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00be1a295d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I9PGBL6.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">8065961c5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I17RAD1.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80468c225d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$I99VSUL.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00eb4b2a5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IABA5GX.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00187d2b5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IAKHV8Y.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">0064b8265d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IAZPA8T.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">0083c2205d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IEFXDY8.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">8084a0165d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IEYL8JP.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00a2cc1a5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IFRUSE0.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80cd1f265d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IFUV73N.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80a0ee245d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IG64RJD.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">0029601e5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IHE2HRX.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">0056911f5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IJ9U0RR.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80b1d1175d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IJWBEUE.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00486a185d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IKK9TWO.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80fa50275d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IL2QDPK.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">003787255d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IL4WLXW.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">000a56245d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IMU3AKY.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">001b39175d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$INU5TNU.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80de02195d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IO7IO01.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">0045ae2c5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IOYHHQ5.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">8038651b5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IPDV01V.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80195b215d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IQ9QLU0.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">8081e42a5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IQPFIEQ.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00fc2e1d5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IQQAA2F.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00759b195d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IR2JCOS.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">800b341a5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IS67SUB.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">80bff81e5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$ISTAZD1.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">8054b3295d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$ITMVJR4.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00ee07165d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IUIEHU7.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00cffd1b5d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IV05A2U.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">00b0f3215d082f00</span><span class="sh">"</span><span class="p">,</span>
+<span class="sh">"</span><span class="s">$IZ9EJJK.txt</span><span class="sh">"</span> <span class="p">:</span> <span class="sh">"</span><span class="s">8092c71d5d082f00</span><span class="sh">"</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">filetime_to_datetime</span><span class="p">(</span><span class="n">filetime_hex</span><span class="p">):</span>
+    <span class="n">filetime_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="nb">bytes</span><span class="p">.</span><span class="nf">fromhex</span><span class="p">(</span><span class="n">filetime_hex</span><span class="p">),</span> <span class="n">byteorder</span><span class="o">=</span><span class="sh">'</span><span class="s">little</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">unix_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">filetime_int</span> <span class="o">-</span> <span class="n">EPOCH_AS_FILETIME</span><span class="p">)</span> <span class="o">/</span> <span class="n">HUNDREDS_OF_NANOSECONDS</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">fromtimestamp</span><span class="p">(</span><span class="n">unix_time</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">timezone</span><span class="p">.</span><span class="n">utc</span><span class="p">)</span>
+
+<span class="c1"># Convert and sort
+</span><span class="n">sorted_files</span> <span class="o">=</span> <span class="nf">sorted</span><span class="p">(</span>
+    <span class="p">[(</span><span class="n">fname</span><span class="p">,</span> <span class="nf">filetime_to_datetime</span><span class="p">(</span><span class="n">ft_hex</span><span class="p">))</span> <span class="k">for</span> <span class="n">fname</span><span class="p">,</span> <span class="n">ft_hex</span> <span class="ow">in</span> <span class="n">files_data</span><span class="p">.</span><span class="nf">items</span><span class="p">()],</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Print sorted results
+</span><span class="k">for</span> <span class="n">fname</span><span class="p">,</span> <span class="n">timestamp</span> <span class="ow">in</span> <span class="n">sorted_files</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Run Python Time.py script to sort. Save as run.txt</p>
+
+<p>Export Flag:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while </span><span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> <span class="nt">-r</span> f<span class="p">;</span> <span class="k">do </span>hexdump <span class="nt">-C</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span>  | <span class="nb">grep</span> <span class="s2">"00000000"</span> | <span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'s/.*|\(.*)|/\1/p'</span> | <span class="nb">cut</span> <span class="nt">-c9</span><span class="p">;</span> <span class="k">done</span> &lt;run.txt | <span class="nb">tr</span> <span class="nt">-d</span> <span class="s1">'\n'</span>
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+
+<p><code class="language-plaintext highlighter-rouge">flag{1d2b2b05671ed1ee5812678850d5e329}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

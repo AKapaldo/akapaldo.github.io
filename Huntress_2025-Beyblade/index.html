@@ -1,0 +1,54 @@
+<h1 id="-beyblade">🔍 Beyblade</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Sheesh! Some threat actor sure did let it rip on this host! We’ve been able to uncover a file that may help with incident response.</p>
+
+<blockquote>
+  <p>[!NOTE]</p>
+  <ol>
+    <li>The password to the ZIP archive is <code class="language-plaintext highlighter-rouge">beyblade</code>.</li>
+    <li>This challenge has the flag MD5 hash value separated into chunks. You must uncover all of the different pieces and put them together with the flag{ and } suffix to submit.</li>
+  </ol>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Registry Forensics</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 47cb (run)
+2. 5cd4 (run)
+3. 6d7b (typedURLs)
+4. B34a (fileless)
+5. 0d9c (typedPaths)
+6. 315a (apppaths)
+7. 99bb (muicache)
+8. 58de (tscclient_tln)
+</code></pre></div></div>
+
+<p>All commands are:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Regripper <span class="nt">-r</span> beyblade <span class="nt">-p</span> &lt;plugin&gt;
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{47cb5cd46d7bb34a0d9c315a99bb58de}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

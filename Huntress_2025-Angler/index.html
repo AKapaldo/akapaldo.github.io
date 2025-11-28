@@ -1,0 +1,109 @@
+<h1 id="-angler">📦 Angler</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>Tim Sword</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>These scribbles are impossible to read!</p>
+
+<p><code class="language-plaintext highlighter-rouge">42 6c 6f 77 66 69 73 68</code>
+Some crazy fisherman came by, dropped this note, and was muttering something in his drunken stupor, about his fishing pole
+and taking out… murlocs in Entra? and CyberChef!?</p>
+
+<p>I don’t get it. You’re the expert here! Not me!</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Azure Enumeration</li>
+</ul>
+
+<h2 id="solve-1">Solve 1</h2>
+
+<p>Added the scribbles.dat file to CyberChef
+From Blowfish</p>
+<ul>
+  <li>Key: Blowfish</li>
+  <li>IV first 8 Bytes (16 chars) and remove them from the input</li>
+</ul>
+
+<p>Creates binary (had to remove the first set… not sure why?) - <code class="language-plaintext highlighter-rouge">00110011</code></p>
+<ul>
+  <li>Remove Whitespeace</li>
+  <li>From Binary</li>
+  <li>Remove Whitespace</li>
+  <li>Reverse (byte)</li>
+  <li>From Hex</li>
+  <li>From Base64</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phisher@4rhdc6.onmicrosoft.com:PhishingAllTheTime19273!!
+
+My sea is made of data, my shore a glowing screen, I cast my line with careful code, in a vast and global scene.
+My lure is not a worm or fly, but a name you trust, a prize, My hook is hid within a link, disguised before your eyes.
+I do not fish for flesh or fin, but for a private key, reeling in the secrets you mistakenly give to me.
+Send to that which is found within the above, to the destination you have yet to reveal, and the secret you seek will reveal.
+</code></pre></div></div>
+
+<p>Login to the <a href="Admin.microsoft.com">M365 Admin Console</a> with creds above.</p>
+
+<p>Groups &gt; Active Group &gt; Security Groups</p>
+
+<h2 id="flag-1">Flag 1</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{mczxals2amxc}</code></p>
+
+<h2 id="solve-2">Solve 2</h2>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-EntraUser</span><span class="w"> </span><span class="nt">-All</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ConvertTo-Json</span><span class="w"> </span><span class="nt">-Depth</span><span class="w"> </span><span class="nx">6</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="flag-2">Flag 2</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{02818nccnasd}</code></p>
+
+<h2 id="solve-3--4">Solve 3 &amp; 4</h2>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-MgServicePrincipal</span><span class="w"> </span><span class="nt">-All</span><span class="w"> </span><span class="nt">-Property</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ConvertTo-Json</span><span class="w"> </span><span class="nt">-Depth</span><span class="w"> </span><span class="nx">6</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="flag-3--4">Flag 3 &amp; 4</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{2naxajsmcwijdm}</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag{3mcnzxjaslwinca}</code></p>
+
+<h2 id="solve-5">Solve 5</h2>
+<p>Ran a search in Purview search. This would have got all but the final “?” flag:</p>
+
+<h2 id="flag-5">Flag 5</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{928nzlasdu2}</code></p>
+
+<h2 id="solve-6">Solve 6</h2>
+<p>Found this email address where the domain didn’t match any others:
+nattyp@51tjxh.onmicrosoft.com</p>
+
+<p>Sent an email with “Blowfish” as the subject and got this back:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Congratulations! Here's your final flag: flag{didsomeonesay..?}
+
+
+I hope you enjoyed the challenge. Go check out the others!
+
+
+There are optional bonus flags hidden in the Entra environment that contain this source email address. Grab them and claim bonus points!
+
+
+[Cheers.](https://wowpedia.fandom.com/wiki/Nat_Pagle)
+</code></pre></div></div>
+
+<h2 id="flag-6">Flag 6</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{didsomeonesay..?}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

@@ -1,0 +1,116 @@
+<h1 id="-i-forgot">🔍 I Forgot</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>So…. bad news.</p>
+
+<p>We got hit with ransomware.</p>
+
+<p>And… worse news… we paid the ransom.</p>
+
+<p>After the breach we FINALLY set up some sort of backup solution… it’s not that good, but, it might save our bacon… because my VM crashed while I was trying to decrypt everything.</p>
+
+<p>And perhaps the worst news… I forgot the decryption key.</p>
+
+<p>Gosh, I have such bad memory!!</p>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!NOTE]
+The archive password is <code class="language-plaintext highlighter-rouge">i_forgot</code>.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Memory Forensics</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Started with checking processes:
+<code class="language-plaintext highlighter-rouge">vol -f memdump.dmp windows.pstree</code></p>
+
+<p>Saw that PowerShell was run and it spawned BackupHelper and Notepad.</p>
+
+<p>Dumped the BackupHelp PID:
+<code class="language-plaintext highlighter-rouge">vol -f memdump.dmp windows.memmap --dump --pid 2132</code></p>
+
+<p>Ran Binwalk on that:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Binwalk pid.2132.dmp
+DECIMAL       HEXADECIMAL     DESCRIPTION
+<span class="nt">--------------------------------------------------------------------------------</span>
+16384         0x4000          Zip archive data, encrypted at least v2.0 to extract, compressed size: 1324, uncompressed size: 1708, name: private.pem
+17793         0x4581          Zip archive data, encrypted at least v1.0 to extract, compressed size: 268, uncompressed size: 256, name: key.enc
+18300         0x477C          End of Zip archive, footer length: 22
+</code></pre></div></div>
+
+<p>Saw the first files were a zip with a <code class="language-plaintext highlighter-rouge">.pem</code> and <code class="language-plaintext highlighter-rouge">.enc</code> file. Extracted those:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dd </span><span class="k">if</span><span class="o">=</span>pid.2132.dmp <span class="nv">of</span><span class="o">=</span>first_file.zip <span class="nv">bs</span><span class="o">=</span>1 <span class="nv">skip</span><span class="o">=</span>16384 <span class="nv">count</span><span class="o">=</span>1916
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">if</code> = in file<br />
+<code class="language-plaintext highlighter-rouge">of</code> = out file<br />
+<code class="language-plaintext highlighter-rouge">bs</code> = block size of 1 byte<br />
+<code class="language-plaintext highlighter-rouge">skip</code> = Start in decimal of file<br />
+<code class="language-plaintext highlighter-rouge">count</code> = How big the file is in bytes (16384 - 18300 = 1916)</p>
+
+<p>The zip required a password, so I ran <code class="language-plaintext highlighter-rouge">strings</code> on the full memdump:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strings memdump.dmp | egrep <span class="nt">-iE</span> <span class="s2">"private.pem"</span> <span class="nt">-A</span> 3 <span class="nt">-B</span> 3
+</code></pre></div></div>
+
+<p>Found this that was cut off:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ing 7-Zip (GUI): Right-click -&gt; Open archive -&gt; enter password ePDaACdOCwaMiYDG
+2) Decrypt the AES key+IV:
+   openssl pkeyutl -decrypt -inkey private.pem -in key.enc -out key_raw.bin -pkeyopt rsa_p
+MDECRYPT_PRIVATE_KEY.zip
+</code></pre></div></div>
+
+<p>Used the password <code class="language-plaintext highlighter-rouge">ePDaACdOCwaMiYDG</code> to extract the zip.</p>
+
+<p>I had to figure out the missing bits from the strings extraction using Google, but:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl pkeyutl <span class="nt">-decrypt</span> <span class="nt">-inkey</span> private.pem <span class="nt">-in</span> key.enc <span class="nt">-out</span> key_raw.bin <span class="nt">-pkeyopt</span> rsa_padding_mode:oaep
+</code></pre></div></div>
+
+<p>Add the key_raw to CyberChef</p>
+<ul>
+  <li>To Hex
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>28 9e a5 8a 38 54 9d 5f af 7a 97 a6 dd 19 cd f2 dd c0 49 6a 8a 64 f9 9a 77 c6 43 52 9c 94 b8 04 
+2c 6a 55 b0 a8 91 41 05 65 17 68 7a 97 73 05 d6
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Added Flag.enc to CyberChef</p>
+<ul>
+  <li>AES Decrypt</li>
+  <li>First line as Hex Key</li>
+  <li>Second line as Hex IV</li>
+  <li>Mode CBC</li>
+  <li>Input and Output both Raw</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=== CONFIDENTIAL RECOVERY ===
+Note: This file contains the recovered data for decryption.
+-----------------------------
+FLAG:
+flag{fa838fa9823e5d612b25001740faca31}
+-----------------------------
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{fa838fa9823e5d612b25001740faca31}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

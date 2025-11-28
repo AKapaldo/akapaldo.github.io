@@ -1,0 +1,59 @@
+<h1 id="-netsupport">🐞 NetSupport</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🐞 Malware</td>
+      <td>Ben Folland</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>An unexpected Remote Monitoring and Management (RMM) tool was identified on this laptop. 
+We identified a suspicious PowerShell script written to disk at a similar time. Can you find the link between the two?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>PowerShell Malware</li>
+</ul>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!NOTE]
+The password to the ZIP archive is <code class="language-plaintext highlighter-rouge">netsupport</code>.</p>
+</blockquote>
+
+<h2 id="solve">Solve</h2>
+<p>Opened PowerShell file
+Found byte string that PS converts to ZIP archive</p>
+<pre><code class="language-Powershell">[byte[]]$kKtyJL = $xϞzzghϞ + $mcZΛkϞπ + $RζπrMwGEQi
+[IO.File]::WriteAllBytes($LjLSTACGF, $kKtyJL)
+$weBRvm = [IO.Path]::ChangeExtension($LjLSTACGF, 'zip')
+</code></pre>
+<p>Used Python to save as ZIP:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="nf">bytearray</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">output_bytearray.zip</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># Write the bytearray to the file
+</span>    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Expanded ZIP, and found INI file.<br />
+Ran cat on <code class="language-plaintext highlighter-rouge">Client32.ini</code></p>
+
+<p>Found this line:
+<code class="language-plaintext highlighter-rouge">Flag=ZmxhZ3tiNmU1NGQwYTBhNWYyMjkyNTg5YzM4NTJmMTkzMDg5MX0NCg==</code></p>
+
+<p>Base64 decode in CyberChef</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{b6e54d0a0a5f2292589c3852f1930891}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

@@ -1,0 +1,60 @@
+<h1 id="-xmdr">📦 XMDR</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>We had a lot of fun helping the Internet understand what MDRs are, but we thought of the next the best thing:
+why not have you use one! 😄</p>
+
+<p>A host that you protect had some strange alerts fire off… can you analyze and triage to find other malicious activity?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>MDR</li>
+  <li>Chrome History Analysis</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Initial page said the GTRS and Baby Shark files were removed.<br />
+Navigated to their location ‘C:\Users\Administrator\Downloads’
+Found GTRS file still existed.<br />
+Found Chrome installer in the same directory.<br />
+Downloaded and reviewed GTRS file.<br />
+Commands in go start with <code class="language-plaintext highlighter-rouge">STARTCOMMAND</code> and end with <code class="language-plaintext highlighter-rouge">ENDCOMMAND</code>.</p>
+
+<p>Found Chrome logs in <code class="language-plaintext highlighter-rouge">C:\users\administrator\appdata\local\Google\Chrome\User Data\Default</code></p>
+
+<p>History file</p>
+
+<p>Downloaded logs and reviewed. Found Commands with <code class="language-plaintext highlighter-rouge">STARTCOMMAND</code> then</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>begin 664
+&lt;jibberish here&gt;
+End
+</code></pre></div></div>
+
+<p>Found this was <a href="https://en.wikipedia.org/wiki/Uuencoding">UUEncoding</a>.</p>
+
+<p>Installed sharutils<br />
+Used:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uudecode &lt;file&gt;
+</code></pre></div></div>
+<p>For each chunk to get the flag.<br /></p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{69200c13dcb39de19a405e9d1f993821}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

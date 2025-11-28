@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-11-27T19:10:13-05:00</updated><id>/feed.xml</id><title type="html">Andrew Kapaldo</title><subtitle>Cybersecurity · CTFs · Projects</subtitle><author><name>Andrew Kapaldo</name></author><entry><title type="html">Huntress 2025 – Angler</title><link href="/Huntress_2025-Angler/" rel="alternate" type="text/html" title="Huntress 2025 – Angler" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Angler</id><content type="html" xml:base="/Huntress_2025-Angler/"><![CDATA[<h1 id="-angler">📦 Angler</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>Tim Sword</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>These scribbles are impossible to read!</p>
+
+<p><code class="language-plaintext highlighter-rouge">42 6c 6f 77 66 69 73 68</code>
+Some crazy fisherman came by, dropped this note, and was muttering something in his drunken stupor, about his fishing pole
+and taking out… murlocs in Entra? and CyberChef!?</p>
+
+<p>I don’t get it. You’re the expert here! Not me!</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Azure Enumeration</li>
+</ul>
+
+<h2 id="solve-1">Solve 1</h2>
+
+<p>Added the scribbles.dat file to CyberChef
+From Blowfish</p>
+<ul>
+  <li>Key: Blowfish</li>
+  <li>IV first 8 Bytes (16 chars) and remove them from the input</li>
+</ul>
+
+<p>Creates binary (had to remove the first set… not sure why?) - <code class="language-plaintext highlighter-rouge">00110011</code></p>
+<ul>
+  <li>Remove Whitespeace</li>
+  <li>From Binary</li>
+  <li>Remove Whitespace</li>
+  <li>Reverse (byte)</li>
+  <li>From Hex</li>
+  <li>From Base64</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phisher@4rhdc6.onmicrosoft.com:PhishingAllTheTime19273!!
+
+My sea is made of data, my shore a glowing screen, I cast my line with careful code, in a vast and global scene.
+My lure is not a worm or fly, but a name you trust, a prize, My hook is hid within a link, disguised before your eyes.
+I do not fish for flesh or fin, but for a private key, reeling in the secrets you mistakenly give to me.
+Send to that which is found within the above, to the destination you have yet to reveal, and the secret you seek will reveal.
+</code></pre></div></div>
+
+<p>Login to the <a href="Admin.microsoft.com">M365 Admin Console</a> with creds above.</p>
+
+<p>Groups &gt; Active Group &gt; Security Groups</p>
+
+<h2 id="flag-1">Flag 1</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{mczxals2amxc}</code></p>
+
+<h2 id="solve-2">Solve 2</h2>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-EntraUser</span><span class="w"> </span><span class="nt">-All</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ConvertTo-Json</span><span class="w"> </span><span class="nt">-Depth</span><span class="w"> </span><span class="nx">6</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="flag-2">Flag 2</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{02818nccnasd}</code></p>
+
+<h2 id="solve-3--4">Solve 3 &amp; 4</h2>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-MgServicePrincipal</span><span class="w"> </span><span class="nt">-All</span><span class="w"> </span><span class="nt">-Property</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ConvertTo-Json</span><span class="w"> </span><span class="nt">-Depth</span><span class="w"> </span><span class="nx">6</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="flag-3--4">Flag 3 &amp; 4</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{2naxajsmcwijdm}</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag{3mcnzxjaslwinca}</code></p>
+
+<h2 id="solve-5">Solve 5</h2>
+<p>Ran a search in Purview search. This would have got all but the final “?” flag:</p>
+
+<h2 id="flag-5">Flag 5</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{928nzlasdu2}</code></p>
+
+<h2 id="solve-6">Solve 6</h2>
+<p>Found this email address where the domain didn’t match any others:
+nattyp@51tjxh.onmicrosoft.com</p>
+
+<p>Sent an email with “Blowfish” as the subject and got this back:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Congratulations! Here's your final flag: flag{didsomeonesay..?}
+
+
+I hope you enjoyed the challenge. Go check out the others!
+
+
+There are optional bonus flags hidden in the Entra environment that contain this source email address. Grab them and claim bonus points!
+
+
+[Cheers.](https://wowpedia.fandom.com/wiki/Nat_Pagle)
+</code></pre></div></div>
+
+<h2 id="flag-6">Flag 6</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{didsomeonesay..?}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><category term="Huntress" /><category term="2025" /><category term="Miscellaneous" /><summary type="html"><![CDATA[📦 Angler]]></summary></entry><entry><title type="html">Huntress 2025 – Arika</title><link href="/Huntress_2025-Arika/" rel="alternate" type="text/html" title="Huntress 2025 – Arika" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Arika</id><content type="html" xml:base="/Huntress_2025-Arika/"><![CDATA[<h1 id="-arika">🌐 ARIKA</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🌐 Web</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>The Arika ransomware group likes to look slick and spiffy with their cool green-on-black terminal style website… 
+but it sounds like they are worried about some security concerns of their own!</p>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!NOTE]
+The password for the ZIP archive below is <code class="language-plaintext highlighter-rouge">arika</code>.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Web command injection</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Press F12</p>
+
+<p>Run a command like <code class="language-plaintext highlighter-rouge">whoami</code></p>
+
+<p>Open network tab</p>
+
+<p>Right click to edit and resend</p>
+
+<p>Send <code class="language-plaintext highlighter-rouge">{"command":"whoami\ncat flag.txt"}</code></p>
+
+<p>Open response tab</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{eaec346846596f7976da7e1adb1f326d}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><category term="Huntress" /><category term="2025" /><category term="Web" /><summary type="html"><![CDATA[🌐 ARIKA]]></summary></entry><entry><title type="html">Huntress 2025 – Beyblade</title><link href="/Huntress_2025-Beyblade/" rel="alternate" type="text/html" title="Huntress 2025 – Beyblade" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Beyblade</id><content type="html" xml:base="/Huntress_2025-Beyblade/"><![CDATA[<h1 id="-beyblade">🔍 Beyblade</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Sheesh! Some threat actor sure did let it rip on this host! We’ve been able to uncover a file that may help with incident response.</p>
+
+<blockquote>
+  <p>[!NOTE]</p>
+  <ol>
+    <li>The password to the ZIP archive is <code class="language-plaintext highlighter-rouge">beyblade</code>.</li>
+    <li>This challenge has the flag MD5 hash value separated into chunks. You must uncover all of the different pieces and put them together with the flag{ and } suffix to submit.</li>
+  </ol>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Registry Forensics</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 47cb (run)
+2. 5cd4 (run)
+3. 6d7b (typedURLs)
+4. B34a (fileless)
+5. 0d9c (typedPaths)
+6. 315a (apppaths)
+7. 99bb (muicache)
+8. 58de (tscclient_tln)
+</code></pre></div></div>
+
+<p>All commands are:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Regripper <span class="nt">-r</span> beyblade <span class="nt">-p</span> &lt;plugin&gt;
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{47cb5cd46d7bb34a0d9c315a99bb58de}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><category term="Huntress" /><category term="2025" /><category term="Forensics" /><summary type="html"><![CDATA[🔍 Beyblade]]></summary></entry><entry><title type="html">Huntress 2025 – Bussing Around</title><link href="/Huntress_2025-Bussing_Around/" rel="alternate" type="text/html" title="Huntress 2025 – Bussing Around" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Bussing_Around</id><content type="html" xml:base="/Huntress_2025-Bussing_Around/"><![CDATA[<h1 id="-bussing-around">🔍 Bussing Around</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>Soups71</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>One of the engineers noticed that an HMI was going haywire.</p>
+
+<p>He took a packet capture of some of the traffic but he can’t make any sense of it… it just looks like gibberish!</p>
+
+<p>For some reason, some of the traffic seems to be coming from someone’s computer. Can you help us figure out what’s going on?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>PCAP/Network Forensics</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Filter on Modbus, unit 38, source port 502</p>
+<pre><code class="language-wireshark">((modbus) &amp;&amp; (mbtcp.unit_id == 38)) &amp;&amp; (tcp.srcport == 502)
+</code></pre>
+<p>File &gt; Export Packet Disections &gt; As Plain Text with just the Modbus panel expanded</p>
+
+<p>Import txt file to CyberChef:</p>
+<ul>
+  <li>Regex <code class="language-plaintext highlighter-rouge">.*Register Value \(UINT16\)\:.*</code></li>
+  <li>Find/Replace: Find `        Register Value (UINT16): ` and Replace with nothing</li>
+  <li>Remove Whitespace</li>
+  <li>From Binary</li>
+</ul>
+
+<p>Text shows:
+<code class="language-plaintext highlighter-rouge">The password is 5939f3ec9d820f23df20948af09a5682</code></p>
+
+<ul>
+  <li>Add extract files</li>
+  <li>Export zip</li>
+</ul>
+
+<p>Open Zip with the password above.</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{8c8e0e59d1292298b64c625b401e8cfa}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><category term="Huntress" /><category term="2025" /><category term="Forensics" /><summary type="html"><![CDATA[🔍 Bussing Around]]></summary></entry><entry><title type="html">Huntress 2025 – Darcy</title><link href="/Huntress_2025-Darcy/" rel="alternate" type="text/html" title="Huntress 2025 – Darcy" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Darcy</id><content type="html" xml:base="/Huntress_2025-Darcy/"><![CDATA[<h1 id="-darcy">🔍 Darcy</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔍 Forensics</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Darcy has apparently been having a lot of fun with a unique version control system.</p>
+
+<p>She told me she hid a flag somewhere with her new tool and wants me to find it… I can’t make any sense of it, can you?</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Forensics</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Extract folder and open</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="k">*</span> | <span class="nb">grep</span> <span class="nt">-iEr</span> <span class="s2">"flag{"</span>
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{a0c1e852e1281d134f0ac2b8615183a3}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><category term="Huntress" /><category term="2025" /><category term="Forensics" /><summary type="html"><![CDATA[🔍 Darcy]]></summary></entry><entry><title type="html">Huntress_2025 – Emotional</title><link href="/Huntress_2025-Emotional/" rel="alternate" type="text/html" title="Huntress_2025 – Emotional" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Emotional</id><content type="html" xml:base="/Huntress_2025-Emotional/"><![CDATA[<h1 id="-emotional">🌐 Emotional</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🌐 Web</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Don’t be shy, show your emotions! Get emotional if you have to! Uncover the flag.</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Web command injection</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Press F12</p>
+
+<p>Run an emoji change</p>
+
+<p>Right click to edit and resend</p>
+
+<p><code class="language-plaintext highlighter-rouge">Emoji=&lt;%= process.mainModule.require('child_process').execSync('cat flag.txt').toString() %&gt;</code></p>
+
+<p>F5 to refresh</p>
+
+<p>Check the response panel for flag</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{8c8e0e59d1292298b64c625b401e8cfa}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><summary type="html"><![CDATA[🌐 Emotional]]></summary></entry><entry><title type="html">Huntress_2025 – Flag_Checker</title><link href="/Huntress_2025-Flag_Checker/" rel="alternate" type="text/html" title="Huntress_2025 – Flag_Checker" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Flag_Checker</id><content type="html" xml:base="/Huntress_2025-Flag_Checker/"><![CDATA[<h1 id="-flag-checker">🌐 Flag Checker</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🌐 Web</td>
+      <td>Soups71</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>We’ve decided to make this challenge really straight forward. All you have to do is find out the flag!</p>
+
+<p>Juuuust make sure not to trip any of the security controls implemented to stop brute force attacks…</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>Web timing attack</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Use Burp to send 1 character change at a time with intruder.</p>
+
+<p>Check the X-response time in the response.</p>
+
+<p>Correct character should increment by 1 each time</p>
+
+<p>0.6xxx</p>
+
+<p>0.7xxx</p>
+
+<p>0.8xxx</p>
+
+<p>0.9xxx</p>
+
+<p>1.0xxx</p>
+
+<p>1.1xxx</p>
+
+<p>Etc.</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{77ba0346d9565e77344b9fe40ecf1369}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><summary type="html"><![CDATA[🌐 Flag Checker]]></summary></entry><entry><title type="html">Huntress_2025 – Follow_The_Money</title><link href="/Huntress_2025-Follow_The_Money/" rel="alternate" type="text/html" title="Huntress_2025 – Follow_The_Money" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Follow_The_Money</id><content type="html" xml:base="/Huntress_2025-Follow_The_Money/"><![CDATA[<h1 id="️-follow-the-money">🕵️ Follow The Money</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🕵️ OSINT</td>
+      <td>Brady</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Hey Support Team,</p>
+
+<p>We had a bit of an issue yesterday that I need you to look into ASAP. There’s been a possible case of money fraud involving our client, Harbor Line Bank. They handle a lot of transfers for real estate down payments, but the most recent one doesn’t appear to have gone through correctly.</p>
+
+<p>Here’s the deal, we need to figure out what happened and where the money might have gone. The titling company is looping in their incident response firm to investigate from their end. I need you to quietly review things on our end and see what you can find. Keep it discreet and be passive.</p>
+
+<p>I let Evelyn over at Harbor Line know that someone from our team might reach out. Her main email is offline right now just in case it was compromised, she’s using a temporary address until things get sorted out:</p>
+
+<p><code class="language-plaintext highlighter-rouge">evelyn.carter@51tjxh.onmicrosoft.com</code></p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>OSINT</li>
+</ul>
+
+<h2 id="password">Password</h2>
+<blockquote>
+  <p>[!NOTE]
+The password to the ZIP archive below is <code class="language-plaintext highlighter-rouge">follow_the_money</code>.</p>
+</blockquote>
+
+<h2 id="solve">Solve</h2>
+<p>Zip file has a bunch of emails. Opened each and reviewed.<br />
+Last email has a different link:
+<a href="https://evergatetltle.netlify.app">https://evergatetltle.netlify.app</a></p>
+
+<p>After clicking the <code class="language-plaintext highlighter-rouge">Transfer Closing Funds</code> button and submitting data gives B64 sting:
+<code class="language-plaintext highlighter-rouge">aHR0cHM6Ly9uMHRydXN0eC1ibG9nLm5ldGxpZnkuYXBwLw==</code></p>
+
+<p>Decodes to:
+<a href="https://n0trustx-blog.netlify.app/">https://n0trustx-blog.netlify.app/</a></p>
+
+<p>Hacker name is <code class="language-plaintext highlighter-rouge">N0trustX</code>.</p>
+
+<p>Visit GitHub<br />
+Open <code class="language-plaintext highlighter-rouge">spectre.html</code> repo<br />
+Part way down in the HTML is</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"encodedPayload"</span> <span class="na">class=</span><span class="s">"hidden"</span><span class="nt">&gt;</span>ZmxhZ3trbDF6a2xqaTJkeWNxZWRqNmVmNnltbHJzZjE4MGQwZn0=<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{kl1zklji2dycqedj6ef6ymlrsf180d0f}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><summary type="html"><![CDATA[🕵️ Follow The Money]]></summary></entry><entry><title type="html">Huntress_2025 – Follow_The_Money_The_Sequel</title><link href="/Huntress_2025-Follow_The_Money_The_Sequel/" rel="alternate" type="text/html" title="Huntress_2025 – Follow_The_Money_The_Sequel" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-Follow_The_Money_The_Sequel</id><content type="html" xml:base="/Huntress_2025-Follow_The_Money_The_Sequel/"><![CDATA[<h1 id="️-follow-the-money-the-sequel">🕵️ Follow The Money: The Sequel</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🕵️ OSINT</td>
+      <td>Brady</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<blockquote>
+  <p>[!WARNING]
+The initial Follow the Money challenge should be completed first before this challenge.</p>
+</blockquote>
+
+<p>Hey Support Team,</p>
+
+<p>Thanks for your help the other day! After seeing the way you handled yourself and gathered these details, 
+I wanted to see if I could get a bit more help from you. I know you found their username the other day. 
+See what you can do with that. I need you to find the town that this hacker lives in. I don’t think the IR firm is doing enough. 
+I want to have every piece of information we can find. Maybe we can pay a visit. Let me know what you find. Thanks!</p>
+
+<blockquote>
+  <p>[!IMPORTANT]
+This challenge DOES NOT require you to contact any businesses.
+This can be fully solved with publicly available information.
+Being that this is OSINT and public-facing, please DO NOT do anything to disrupt other CTF players or others that are not involved with the CTF.</p>
+</blockquote>
+
+<blockquote>
+  <p>[!IMPORTANT]
+This challenge uses a non-standard flag format.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>OSINT</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+
+<p>Hacker name from last time is <code class="language-plaintext highlighter-rouge">N0trustX</code>.
+Did a search on X/Twitter and found: <code class="language-plaintext highlighter-rouge">https://x.com/N0TrustX</code></p>
+
+<p>On October 5, N0trustx posted a picture:
+<img src="/Huntress_2025/Follow_The_Money_The_Sequel/x_post_1.jpg" alt="City picture" /></p>
+
+<p>Google reverse image search revealed it was Wytheville, Virginia.</p>
+
+<p>Back to X/Twitter on October 17-20 he posted about reviewing local businesses with a ☕️ emoji. In a reply to a post saying <code class="language-plaintext highlighter-rouge">Anyway, back to the grind</code>.<br />
+<img src="/Huntress_2025/Follow_The_Money_The_Sequel/x_post_2.png" alt="Review Clue" /></p>
+
+<p>In Wytheville, Virginia there is a coffee shop called “The Grind”.</p>
+
+<p>Searched Google reviews and found the flag:
+<img src="/Huntress_2025/Follow_The_Money_The_Sequel/flag.png" alt="Flag" /></p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">Wytheville</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">Flag{this_is_good_java}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><summary type="html"><![CDATA[🕵️ Follow The Money: The Sequel]]></summary></entry><entry><title type="html">Huntress_2025 – For_Greatness</title><link href="/Huntress_2025-For_Greatness/" rel="alternate" type="text/html" title="Huntress_2025 – For_Greatness" /><published>2025-11-27T00:00:00-05:00</published><updated>2025-11-27T00:00:00-05:00</updated><id>/Huntress_2025-For_Greatness</id><content type="html" xml:base="/Huntress_2025-For_Greatness/"><![CDATA[<h1 id="-for-greatness">🐞 For Greatness</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🐞 Malware</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>Oh great, another phishing kit. This has some functionality to even send stolen data over email!</p>
+
+<p>Can you track down the email address they send things to?</p>
+
+<blockquote>
+  <p>[!CAUTION]
+This is the <code class="language-plaintext highlighter-rouge">Malware</code> category, and as such, includes malware.
+Please be sure to analyze these files within an isolated virtual machine.</p>
+</blockquote>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>PHP Malware</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Extract file and open <code class="language-plaintext highlighter-rouge">j.PHP</code></p>
+
+<p>Inside there is a line that starts <code class="language-plaintext highlighter-rouge">$FRczk</code>
+Put that into CyberChef</p>
+<ul>
+  <li>Find/Replace (Find <code class="language-plaintext highlighter-rouge">\</code> replace with <code class="language-plaintext highlighter-rouge">space</code> (simple string))</li>
+  <li>From Octal, space delimiter</li>
+  <li>Remove Null Bytes</li>
+</ul>
+
+<p>Take that output and save to a file. It is a Base64-encoded zlib/DEFLATE-compressed payload.</p>
+
+<p>Run Python script against it and output to a file.</p>
+<ul>
+  <li>GUI version in folder
+```python
+import base64, zlib</li>
+</ul>
+
+<p>with open(“Octal Decode.txt”, “r”) as f:
+    data = f.read().strip()</p>
+
+<p>decoded = zlib.decompress(base64.b64decode(data))
+print(decoded.decode(errors=”replace”))
+```</p>
+
+<p>Scroll down to Base64 encoded text.</p>
+
+<p>Take back to Cyber Chef, and decode Base64.</p>
+
+<p>Scroll down to find email address, which is reversed flag.</p>
+
+<p><code class="language-plaintext highlighter-rouge">}f7113307018770d52d4f94fec013197f{galf</code></p>
+
+<p>Into CyberChef, reverse function</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{f791310cef49f4d25d0778107033117f}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>]]></content><author><name>Andrew Kapaldo</name></author><summary type="html"><![CDATA[🐞 For Greatness]]></summary></entry></feed>

