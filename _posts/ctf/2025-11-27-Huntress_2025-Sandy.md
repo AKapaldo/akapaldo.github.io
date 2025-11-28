@@ -1,9 +1,20 @@
 ---
-title: "Huntress_2025 – Sandy"
-layout: post
-competition: Huntress_2025
-challenge: Sandy
+title: "Sandy"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Malware
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
+
 
 # 🐞 SANDY
 
