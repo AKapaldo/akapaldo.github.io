@@ -9,19 +9,25 @@ main:
     url: /about/
 
 writeups:
-  - title: "By Platform"
+  - title: "By Competition"
     children:
+      - title: "Huntress CTF"
+        url: /categories/#huntress
+      - title: "Flare-On"
+        url: /categories/#flare-on
       - title: "HackTheBox"
         url: /categories/#hackthebox
       - title: "TryHackMe"
         url: /categories/#tryhackme
-      - title: "PicoCTF"
-        url: /categories/#picoctf
-  - title: "By Category"
+  - title: "By Type"
     children:
       - title: "Web"
         url: /tags/#web
+      - title: "Binary"
+        url: /tags/#binary
       - title: "Forensics"
         url: /tags/#forensics
       - title: "Crypto"
         url: /tags/#crypto
+      - title: "Reversing"
+        url: /tags/#reversing
