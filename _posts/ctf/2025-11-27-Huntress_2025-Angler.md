@@ -16,8 +16,6 @@ toc: true
 toc_sticky: true
 ---
 
-## Angler <span class="difficulty-badge easy">Hard</span> <span class="platform-badge">Huntress 2025</span>
-
 # 📦 Angler
 
 |Category         |	Author                |
