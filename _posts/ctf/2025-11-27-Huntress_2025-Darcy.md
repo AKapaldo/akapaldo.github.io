@@ -5,12 +5,12 @@ categories:
   - Huntress
 tags:
   - Huntress
-  - 2025
+  - "2025"
   - Forensics
   - Easy
 difficulty: Easy
 platform: Huntress CTF
-competition_year: 2025
+competition_year: "2025"
 toc: true
 toc_sticky: true
 ---
