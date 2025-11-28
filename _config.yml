@@ -10,6 +10,12 @@ search: true
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes"
 
+# Analytics
+analytics:
+  provider               : "google-gtag"
+  google:
+    tracking_id          : "G-3P6LXJ6C0K"
+
 # Blog pagination
 permalink: /:categories/:title/
 paginate: 5
