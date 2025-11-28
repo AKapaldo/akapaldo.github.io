@@ -5,7 +5,7 @@ categories:
   - Huntress
 tags:
   - Huntress
-  - 2025
+  - "2025"
   - Web
   - Easy
 difficulty: Easy
