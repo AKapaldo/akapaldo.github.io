@@ -72,7 +72,7 @@ jobs:
               
               # Clean up competition name for category
               COMPETITION_CLEAN=$(echo "$COMPETITION" | sed 's/_/ /g')
-              COMPETITION_CATEGORY=$(echo "$COMPETITION" | sed 's/[^a-zA-Z0-9_-]//g')
+              COMPETITION_CATEGORY=$(echo "$COMPETITION" | cut -d'_' -f1)
               
               # Extract year from competition name if present (e.g., "Huntress_2025" -> "2025")
               YEAR=$(echo "$COMPETITION" | grep -oE '[0-9]{4}' || echo "")
@@ -89,11 +89,11 @@ jobs:
                 echo "tags:"
                 echo "  - ${CHALLENGE_TYPE}"
                 if [ -n "$YEAR" ]; then
-                  echo "  - ${YEAR}"
+                  echo "  - \"${YEAR}\""
                 fi
                 echo "platform: ${COMPETITION_CLEAN}"
                 if [ -n "$YEAR" ]; then
-                  echo "competition_year: ${YEAR}"
+                  echo "competition_year: \"${YEAR}\""
                 fi
                 echo "toc: true"
                 echo "toc_sticky: true"
