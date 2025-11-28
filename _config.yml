@@ -1,78 +1,110 @@
-# Site settings
-title: "Andrew Kapaldo"
-email: ""
-description: "Cybersecurity · CTFs · Projects"
-twitter_username: Akapaldo
-github_username: Akapaldo
+# Theme Settings
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "dark" # Options: "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
-# Minimal Mistakes theme
-remote_theme: "mmistakes/minimal-mistakes@4.26.2"
-minimal_mistakes_skin: "dark"
-theme_switch: true
-search: true
+# Site Settings
+locale: "en-US"
+title: "Your CTF Journey"
+title_separator: "|"
+subtitle: "Capture The Flag Writeups & Security Research"
+name: "Andrew Kapaldo"
+description: "CTF writeups, security challenges, and penetration testing notes"
+url: "https://AKapaldo.github.io"
+baseurl: ""
+repository: "AKapaldo/AKapaldo.github.io"
+teaser: # path to fallback teaser image
+logo: # path to logo image
+masthead_title: # overrides site title displayed in masthead
 
-# Build settings
-markdown: kramdown
-permalink: /:categories/:title/
-paginate: 5
-paginate_path: /page:num/
-timezone: America/New_York
-include:
-  - _pages
-
-# Plugins
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
-  - jekyll-algolia
-
-# Analytics (optional)
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "G-3P6LXJ6C0K"
-
-# Navigation
-nav:
-  - title: "Home"
-    url: /
-  - title: "Blog"
-    url: /blog/
-  - title: "Projects"
-    url: /projects/
-  - title: "Resume"
-    url: /resume/
-
-# Author profile
+# Site Author
 author:
-  name: "Andrew Kapaldo"
-  avatar: "/assets/images/avatar.jpg"
-  bio: >
-    Cybersecurity professional, CTF competitor, and lifelong technologist.
+  name: "Andrew Kaaldo"
+  avatar: "/assets/images/avatar.jpg" # path to avatar image
+  bio: "Security researcher & CTF enthusiast"
+  location: "Morgantown, WV"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/Akapaldo"
+      url: "https://github.com/akapaldo"
     - label: "Twitter"
-      icon: "fab fa-fw fa-twitter"
-      url: "https://twitter.com/Akapaldo"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/akapaldo"
+    - label: "HackTheBox"
+      icon: "fas fa-fw fa-cube"
+      url: "https://www.hackthebox.eu/profile/akapaldo"
 
-# Footer links
+# Site Footer
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/Akapaldo"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter"
-      url: "https://twitter.com/Akapaldo"
+      url: "https://github.com/akapaldo"
 
-# Defaults for posts and pages
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - README
+  - tmp
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Collections
+collections:
+  writeups:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
 defaults:
+  # _posts
   - scope:
       path: ""
       type: posts
@@ -80,21 +112,49 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: false
+      comments: true
       share: true
       related: true
+      toc: true
+      toc_sticky: true
+  # _pages
   - scope:
       path: "_pages"
       type: pages
     values:
       layout: single
       author_profile: true
+  # _writeups
+  - scope:
+      path: ""
+      type: writeups
+    values:
+      layout: single
+      author_profile: false
+      share: true
+      toc: true
+      toc_sticky: true
+      sidebar:
+        nav: "writeups"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
 
 # Archives
 category_archive:
   type: liquid
   path: /categories/
-
 tag_archive:
   type: liquid
   path: /tags/
+
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
