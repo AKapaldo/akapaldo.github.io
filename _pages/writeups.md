@@ -114,7 +114,7 @@ excerpt: "Documented solutions and learning from CTF competitions"
 
 Huntress CTF is an annual cybersecurity competition focused on realistic threat hunting and incident response scenarios.
 
-{% assign huntress_posts = site.posts | where_exp: "post", "post.path contains 'Huntress'" | sort: "date" | reverse %}
+{% assign huntress_posts = site.posts | where_exp: "post", "post.categories contains 'Huntress'" | sort: "date" | reverse %}
 {% if huntress_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in huntress_posts limit:20 %}
@@ -128,11 +128,9 @@ Huntress CTF is an annual cybersecurity competition focused on realistic threat 
 
 ---
 
-## 💻 Flare.io {#flare-io}
-
+💻 Flare.io {#flare-io}
 Flare.io offers modern security challenges and training for real-world vulnerabilities.
-
-{% assign flareio_posts = site.posts | where_exp: "post", "post.path contains 'Flare_' and post.path contains not 'Flare-On'" | sort: "date" | reverse %}
+{% assign flareio_posts = site.posts | where_exp: "post", "post.categories contains 'Flare-io'" | sort: "date" | reverse %}
 {% if flareio_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in flareio_posts limit:20 %}
@@ -150,7 +148,7 @@ Flare.io offers modern security challenges and training for real-world vulnerabi
 
 Flare-On is Mandiant's annual reverse engineering challenge, featuring increasingly difficult malware analysis tasks.
 
-{% assign flare_posts = site.posts | where_exp: "post", "post.path contains 'Flare'" | sort: "date" | reverse %}
+{% assign flare_posts = site.posts | where_exp: "post", "post.categories contains 'Flare-On'" | sort: "date" | reverse %}
 {% if flare_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in flare_posts limit:20 %}
