@@ -17,14 +17,16 @@ With a strong foundation in information technology and cybersecurity, I hold mul
 - **(ISC)² CCSP** - Certified Cloud Security Professional
 - **(ISC)² SSCP** - Systems Security Certified Practitioner  
 - **CompTIA Security+** (May 2021) - SY0-501
-- **CompTIA Pentest+** - Penetration Testing Professional
+- **CompTIA Pentest+** - (January 2023) PT0-002
 - **CompTIA Network+** (June 2022) - N10-008
 - **CompTIA A+** (May 2021) - 220-1001/1002
 
 ### Education
+- **Currently Pursuing: MS in Business Cybersecurity Management** (Expected 2026)
+- **BS in Cybersecurity and Information Assurance** - Focus on a wide range of cybersecurity topics and domains
 - **AAS in Information Systems** - Focus on system administration and networking
 - **Certificate of Applied Science in Cyber Security** - Specialized cybersecurity training
-- **Currently Pursuing: MS in Business Cybersecurity Management** (Expected 2026)
+
 
 ## What I Do
 
