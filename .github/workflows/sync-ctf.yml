@@ -1,5 +1,4 @@
 name: Sync CTF Writeups
-
 on:
   push:
     branches: [ "main" ]
@@ -8,11 +7,9 @@ on:
   schedule:
     - cron: "0 2 * * *"   # Daily sync
   workflow_dispatch:
-
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
     # Checkout your website repo (akapaldo.github.io)
     - name: Checkout website repo
@@ -21,25 +18,21 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         persist-credentials: true
         submodules: false
-
-
     # Checkout CTF repo
     - name: Checkout CTF repo
       uses: actions/checkout@v4
       with:
         repository: AKapaldo/CTF-Writeups
         path: ctf-src
-
     - name: Sync all writeups
       run: |
         mkdir -p _posts/ctf
-
         find ctf-src -type f -iname "readme.md" | while read FILE; do
           # Get the number of slashes in the path relative to ctf-src
           RELATIVE_PATH="${FILE#ctf-src/}"
           SLASH_COUNT=$(echo "$RELATIVE_PATH" | awk -F"/" '{print NF-1}')
         
-          # Only process if it’s in a subfolder (competition/challenge/readme.md)
+          # Only process if it's in a subfolder (competition/challenge/readme.md)
           if [ "$SLASH_COUNT" -eq 2 ]; then
               COMPETITION=$(echo "$RELATIVE_PATH" | cut -d'/' -f1)
               CHALLENGE=$(echo "$RELATIVE_PATH" | cut -d'/' -f2)
@@ -47,19 +40,29 @@ jobs:
               DATE=$(date +"%Y-%m-%d")
               OUT="_posts/ctf/${DATE}-${COMPETITION}-${CHALLENGE}.md"
         
+              # Clean up competition name for category (remove spaces, special chars)
+              COMPETITION_CATEGORY=$(echo "$COMPETITION" | sed 's/ /_/g' | sed 's/[^a-zA-Z0-9_-]//g')
+              
+              # Clean up challenge name for title (replace underscores with spaces)
+              CHALLENGE_TITLE=$(echo "$CHALLENGE" | sed 's/_/ /g')
+        
               {
                 echo "---"
-                echo "title: \"${COMPETITION} – ${CHALLENGE}\""
-                echo "layout: post"
-                echo "competition: ${COMPETITION}"
-                echo "challenge: ${CHALLENGE}"
+                echo "title: \"${CHALLENGE_TITLE}\""
+                echo "date: ${DATE}"
+                echo "categories:"
+                echo "  - ${COMPETITION_CATEGORY}"
+                echo "tags:"
+                echo "  - CTF"
+                echo "platform: ${COMPETITION}"
+                echo "toc: true"
+                echo "toc_sticky: true"
                 echo "---"
                 echo
                 cat "$FILE"
               } > "$OUT"
           fi
         done
-
     - name: Commit and push changes
       run: |
         git config user.name "github-actions[bot]"
