@@ -1,8 +1,18 @@
 ---
-title: "Huntress_2025 – Threat_Actor_Support_Line"
-layout: post
-competition: Huntress_2025
-challenge: Threat_Actor_Support_Line
+title: "Threat Actor Support Line"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Miscellaneous
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 📦 Threat Actor Support Line
