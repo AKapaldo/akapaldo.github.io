@@ -11,10 +11,6 @@ main:
 writeups:
   - title: "By Platform"
     children:
-      - title: "Huntress"
-        url: /categories/#huntress
-      - title: "Flare"
-        url: /categories/#flare
       - title: "HackTheBox"
         url: /categories/#hackthebox
       - title: "TryHackMe"
@@ -25,11 +21,7 @@ writeups:
     children:
       - title: "Web"
         url: /tags/#web
-      - title: "Binary"
-        url: /tags/#binary
+      - title: "Forensics"
+        url: /tags/#forensics
       - title: "Crypto"
         url: /tags/#crypto
-    - title: "By Year"
-    children:
-      - title: "2025"
-        url: /tags/#2025
