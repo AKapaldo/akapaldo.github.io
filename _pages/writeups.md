@@ -2,7 +2,7 @@
 layout: archive
 title: "CTF Writeups"
 permalink: /writeups/
-author_profile: true
+author_profile: false
 classes: wide
 header:
   overlay_color: "#000"
