@@ -1,5 +1,6 @@
+# Site settings
 title: "Andrew Kapaldo"
-email:
+email: ""
 description: "Cybersecurity · CTFs · Projects"
 twitter_username: Akapaldo
 github_username: Akapaldo
@@ -8,25 +9,18 @@ github_username: Akapaldo
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 minimal_mistakes_skin: "dark"
 theme_switch: true
-
 search: true
+
+# Build settings
 markdown: kramdown
-
-# Analytics
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "G-3P6LXJ6C0K"
-
-# Blog pagination
 permalink: /:categories/:title/
 paginate: 5
 paginate_path: /page:num/
 timezone: America/New_York
-
 include:
   - _pages
 
+# Plugins
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -35,6 +29,12 @@ plugins:
   - jemoji
   - jekyll-include-cache
   - jekyll-algolia
+
+# Analytics (optional)
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-3P6LXJ6C0K"
 
 # Navigation
 nav:
@@ -47,13 +47,12 @@ nav:
   - title: "Resume"
     url: /resume/
 
+# Author profile
 author:
   name: "Andrew Kapaldo"
   avatar: "/assets/images/avatar.jpg"
   bio: >
-    Cybersecurity professional, CTF competitor, and lifelong technologist.  
-    Focused on security research, software supply chain risk, cloud security,  
-    and practical solutions that make technology better for everyone.
+    Cybersecurity professional, CTF competitor, and lifelong technologist.
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -62,6 +61,7 @@ author:
       icon: "fab fa-fw fa-twitter"
       url: "https://twitter.com/Akapaldo"
 
+# Footer links
 footer:
   links:
     - label: "GitHub"
@@ -71,6 +71,7 @@ footer:
       icon: "fab fa-fw fa-twitter"
       url: "https://twitter.com/Akapaldo"
 
+# Defaults for posts and pages
 defaults:
   - scope:
       path: ""
@@ -89,6 +90,7 @@ defaults:
       layout: single
       author_profile: true
 
+# Archives
 category_archive:
   type: liquid
   path: /categories/
