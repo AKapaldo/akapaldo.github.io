@@ -1,20 +1,14 @@
 ---
 title: "Trust Me"
-date: 2025-11-27
+date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
-  - Huntress
-  - "2025"
-  - Miscellaneous
-  - Easy
-difficulty: Easy
-platform: Huntress CTF
-competition_year: "2025"
+  - CTF
+platform: Huntress_2025
 toc: true
 toc_sticky: true
 ---
-
 
 # 📦 Trust Me
 
