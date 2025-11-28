@@ -1,9 +1,20 @@
 ---
-title: "Huntress_2025 – Flag_Checker"
-layout: post
-competition: Huntress_2025
-challenge: Flag_Checker
+title: "Flag Checker"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - 2025
+  - Web
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: 2025
+toc: true
+toc_sticky: true
 ---
+
 
 # 🌐 Flag Checker
 
