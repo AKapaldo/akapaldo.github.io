@@ -1,12 +1,18 @@
 ---
-title: "Huntress 2025 – Bussing Around"
-layout: post
-competition: Huntress 2025
-challenge: Bussing Around
-tags: 
+title: "Bussing Around"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
   - Huntress
   - 2025
   - Forensics
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: 2025
+toc: true
+toc_sticky: true
 ---
 
 # 🔍 Bussing Around
