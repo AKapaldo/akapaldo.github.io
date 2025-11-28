@@ -1,8 +1,18 @@
 ---
-title: "Huntress_2025 – For_Greatness"
-layout: post
-competition: Huntress_2025
-challenge: For_Greatness
+title: "For Greatness"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Malware
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 🐞 For Greatness
