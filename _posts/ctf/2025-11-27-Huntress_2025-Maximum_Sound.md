@@ -1,8 +1,19 @@
 ---
-title: "Huntress_2025 – Maximum_Sound"
-layout: post
-competition: Huntress_2025
-challenge: Maximum_Sound
+title: "Maximum Sound"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Audio
+  - Easy
+  - SSTV
+difficulty: Easy
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 👶 Maximum Sound
