@@ -1,8 +1,18 @@
 ---
-title: "Huntress_2025 – Verify_You_Are_Human"
-layout: post
-competition: Huntress_2025
-challenge: Verify_You_Are_Human
+title: "Verify You Are Human"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Malware
+  - Medium
+difficulty: Medium
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 🐞 Verify You Are Human
