@@ -12,11 +12,11 @@ toc: true
 toc_sticky: true
 ---
 
-# 🔈 Maximum Sound
+# 👶 Maximum Sound
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-|🔈 Audio       |John Hammond           |
+|👶 Warmups       |John Hammond           |
 
 ## Challenge Prompt
 

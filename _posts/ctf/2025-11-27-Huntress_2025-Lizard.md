@@ -13,6 +13,7 @@ toc_sticky: true
 ---
 
 # 🐞 Lizard.
+
 |Category         |	Author                |
 |-----------------|-----------------------|
 |🐞 Malware       |Adam Rice         |
