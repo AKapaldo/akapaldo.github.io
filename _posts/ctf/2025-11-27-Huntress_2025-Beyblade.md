@@ -1,12 +1,18 @@
 ---
-title: "Huntress 2025 – Beyblade"
-layout: post
-competition: Huntress 2025
-challenge: Beyblade
-tags: 
+title: "Beyblade"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
   - Huntress
   - 2025
   - Forensics
+  - Easy
+difficulty: Easy
+platform: Huntress CTF
+competition_year: 2025
+toc: true
+toc_sticky: true
 ---
 
 # 🔍 Beyblade
