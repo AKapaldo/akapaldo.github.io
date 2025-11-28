@@ -9,7 +9,7 @@ tags:
   - Hard
 difficulty: Hard
 platform: Huntress CTF
-competition_year: 2025
+competition_year: "2025"
 toc: true
 toc_sticky: true
 ---
