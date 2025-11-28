@@ -37,7 +37,7 @@ jobs:
               COMPETITION=$(echo "$RELATIVE_PATH" | cut -d'/' -f1)
               CHALLENGE=$(echo "$RELATIVE_PATH" | cut -d'/' -f2)
         
-              DATE=$(date +"%Y-%m-%d")
+              DATE=$(git -C ctf-src log -1 --format="%ad" --date=short -- "$FILE")
               OUT="_posts/ctf/${DATE}-${COMPETITION}-${CHALLENGE}.md"
         
               # Clean up competition name for category (remove spaces, special chars)
