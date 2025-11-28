@@ -1,9 +1,20 @@
 ---
-title: "Huntress_2025 – Webshellz"
-layout: post
-competition: Huntress_2025
-challenge: Webshellz
+title: "Webshellz"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - Forensics
+  - Easy
+difficulty: Easy
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
+
 
 # 🔍 Webshellz
 
