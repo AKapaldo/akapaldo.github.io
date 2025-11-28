@@ -1,8 +1,18 @@
 ---
-title: "Huntress_2025 – Follow_The_Money"
-layout: post
-competition: Huntress_2025
-challenge: Follow_The_Money
+title: "Follow The Money"
+date: 2025-11-27
+categories:
+  - Huntress
+tags:
+  - Huntress
+  - "2025"
+  - OSINT
+  - Easy
+difficulty: Easy
+platform: Huntress CTF
+competition_year: "2025"
+toc: true
+toc_sticky: true
 ---
 
 # 🕵️ Follow The Money
