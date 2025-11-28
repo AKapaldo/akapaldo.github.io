@@ -9,6 +9,8 @@ minimal_mistakes_skin: "dark"
 search: true
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes"
+theme_switch: true
+
 
 # Analytics
 analytics:
