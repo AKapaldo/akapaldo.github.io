@@ -7,7 +7,7 @@ classes: wide
 header:
   overlay_color: "#1e3a5f"
   overlay_filter: "0.8"
-  overlay_image: ../assets/images/writeups-header.jpg
+  overlay_image: https://www.andrewkapaldo.com/assets/images/hero-banner.jpg
 excerpt: "Documented solutions and learning from CTF competitions"
 ---
 
