@@ -133,7 +133,7 @@ Flare.io offers modern security challenges and training for real-world vulnerabi
   {% for post in flareio_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
-</div><br>
+</div><br><br>
 <p style="text-align: center;"><a href="/categories/#flare-io" class="btn btn--primary">View All Flare.io Writeups ({{ flareio_posts.size }}) →</a></p>
 {% else %}
 <p><em>No Flare.io writeups yet. Check back soon!</em></p>
