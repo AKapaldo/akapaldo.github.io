@@ -25,9 +25,26 @@ excerpt: "Cybersecurity Professional | CTF Player | Search & Rescue Volunteer"
 }
 
 .experience-block {
-  margin-bottom: 2em;
-  padding-left: 1em;
+  display: flex;
+  gap: 1.5em;
+  margin-bottom: 2.5em;
+  align-items: flex-start;
+}
+
+.experience-logo {
+  flex-shrink: 0;
+  width: 120px;
+}
+
+.experience-logo img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.experience-content {
+  flex: 1;
   border-left: 3px solid #3498db;
+  padding-left: 1em;
 }
 
 .company-name {
@@ -45,6 +62,16 @@ excerpt: "Cybersecurity Professional | CTF Player | Search & Rescue Volunteer"
   color: #888;
   font-size: 0.9em;
   margin-bottom: 0.5em;
+}
+
+@media (max-width: 600px) {
+  .experience-block {
+    flex-direction: column;
+    align-items: center;
+  }
+  .experience-logo {
+    width: 100px;
+  }
 }
 
 .cert-grid {
@@ -129,6 +156,8 @@ Skilled purple teamer focusing on securing systems and internal threat hunting.
 ## Professional Experience
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/lm.png" alt="Office of Legacy Management Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.energy.gov/lm/office-legacy-management">US Department of Energy - Office of Legacy Management</a></div>
 <div class="job-title">IT Cybersecurity Specialist</div>
 <div class="job-date">July 2023 - Present | Morgantown, WV</div>
@@ -139,8 +168,11 @@ Make risk-based decisions for implementation of hardware, software, and policies
 - Responsible for Morgantown, WV data center.
 - Perform oversight of Information Technology contractor staff.
 </div>
+</div>
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/lm.png" alt="Office of Legacy Management Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.energy.gov/lm/office-legacy-management">Amentum for the US DOE - Office of Legacy Management</a></div>
 <div class="job-title">Cybersecurity Analyst</div>
 <div class="job-date">December 2022 - July 2023 | Morgantown, WV</div>
@@ -153,8 +185,11 @@ Ensure the secure operation of computer hardware, software systems, and network 
 - Support Security Operations Center (SOC) operations on a rotating basis for event and incident response.
 - Participate in security control reviews and provide improvement guidance using NIST and CIS guidelines.
 </div>
+</div>
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/lm.png" alt="Office of Legacy Management Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.energy.gov/lm/office-legacy-management">Amentum / ATA Services for the US DOE - Office of Legacy Management</a></div>
 <div class="job-title">Help Desk Technician</div>
 <div class="job-date">November 2019 - December 2022 | Morgantown, WV</div>
@@ -166,8 +201,11 @@ Supporting end users and capturing information regarding their needs and request
 - Basic Cisco switch configuration (Port descriptions, sticky MAC addresses, VLAN lookups).
 - Update user information, distribution groups, and certificate mappings in Active Directory.
 </div>
+</div>
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/lm.png" alt="Office of Legacy Management Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.energy.gov/lm/office-legacy-management">ATA Services for the US DOE - Office of Legacy Management</a></div>
 <div class="job-title">Records Management Specialist</div>
 <div class="job-date">January 2019 - November 2019 | Morgantown, WV</div>
@@ -178,8 +216,11 @@ Supporting all aspects of managing the lifecycle of Federal records, including c
 - Perform searches and record requests for EEOICP Act, Privacy Act, and Freedom of Information Act.
 - Protect and identify sensitive information from unauthorized disclosure according to policy and regulatory guidance.
 </div>
+</div>
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/bn.jpg" alt="Barnes & Noble Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.bn.com">Barnes & Noble Booksellers</a></div>
 <div class="job-title">Assistant Store Manager</div>
 <div class="job-date">January 2019 - November 2019 | Morgantown, WV</div>
@@ -190,8 +231,11 @@ Managed all store operations including opening, securing at closing, safe balanc
 - Interview, hire, and onboard booksellers, department leads, and managers.
 - Coach and develop booksellers to create bench for future leadership positions.
 </div>
+</div>
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/bn.jpg" alt="Barnes & Noble Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.bn.com">Barnes & Noble Booksellers</a></div>
 <div class="job-title">Community Business Development Manager</div>
 <div class="job-date">October 2015 - June 2018 | Morgantown, WV</div>
@@ -201,12 +245,15 @@ Content and device management, troubleshooting, and support of NOOK and Samsung 
 - Top outside sales over goal for the Pittsburgh district for 2017 with 22.5% over goal.
 - Social media marketing and content curation — store was in the top 10 most Facebook likes in the company.
 </div>
+</div>
 
 ---
 
 ## Volunteer Experience
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/MARG.png" alt="Mountaineer Area Rescue Group Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.wvmarg.org">Mountaineer Area Rescue Group</a></div>
 <div class="job-title">Search & Rescue | President | Social Media</div>
 <div class="job-date">September 2017 - Present | Morgantown, WV</div>
@@ -217,27 +264,37 @@ Content and device management, troubleshooting, and support of NOOK and Samsung 
 - Serving on the board of directors as Secretary, Treasurer, Vice President, and now as President.
 - Assisted in creation of Standard Operating Procedures/Guidelines (SOPs/SOGs) for systems and operations.
 </div>
+</div>
 
 ---
 
 ## Education
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/WVU.png" alt="WVU Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.wvu.edu">West Virginia University</a></div>
 <div class="job-title">M.S. Business Cybersecurity Management</div>
 <div class="job-date">Expected August 2026 | Morgantown, WV</div>
 </div>
+</div>
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/wgu.png" alt="WGU Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.wgu.edu">Western Governors University</a></div>
 <div class="job-title">B.S. Cybersecurity and Information Assurance</div>
 <div class="job-date">January 2023 | Salt Lake City, UT</div>
 </div>
+</div>
 
 <div class="experience-block">
+<div class="experience-logo"><img src="/assets/images/logos/pierpont.jpg" alt="Pierpont College Logo"></div>
+<div class="experience-content">
 <div class="company-name"><a href="https://www.pierpont.edu">Pierpont Community and Technical College</a></div>
 <div class="job-title">A.A.S. Information Systems: Cybersecurity</div>
 <div class="job-date">May 2021 | Fairmont, WV</div>
+</div>
 </div>
 
 ---
