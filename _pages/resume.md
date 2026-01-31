@@ -140,15 +140,15 @@ Dedicated cybersecurity professional with over 10 years of supporting informatio
 B.S. in CyberSecurity and Information Assurance. (ISC)² CCSP and SSCP, CompTIA PenTest+, Security+, Network+, and A+.
 Passionate about keeping systems secure and private.
 Skilled purple teamer focusing on securing systems and internal threat hunting.
-
-**Security Tools:** Splunk | Tenable.SC | Cisco FirePower | Cisco ISE | Trellix (McAfee) ePO | Gigamon
-
+<br>
+**Security Tools:** Splunk | Tenable.SC | Cisco FirePower | Cisco ISE | Palo Alto
+<br>
 **Languages:** SQL | Python | PowerShell | HTML | CSS | JavaScript
-
+<br>
 **Platforms:** Windows | Mac OS | iOS | Android | Linux
-
+<br>
 **Software:** nmap | Wireshark | Burpsuite | Active Directory
-
+<br>
 </div>
 
 ---
@@ -171,7 +171,7 @@ Make risk-based decisions for implementation of hardware, software, and policies
 </div>
 
 <div class="experience-block">
-<div class="experience-logo"><img src="/assets/images/logos/lm.png" alt="Office of Legacy Management Logo"></div>
+<div class="experience-logo"><img src="/assets/images/logos/amentum.jpg" alt="Amentum Logo"></div>
 <div class="experience-content">
 <div class="company-name"><a href="https://www.energy.gov/lm/office-legacy-management">Amentum for the US DOE - Office of Legacy Management</a></div>
 <div class="job-title">Cybersecurity Analyst</div>
@@ -188,7 +188,7 @@ Ensure the secure operation of computer hardware, software systems, and network 
 </div>
 
 <div class="experience-block">
-<div class="experience-logo"><img src="/assets/images/logos/lm.png" alt="Office of Legacy Management Logo"></div>
+<div class="experience-logo"><img src="/assets/images/logos/amentum.jpg" alt="Amentum Logo"></div>
 <div class="experience-content">
 <div class="company-name"><a href="https://www.energy.gov/lm/office-legacy-management">Amentum / ATA Services for the US DOE - Office of Legacy Management</a></div>
 <div class="job-title">Help Desk Technician</div>
@@ -204,7 +204,7 @@ Supporting end users and capturing information regarding their needs and request
 </div>
 
 <div class="experience-block">
-<div class="experience-logo"><img src="/assets/images/logos/lm.png" alt="Office of Legacy Management Logo"></div>
+<div class="experience-logo"><img src="/assets/images/logos/ata.png" alt="ATA Services Logo"></div>
 <div class="experience-content">
 <div class="company-name"><a href="https://www.energy.gov/lm/office-legacy-management">ATA Services for the US DOE - Office of Legacy Management</a></div>
 <div class="job-title">Records Management Specialist</div>
@@ -255,13 +255,13 @@ Content and device management, troubleshooting, and support of NOOK and Samsung 
 <div class="experience-logo"><img src="/assets/images/logos/MARG.png" alt="Mountaineer Area Rescue Group Logo"></div>
 <div class="experience-content">
 <div class="company-name"><a href="https://www.wvmarg.org">Mountaineer Area Rescue Group</a></div>
-<div class="job-title">Search & Rescue | President | Social Media</div>
+<div class="job-title">Search & Rescue | Secretary | Social Media</div>
 <div class="job-date">September 2017 - Present | Morgantown, WV</div>
 
 - Search for lost and missing persons and, when found, medically stabilize and evacuate them in wilderness and urban-facing environments.
-- Assisting in and leading rope rescue of lost and missing persons.
+- Assisting in and leading rescue of lost and missing persons.
 - Content curation and social media marketing for the group's Facebook page.
-- Serving on the board of directors as Secretary, Treasurer, Vice President, and now as President.
+- Serving on the board of directors as currently as Secretary, and previously as Treasurer, Vice President, and President.
 - Assisted in creation of Standard Operating Procedures/Guidelines (SOPs/SOGs) for systems and operations.
 </div>
 </div>
