@@ -34,3 +34,25 @@
   font-size: 0.85em;
   margin-right: 0.5em;
 }
+
+/* Note Alert - Blue */
+blockquote p:first-child:has(strong:first-child:contains("[!NOTE]")),
+blockquote p:first-child strong:first-child:contains("[!NOTE]") {
+  display: block;
+  padding: 1em;
+  border-left: 4px solid #3498db;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 4px;
+  margin: 1em 0;
+}
+
+/* Caution Alert - Yellow/Orange */
+blockquote p:first-child:has(strong:first-child:contains("[!CAUTION]")),
+blockquote p:first-child strong:first-child:contains("[!CAUTION]") {
+  display: block;
+  padding: 1em;
+  border-left: 4px solid #f39c12;
+  background: rgba(243, 156, 18, 0.1);
+  border-radius: 4px;
+  margin: 1em 0;
+}
