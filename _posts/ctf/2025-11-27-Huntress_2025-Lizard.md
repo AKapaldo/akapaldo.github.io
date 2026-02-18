@@ -5,6 +5,7 @@ categories:
   - Huntress
 tags:
   - Malware
+  - PowerShell
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"
@@ -35,6 +36,7 @@ We saw this strange PowerShell string on one of our hosts, can you investigate a
 
 ## Problem Type
 - Cryptocurrency Malware
+- PowerShell
 
 ## Password
 > [!NOTE]
