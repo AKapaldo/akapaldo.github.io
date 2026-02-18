@@ -31,6 +31,7 @@ You can find the web application here: `http://MACHINE_IP:5000`
 
 ## Problem Type
 - Web
+- Command Injection
 
 ## Solve
 When we visit the website, we get a chat window and profile window. I started off with sending a chat to see if there would be a response, but there wasn't.
