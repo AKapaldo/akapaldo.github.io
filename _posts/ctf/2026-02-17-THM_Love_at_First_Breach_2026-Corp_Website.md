@@ -16,7 +16,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-| 🌐 Web         |TryHackMe      |
+|🌐 Web         |TryHackMe      |
 
 ## Challenge Prompt
 My Dearest Hacker,
