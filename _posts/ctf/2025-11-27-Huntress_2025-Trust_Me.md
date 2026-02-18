@@ -5,8 +5,6 @@ categories:
   - Huntress
 tags:
   - Miscellaneous
-  - Windows
-  - Trusted Installer
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"

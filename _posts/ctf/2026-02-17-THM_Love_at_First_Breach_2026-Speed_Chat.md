@@ -4,8 +4,7 @@ date: 2026-02-17
 categories:
   - THM
 tags:
-  - Web
-  - Command Injection
+  - CTF
   - "2026"
 platform: THM Love at First Breach 2026
 competition_year: "2026"
@@ -17,7 +16,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-|🌐 Web         |TryHackMe      |
+| 🌐 Web         |TryHackMe      |
 
 ## Challenge Prompt
 My Dearest Hacker,
@@ -31,7 +30,6 @@ You can find the web application here: `http://MACHINE_IP:5000`
 
 ## Problem Type
 - Web
-- Command Injection
 
 ## Solve
 When we visit the website, we get a chat window and profile window. I started off with sending a chat to see if there would be a response, but there wasn't.

@@ -4,8 +4,7 @@ date: 2026-02-17
 categories:
   - THM
 tags:
-  - Web
-  - IDOR
+  - CTF
   - "2026"
 platform: THM Love at First Breach 2026
 competition_year: "2026"
@@ -17,7 +16,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-|🌐 Web         |TryHackMe      |
+| 🌐 Web         |TryHackMe      |
 
 ## Challenge Prompt
 

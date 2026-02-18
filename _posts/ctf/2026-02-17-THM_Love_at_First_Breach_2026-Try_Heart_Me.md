@@ -4,8 +4,7 @@ date: 2026-02-17
 categories:
   - THM
 tags:
-  - Web
-  - JWT
+  - CTF
   - "2026"
 platform: THM Love at First Breach 2026
 competition_year: "2026"
@@ -17,7 +16,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-|🌐 Web         |TryHackMe      |
+| 🌐 Web         |TryHackMe      |
 
 ## Challenge Prompt
 My Dearest Hacker,
@@ -28,7 +27,6 @@ You can access the web app here: `http://MACHINE_IP:5000`
 
 ## Problem Type
 - Web
-- JWT
 
 ## Solve
 When we visit the website, we are presented with the TryHeartMe Valentines Shop. Four items are displayed, but none of them the `ValenFlag` item we want.<br>

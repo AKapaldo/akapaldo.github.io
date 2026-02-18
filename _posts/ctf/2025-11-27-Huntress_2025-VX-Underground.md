@@ -5,7 +5,6 @@ categories:
   - Huntress
 tags:
   - Miscellaneous
-  - Shamir's Secret Sharing
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"
