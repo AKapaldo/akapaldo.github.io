@@ -116,13 +116,16 @@ Huntress CTF is an annual cybersecurity competition focused on realistic threat 
   {% for post in huntress_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
-</div><br>
-<p style="text-align: center;"><a href="/categories/#huntress" class="btn btn--primary">View All Huntress Writeups ({{ huntress_posts.size }}) →</a></p>
+</div>
+<div style="clear: both; text-align: center; margin-top: 2em;">
+  <a href="/categories/#huntress" class="btn btn--primary">View All Huntress Writeups ({{ huntress_posts.size }}) →</a>
+</div>
 {% else %}
 <p><em>No Huntress writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
+
 
 ## 💻 Flare.io {#flare-io}
 
@@ -134,14 +137,16 @@ Flare.io offers modern security challenges and training for real-world vulnerabi
   {% for post in flareio_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
-</div><br><br>
-<p style="text-align: center;"><a href="/categories/#flare-io" class="btn btn--primary">View All Flare.io Writeups ({{ flareio_posts.size }}) →</a></p>
+</div>
+<div style="clear: both; text-align: center; margin-top: 2em;">
+  <a href="/categories/#flare-io" class="btn btn--primary">View All Flare.io Writeups ({{ flareio_posts.size }}) →</a>
+</div>
 {% else %}
 <p><em>No Flare.io writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
-
+{% comment %}
 ## 🔥 Flare-On {#flare-on}
 
 Flare-On is Mandiant's annual reverse engineering challenge, featuring increasingly difficult malware analysis tasks.
@@ -152,14 +157,16 @@ Flare-On is Mandiant's annual reverse engineering challenge, featuring increasin
   {% for post in flareon_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
-</div><br>
-<p style="text-align: center;"><a href="/categories/#flare-on" class="btn btn--primary">View All Flare-On Writeups ({{ flareon_posts.size }}) →</a></p>
+</div>
+<div style="clear: both; text-align: center; margin-top: 2em;">
+  <a href="/categories/#flare-on" class="btn btn--primary">View All Flare-On Writeups ({{ flareon_posts.size }}) →</a>
+</div>
 {% else %}
 <p><em>No Flare-On writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
-
+{% endcomment %}
 
 ## 🎯 TryHackMe {#tryhackme}
 
@@ -171,14 +178,16 @@ TryHackMe provides guided learning paths and CTF-style rooms for all skill level
   {% for post in thm_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
-</div><br>
-<p style="text-align: center;"><a href="/categories/#tryhackme" class="btn btn--primary">View All THM Writeups ({{ thm_posts.size }}) →</a></p>
+</div>
+<div style="clear: both; text-align: center; margin-top: 2em;">
+  <a href="/categories/#thm" class="btn btn--primary">View All THM Writeups ({{ thm_posts.size }}) →</a>
+</div>
 {% else %}
 <p><em>No TryHackMe writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
-
+{% comment %}
 ## 📦 HackTheBox {#hackthebox}
 
 HackTheBox offers realistic penetration testing labs with vulnerable machines and challenges.
@@ -189,8 +198,10 @@ HackTheBox offers realistic penetration testing labs with vulnerable machines an
   {% for post in htb_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
-</div><br>
-<p style="text-align: center;"><a href="/categories/#hackthebox" class="btn btn--primary">View All HTB Writeups ({{ htb_posts.size }}) →</a></p>
+</div>
+<div style="clear: both; text-align: center; margin-top: 2em;">
+  <a href="/categories/#hackthebox" class="btn btn--primary">View All HTB Writeups ({{ htb_posts.size }}) →</a>
+  </div>
 {% else %}
 <p><em>No HackTheBox writeups yet. Check back soon!</em></p>
 {% endif %}
@@ -208,13 +219,15 @@ PicoCTF is a free computer security education program with a capture-the-flag st
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
-<p style="text-align: center;"><a href="/categories/#picoctf" class="btn btn--primary">View All PicoCTF Writeups ({{ pico_posts.size }}) →</a></p>
+<div style="clear: both; text-align: center; margin-top: 2em;">
+  <a href="/categories/#picoctf" class="btn btn--primary">View All PicoCTF Writeups ({{ pico_posts.size }}) →</a>
+</div>
 {% else %}
 <p><em>No PicoCTF writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
-
+{% endcomment %}
 
 ## 📚 All Writeups (Chronological)
 
