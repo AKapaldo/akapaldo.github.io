@@ -4,7 +4,9 @@ date: 2026-02-17
 categories:
   - THM
 tags:
-  - CTF
+  - Web
+  - MD5
+  - Hash Collision
   - "2026"
 platform: THM Love at First Breach 2026
 competition_year: "2026"
@@ -16,7 +18,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-| 🌐 Web         |TryHackMe      |
+|🌐 Web         |TryHackMe      |
 
 ## Challenge Prompt
 My Dearest Hacker,
@@ -29,7 +31,8 @@ You can access the web app here: `http://MACHINE_IP`
 
 ## Problem Type
 - Web
-- MD5 Collision
+- MD5
+- Hash Collision
 
 ## Solve
 When we load into the page, we are presented with Matchmaker, which will pair us up with our perfect dog based on MD5 hash:
