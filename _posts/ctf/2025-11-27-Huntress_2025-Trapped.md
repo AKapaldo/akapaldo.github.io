@@ -5,6 +5,7 @@ categories:
   - Huntress
 tags:
   - Binary
+  - CHROOT Escape
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"
