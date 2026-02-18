@@ -5,6 +5,7 @@ categories:
   - Huntress
 tags:
   - Malware
+  - PHP
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"
