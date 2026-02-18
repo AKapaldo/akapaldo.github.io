@@ -5,6 +5,8 @@ categories:
   - Huntress
 tags:
   - Forensics
+  - Windows
+  - Recycle Bin
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"
