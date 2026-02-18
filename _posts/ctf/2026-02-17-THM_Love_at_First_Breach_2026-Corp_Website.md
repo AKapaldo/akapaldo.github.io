@@ -4,7 +4,9 @@ date: 2026-02-17
 categories:
   - THM
 tags:
-  - CTF
+  - Web
+  - React2Shell
+  - CVE-2025-55182
   - "2026"
 platform: THM Love at First Breach 2026
 competition_year: "2026"
