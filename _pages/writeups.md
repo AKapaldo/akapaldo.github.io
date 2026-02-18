@@ -141,7 +141,7 @@ Flare.io offers modern security challenges and training for real-world vulnerabi
 {% endif %}
 
 ---
-
+{% comment %}
 ## 🔥 Flare-On {#flare-on}
 
 Flare-On is Mandiant's annual reverse engineering challenge, featuring increasingly difficult malware analysis tasks.
@@ -159,7 +159,26 @@ Flare-On is Mandiant's annual reverse engineering challenge, featuring increasin
 {% endif %}
 
 ---
+{% endcomment %}
 
+## 🎯 TryHackMe {#tryhackme}
+
+TryHackMe provides guided learning paths and CTF-style rooms for all skill levels.
+
+{% assign thm_posts = site.categories.THM | concat: site.categories.TryHackMe %}
+{% if thm_posts.size > 0 %}
+<div class="grid__wrapper">
+  {% for post in thm_posts limit:20 %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div><br>
+<p style="text-align: center;"><a href="/categories/#tryhackme" class="btn btn--primary">View All THM Writeups ({{ thm_posts.size }}) →</a></p>
+{% else %}
+<p><em>No TryHackMe writeups yet. Check back soon!</em></p>
+{% endif %}
+
+---
+{% comment %}
 ## 📦 HackTheBox {#hackthebox}
 
 HackTheBox offers realistic penetration testing labs with vulnerable machines and challenges.
@@ -178,23 +197,24 @@ HackTheBox offers realistic penetration testing labs with vulnerable machines an
 
 ---
 
-## 🎯 TryHackMe {#tryhackme}
+## 🏴‍☠️ PicoCTF {#picoctf}
 
-TryHackMe provides guided learning paths and CTF-style rooms for all skill levels.
+PicoCTF is a free computer security education program with a capture-the-flag style competition, primarily for middle and high school students but open to all.
 
-{% assign thm_posts = site.categories.TryHackMe %}
-{% if thm_posts.size > 0 %}
+{% assign pico_posts = site.categories.PicoCTF %}
+{% if pico_posts.size > 0 %}
 <div class="grid__wrapper">
-  {% for post in thm_posts limit:20 %}
+  {% for post in pico_posts limit:20 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
-</div><br>
-<p style="text-align: center;"><a href="/categories/#tryhackme" class="btn btn--primary">View All THM Writeups ({{ thm_posts.size }}) →</a></p>
+</div>
+<p style="text-align: center;"><a href="/categories/#picoctf" class="btn btn--primary">View All PicoCTF Writeups ({{ pico_posts.size }}) →</a></p>
 {% else %}
-<p><em>No TryHackMe writeups yet. Check back soon!</em></p>
+<p><em>No PicoCTF writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
+{% endcomment %}
 
 ## 📚 All Writeups (Chronological)
 
