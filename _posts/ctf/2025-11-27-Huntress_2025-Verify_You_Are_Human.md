@@ -5,6 +5,8 @@ categories:
   - Huntress
 tags:
   - Malware
+  - PowerShell
+  - Python
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"
