@@ -141,7 +141,7 @@ Flare.io offers modern security challenges and training for real-world vulnerabi
 {% endif %}
 
 ---
-{% comment %}
+
 ## 🔥 Flare-On {#flare-on}
 
 Flare-On is Mandiant's annual reverse engineering challenge, featuring increasingly difficult malware analysis tasks.
@@ -159,13 +159,13 @@ Flare-On is Mandiant's annual reverse engineering challenge, featuring increasin
 {% endif %}
 
 ---
-{% endcomment %}
+
 
 ## 🎯 TryHackMe {#tryhackme}
 
 TryHackMe provides guided learning paths and CTF-style rooms for all skill levels.
 
-{% assign thm_posts = site.categories.THM | concat: site.categories.TryHackMe %}
+{% assign thm_posts = site.categories.THM %}
 {% if thm_posts.size > 0 %}
 <div class="grid__wrapper">
   {% for post in thm_posts limit:20 %}
@@ -178,7 +178,7 @@ TryHackMe provides guided learning paths and CTF-style rooms for all skill level
 {% endif %}
 
 ---
-{% comment %}
+
 ## 📦 HackTheBox {#hackthebox}
 
 HackTheBox offers realistic penetration testing labs with vulnerable machines and challenges.
@@ -214,7 +214,7 @@ PicoCTF is a free computer security education program with a capture-the-flag st
 {% endif %}
 
 ---
-{% endcomment %}
+
 
 ## 📚 All Writeups (Chronological)
 
