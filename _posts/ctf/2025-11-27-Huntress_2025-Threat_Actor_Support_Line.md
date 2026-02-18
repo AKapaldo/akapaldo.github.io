@@ -5,6 +5,9 @@ categories:
   - Huntress
 tags:
   - Miscellaneous
+  - CVE Exploit
+  - CVE-2025-8088
+  - WinRAR
   - "2025"
 platform: Huntress 2025
 competition_year: "2025"
