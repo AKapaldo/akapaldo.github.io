@@ -17,7 +17,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-| 🤖 AI         |TryHackMe      |
+|🤖 AI         |TryHackMe      |
 
 ## Challenge Prompt
 
