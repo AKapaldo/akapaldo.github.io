@@ -5,6 +5,7 @@ categories:
   - THM
 tags:
   - Web
+  - Robots.txt
   - "2026"
 platform: THM Love at First Breach 2026
 competition_year: "2026"
