@@ -31,6 +31,7 @@ You can find the web application here: `http://MACHINE_IP:5000`
 
 ## Problem Type
 - Web
+- Robots.txt
 
 ## Solve
 I started off with a quick nmap scan of this host and port using `nmap -p 5000 -T4 -A <IP Address>`.<br>
