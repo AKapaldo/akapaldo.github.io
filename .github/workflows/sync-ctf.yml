@@ -80,7 +80,7 @@ jobs:
               CHALLENGE_TITLE=$(echo "$CHALLENGE" | sed 's/_/ /g')
 
               # Extract Problem Type tags (handle Windows line endings)
-              PROBLEM_TYPES=$(tr -d '\r' < "$FILE" | awk '/^## [Pp]roblem [Tt]ype/,/^## / {if (/^[-*] /) {sub(/^[-*] /, ""); print}}')
+              PROBLEM_TYPES=$(tr -d '\r' < "$FILE" | awk '/^## Problem Type/,/^## Solve/ {if (/^[-*] /) {sub(/^[-*] /, ""); print}}')
         
               {
                 echo "---"
