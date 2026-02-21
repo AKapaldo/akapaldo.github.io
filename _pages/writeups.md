@@ -328,6 +328,7 @@ Prefer to browse by challenge type? Check out these popular categories:
 - [🔍 Forensics](/tags/#forensics) - Memory dumps, disk analysis, network captures
 - [🐞 Malware](/tags/#malware) - Malware analysis, reverse engineering
 - [🕵️ OSINT](/tags/#osint) - Open source intelligence gathering
+- [🤖 AI](/tags/#ai) - Artificial Intelligence
 - [📦 Miscellaneous](/tags/#misc) - Unique challenges that don't fit other categories
 
 <p style="text-align: center; margin-top: 2em;"><a href="/tags/" class="btn btn--info btn--large">Browse All Tags →</a></p>
