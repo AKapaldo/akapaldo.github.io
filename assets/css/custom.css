@@ -1,0 +1,84 @@
+/* Custom GitHub-style alert improvements */
+.notice--primary,
+.notice--info,
+.notice--warning,
+.notice--danger,
+.notice--success {
+  border-left: 4px solid;
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 6px;
+  font-size: 0.95em;
+}
+
+/* Blue - INFO/NOTE */
+.notice--primary {
+  border-left-color: #3498db;
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.notice--primary::before {
+  content: "ℹ️ ";
+  font-weight: bold;
+}
+
+/* Cyan - TIP */
+.notice--info {
+  border-left-color: #17a2b8;
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+.notice--info::before {
+  content: "💡 ";
+  font-weight: bold;
+}
+
+/* Yellow/Orange - CAUTION */
+.notice--warning {
+  border-left-color: #f39c12;
+  background-color: rgba(243, 156, 18, 0.1);
+}
+
+.notice--warning::before {
+  content: "⚠️ ";
+  font-weight: bold;
+}
+
+/* Red - DANGER/WARNING */
+.notice--danger {
+  border-left-color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.notice--danger::before {
+  content: "🚨 ";
+  font-weight: bold;
+}
+
+/* Green - SUCCESS */
+.notice--success {
+  border-left-color: #2ecc71;
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.notice--success::before {
+  content: "✅ ";
+  font-weight: bold;
+}
+
+/* Make the notice paragraphs look better */
+.notice--primary p:first-child,
+.notice--info p:first-child,
+.notice--warning p:first-child,
+.notice--danger p:first-child,
+.notice--success p:first-child {
+  margin-top: 0;
+}
+
+.notice--primary p:last-child,
+.notice--info p:last-child,
+.notice--warning p:last-child,
+.notice--danger p:last-child,
+.notice--success p:last-child {
+  margin-bottom: 0;
+}
