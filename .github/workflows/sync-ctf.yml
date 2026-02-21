@@ -79,8 +79,8 @@ jobs:
               # Clean up challenge name for title
               CHALLENGE_TITLE=$(echo "$CHALLENGE" | sed 's/_/ /g')
 
-              # Extract Problem Type tags (handles ## heading)
-              PROBLEM_TYPES=$(awk '/^## [Pp]roblem [Tt]ype/,/^##|^$/ {if (/^[-*] /) print}' "$FILE" | sed 's/^[-*] //' | xargs)
+              # Extract Problem Type tags (skip blank lines after heading)
+              PROBLEM_TYPES=$(awk '/^## [Pp]roblem [Tt]ype/,/^## / {if (/^[-*] /) print}' "$FILE" | sed 's/^[-*] //' | xargs)
         
               {
                 echo "---"
