@@ -25,9 +25,10 @@ Oh great, another phishing kit. This has some functionality to even send stolen 
 
 Can you track down the email address they send things to?
 
-> [!CAUTION]
-> This is the `Malware` category, and as such, includes malware.
-> Please be sure to analyze these files within an isolated virtual machine.
+This is the `Malware` category, and as such, includes malware.
+Please be sure to analyze these files within an isolated virtual machine.
+{: .notice--warning}
+
 
 ## Problem Type
 - PHP Malware

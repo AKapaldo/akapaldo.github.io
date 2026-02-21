@@ -25,8 +25,9 @@ The Arika ransomware group likes to look slick and spiffy with their cool green-
 but it sounds like they are worried about some security concerns of their own!
 
 ## Password
-> [!NOTE]
-> The password for the ZIP archive below is `arika`.
+The password for the ZIP archive below is `arika`.
+{: .notice--primary}
+
 
 ## Problem Type
 - Command Injection

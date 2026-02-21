@@ -27,16 +27,18 @@ She says it adds better protection so my wallets can't get messed with by hacker
 
 Sandy wouldn't lie to me, would she...? Sandy is the best!
 
-> [!CAUTION]
-> This is the `Malware` category, and as such, includes malware.
-> Please be sure to analyze these files within an isolated virtual machine.
+This is the `Malware` category, and as such, includes malware.
+Please be sure to analyze these files within an isolated virtual machine.
+{: .notice--warning}
+
 
 ## Problem Type
 - AutoIT
 
 ## Password
-> [!NOTE]
-> The password to the archive is `infected`.
+The password to the archive is `infected`.
+{: .notice--primary}
+
 
 ## Solve
 Download and install [AutoIT 3.2.4.9](https://www.autoitscript.com/autoit3/files/archive/autoit/)

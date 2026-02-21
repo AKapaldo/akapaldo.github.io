@@ -27,13 +27,15 @@ My computer said I needed to update MS Teams, so that is what I have been trying
 
 ...but I can't seem to get past this CAPTCHA!
 
-> [!CAUTION]
-> This is the `Malware` category, and as such, includes malware.
-> Please be sure to analyze these files within an isolated virtual machine.
+This is the `Malware` category, and as such, includes malware.
+Please be sure to analyze these files within an isolated virtual machine.
+{: .notice--warning}
 
-> [!NOTE]
-> Some components of this challenge may be finicky with the browser-based connection. You can still achieve what you need to, but there may be some more extra steps than if you were to approach this over the VPN.
-> >(i.e., "remove the port" when you need to... you'll know what I mean 😜)
+
+Some components of this challenge may be finicky with the browser-based connection. You can still achieve what you need to, but there may be some more extra steps than if you were to approach this over the VPN.
+>(i.e., "remove the port" when you need to... you'll know what I mean 😜)
+{: .notice--primary}
+
 
 ## Problem Type
 - Clickfix

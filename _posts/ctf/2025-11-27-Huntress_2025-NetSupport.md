@@ -28,8 +28,9 @@ We identified a suspicious PowerShell script written to disk at a similar time. 
 - PowerShell
 
 ## Password
-> [!NOTE]
-> The password to the ZIP archive is `netsupport`.
+The password to the ZIP archive is `netsupport`.
+{: .notice--primary}
+
 
 ## Solve
 Opened PowerShell file

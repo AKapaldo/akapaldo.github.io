@@ -35,8 +35,9 @@ I let Evelyn over at Harbor Line know that someone from our team might reach out
 - OSINT
 
 ## Password
-> [!NOTE]
-> The password to the ZIP archive below is `follow_the_money`.
+The password to the ZIP archive below is `follow_the_money`.
+{: .notice--primary}
+
 
 ## Solve
 Zip file has a bunch of emails. Opened each and reviewed.<br>

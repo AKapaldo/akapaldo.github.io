@@ -31,8 +31,9 @@ As a security analyst, you have been tasked with reviewing the Sysmon, HTTP, and
 - EVTX File (Windows Event Log)
 
 ## Password
-> [!NOTE]
-> The password to the ZIP archive is `webshellz`.
+The password to the ZIP archive is `webshellz`.
+{: .notice--primary}
+
 
 ## Solve 1
 

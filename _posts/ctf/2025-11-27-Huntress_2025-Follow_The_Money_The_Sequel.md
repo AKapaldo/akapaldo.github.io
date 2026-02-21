@@ -21,8 +21,9 @@ toc_sticky: true
 
 ## Challenge Prompt
 
-> [!WARNING]
-> The initial Follow the Money challenge should be completed first before this challenge.
+The initial Follow the Money challenge should be completed first before this challenge.
+{: .notice--danger}
+
 
 Hey Support Team,
 
@@ -31,13 +32,15 @@ I wanted to see if I could get a bit more help from you. I know you found their 
 See what you can do with that. I need you to find the town that this hacker lives in. I don't think the IR firm is doing enough. 
 I want to have every piece of information we can find. Maybe we can pay a visit. Let me know what you find. Thanks!
 
-> [!IMPORTANT]
-> This challenge DOES NOT require you to contact any businesses.
-> This can be fully solved with publicly available information.
-> Being that this is OSINT and public-facing, please DO NOT do anything to disrupt other CTF players or others that are not involved with the CTF.
+This challenge DOES NOT require you to contact any businesses.
+This can be fully solved with publicly available information.
+Being that this is OSINT and public-facing, please DO NOT do anything to disrupt other CTF players or others that are not involved with the CTF.
+{: .notice--important}
 
-> [!IMPORTANT]
-> This challenge uses a non-standard flag format.
+
+This challenge uses a non-standard flag format.
+{: .notice--important}
+
 
 ## Problem Type
 - OSINT

@@ -27,16 +27,19 @@ Anyway, we saw this weird file running on startup. Can you figure out what this 
 
 I'm sure you'll get more understanding of the questions below as you explore!
 
-> [!CAUTION]
-> This is the Malware category, and as such, includes malware. Please be sure to analyze these files within an isolated virtual machine.
+This is the Malware category, and as such, includes malware. Please be sure to analyze these files within an isolated virtual machine.
+{: .notice--warning}
 
-> [!NOTE]
-> You may find a public paste URL that is expired. This is an artifact of the original malware sample and is intentional.
-> This URL is not necessary for the challenge.
+
+You may find a public paste URL that is expired. This is an artifact of the original malware sample and is intentional.
+This URL is not necessary for the challenge.
+{: .notice--primary}
+
 
 ## Password
-> [!IMPORTANT]
-> The ZIP archive password is `infected`.
+The ZIP archive password is `infected`.
+{: .notice--important}
+
 
 ## Problem Type
 - PowerShell

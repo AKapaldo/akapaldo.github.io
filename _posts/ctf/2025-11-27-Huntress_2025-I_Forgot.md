@@ -34,8 +34,9 @@ And perhaps the worst news... I forgot the decryption key.
 Gosh, I have such bad memory!!
 
 ## Password
-> [!NOTE]
-> The archive password is `i_forgot`.
+The archive password is `i_forgot`.
+{: .notice--primary}
+
 
 ## Problem Type
 - Memory Forensics

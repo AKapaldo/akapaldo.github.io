@@ -30,16 +30,18 @@ We saw this strange PowerShell string on one of our hosts, can you investigate a
 ![Lizard.](https://media1.tenor.com/m/7p2_VKPSdBYAAAAC/lizard-lizard-lizard-button.gif)
 
 
-> [!CAUTION]
-> This is the `Malware` category, and as such, includes malware.
-> Please be sure to analyze these files within an isolated virtual machine.
+This is the `Malware` category, and as such, includes malware.
+Please be sure to analyze these files within an isolated virtual machine.
+{: .notice--warning}
+
 
 ## Problem Type
 - PowerShell
 
 ## Password
-> [!NOTE]
-> The password to the archive is `infected`.
+The password to the archive is `infected`.
+{: .notice--primary}
+
 
 ## Solve
 Ran the command in the prompt leaving off the `iex` part which would execute the command.

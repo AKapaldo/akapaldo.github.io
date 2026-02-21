@@ -25,12 +25,14 @@ I found this printer on the network, and it seems to be running... a weird web p
 
 Here is some of the code I could dig up.
 
-> [!NOTE]
-> Escalate your privileges and uncover the flag in the root user's home directory.
+Escalate your privileges and uncover the flag in the root user's home directory.
+{: .notice--primary}
+
 
 ## Password
-> [!IMPORTANT]
-> The password to the ZIP archive below is `phasing_through_printers`.
+The password to the ZIP archive below is `phasing_through_printers`.
+{: .notice--important}
+
 
 ## Problem Type
 - Command Injection

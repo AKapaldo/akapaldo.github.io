@@ -51,10 +51,11 @@ exiftool -a * | grep "User Comment" | awk '{print $4}' | sort -t- -k1,1n | sed '
 
 Found out about [Shamir's Secret Sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing).
 
-> [!NOTE]
-> SSS is used to secure a secret in a distributed form, most often to secure encryption keys.
-> The secret is split into multiple shares, which individually do not give any information about the secret.
-> To reconstruct a secret secured by SSS, a number of shares is needed, called the threshold.
+SSS is used to secure a secret in a distributed form, most often to secure encryption keys.
+The secret is split into multiple shares, which individually do not give any information about the secret.
+To reconstruct a secret secured by SSS, a number of shares is needed, called the threshold.
+{: .notice--primary}
+
 
 Use Python to decrypt:
 ```python

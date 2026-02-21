@@ -30,8 +30,9 @@ She was so excited to finally have a date with a boy she liked, but she complete
 She shared with us an export of her laptop files.
 
 ## Password
-> [!IMPORTANT]
-> The password to the ZIP archive is `tabbys_date`.
+The password to the ZIP archive is `tabbys_date`.
+{: .notice--important}
+
 
 ## Problem Type
 - Windows Notepad Files

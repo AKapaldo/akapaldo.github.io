@@ -23,8 +23,9 @@ toc_sticky: true
 
 Well... I'm trapped. Feels like I'm in jail. Can you get the flag?
 
-> [!NOTE]
-> The flag is in the root directory at `/flag.txt`
+The flag is in the root directory at `/flag.txt`
+{: .notice--primary}
+
 
 ## Problem Type
 - CHROOT Escape
