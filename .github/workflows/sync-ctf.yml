@@ -112,21 +112,29 @@ jobs:
                 echo
                 
                 # Convert GitHub alerts to Minimal Mistakes notices
-                tr -d '\r' < "$FILE" | sed '
-                  # Convert [!NOTE] to notice--primary
-                  s/^\[!NOTE\]/{: .notice--primary}\n**ℹ️ NOTE:**/g
-                  
-                  # Convert [!CAUTION] to notice--warning
-                  s/^\[!CAUTION\]/{: .notice--warning}\n**⚠️ CAUTION:**/g
-                  
-                  # Convert [!WARNING] to notice--danger
-                  s/^\[!WARNING\]/{: .notice--danger}\n**⚠️ WARNING:**/g
-                  
-                  # Convert [!IMPORTANT] to notice--danger
-                  s/^\[!IMPORTANT\]/{: .notice--danger}\n**❗ IMPORTANT:**/g
-                  
-                  # Convert [!TIP] to notice--info
-                  s/^\[!TIP\]/{: .notice--info}\n**💡 TIP:**/g
+                tr -d '\r' < "$FILE" | awk '
+                  /^> \[!NOTE\]$/      { alert="notice--primary";  first_line=1; next }
+                  /^> \[!TIP\]$/       { alert="notice--info";     first_line=1; next }
+                  /^> \[!CAUTION\]$/   { alert="notice--warning";  first_line=1; next }
+                  /^> \[!WARNING\]$/   { alert="notice--danger";   first_line=1; next }
+                  /^> \[!IMPORTANT\]$/ { alert="notice--important"; first_line=1; next }
+
+                  alert != "" && /^> / {
+                    line = substr($0, 3)
+                    print line
+                    first_line = 0
+                    next
+                  }
+
+                  alert != "" && /^>$/ { print ""; next }
+
+                  alert != "" {
+                    print "{: ." alert "}"
+                    print ""
+                    alert = ""
+                  }
+
+                  { print }
                 '
               } > "../${OUT}"
           fi
