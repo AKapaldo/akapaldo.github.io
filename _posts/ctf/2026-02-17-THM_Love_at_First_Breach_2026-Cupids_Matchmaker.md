@@ -5,8 +5,8 @@ categories:
   - THM_Love_at_First_Breach_2026
 tags:
   - "Web"
-  - "2026"
-  - "XSS"
+        - "2026"
+        - "XSS"
 platform: THM Love at First Breach 2026
 competition_year: 2026
 toc: true

@@ -5,10 +5,10 @@ categories:
   - Huntress_2025
 tags:
   - "Forensics"
-  - "2025"
-  - "PCAP"
-  - "Modbus"
-  - "Industrial Control System (ICS)"
+        - "2025"
+        - "PCAP"
+        - "Modbus"
+        - "Industrial Control System (ICS)"
 platform: Huntress 2025
 competition_year: 2025
 toc: true
