@@ -79,8 +79,8 @@ jobs:
               # Clean up challenge name for title
               CHALLENGE_TITLE=$(echo "$CHALLENGE" | sed 's/_/ /g')
 
-              # Extract Problem Type tags (preserve multi-word tags)
-              PROBLEM_TYPES=$(awk '/^## [Pp]roblem [Tt]ype/,/^## / {if (/^[-*] /) {sub(/^[-*] /, ""); print}}' "$FILE")
+              # Extract Problem Type tags (handle Windows line endings)
+              PROBLEM_TYPES=$(tr -d '\r' < "$FILE" | awk '/^## [Pp]roblem [Tt]ype/,/^## / {if (/^[-*] /) {sub(/^[-*] /, ""); print}}')
         
               {
                 echo "---"
@@ -111,7 +111,7 @@ jobs:
                 echo
                 
                 # Convert GitHub alerts to Minimal Mistakes notices
-                cat "$FILE" | sed '
+                tr -d '\r' < "$FILE" | sed '
                   # Convert [!NOTE] to notice--primary
                   s/^\[!NOTE\]/{: .notice--primary}\n**ℹ️ NOTE:**/g
                   
