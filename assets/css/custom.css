@@ -31,8 +31,9 @@
 
 /* Blue — NOTE */
 .notice--primary {
-  border-left-color: #1f6feb;
-  background-color: rgba(31, 111, 235, 0.07);
+  border-left-color: #1f6feb !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .notice--primary::before {
   content: "ℹ️  Note";
@@ -41,8 +42,9 @@
 
 /* Green — TIP */
 .notice--info {
-  border-left-color: #238636;
-  background-color: rgba(35, 134, 54, 0.07);
+  border-left-color: #238636 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .notice--info::before {
   content: "💡  Tip";
@@ -51,8 +53,9 @@
 
 /* Purple — IMPORTANT */
 .notice--important {
-  border-left-color: #8957e5;
-  background-color: rgba(137, 87, 229, 0.07);
+  border-left-color: #8957e5 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .notice--important::before {
   content: "❗  Important";
@@ -61,8 +64,9 @@
 
 /* Yellow — WARNING */
 .notice--warning {
-  border-left-color: #9e6a03;
-  background-color: rgba(158, 106, 3, 0.07);
+  border-left-color: #9e6a03 !important important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .notice--warning::before {
   content: "⚠️  Warning";
@@ -71,8 +75,9 @@
 
 /* Red — CAUTION */
 .notice--danger {
-  border-left-color: #da3633;
-  background-color: rgba(218, 54, 51, 0.07);
+  border-left-color: #da3633 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .notice--danger::before {
   content: "🛑  Caution";
