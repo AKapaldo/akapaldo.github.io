@@ -6,7 +6,6 @@
 .page__content .notice--important {
   background-color: transparent !important;
   box-shadow: none !important;
-  border-left: 4px solid !important;
   border-top: none !important;
   border-right: none !important;
   border-bottom: none !important;
@@ -14,6 +13,21 @@
   margin: 1.5em 0 !important;
   padding: 0.75em 1em !important;
   font-size: 0.95em !important;
+}
+.page__content .notice--primary {
+  border-left: 4px solid #1f6feb !important;
+}
+.page__content .notice--info {
+  border-left: 4px solid #238636 !important;
+}
+.page__content .notice--important {
+  border-left: 4px solid #8957e5 !important;
+}
+.page__content .notice--warning {
+  border-left: 4px solid #9e6a03 !important;
+}
+.page__content .notice--danger {
+  border-left: 4px solid #da3633 !important;
 }
 
 /* The colored "NOTE / TIP / etc." header line */
@@ -31,7 +45,6 @@
 
 /* Blue — NOTE */
 .notice--primary {
-  border-left-color: #1f6feb !important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -42,7 +55,6 @@
 
 /* Green — TIP */
 .notice--info {
-  border-left-color: #238636 !important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -53,7 +65,6 @@
 
 /* Purple — IMPORTANT */
 .notice--important {
-  border-left-color: #8957e5 !important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -64,7 +75,6 @@
 
 /* Yellow — WARNING */
 .notice--warning {
-  border-left-color: #9e6a03 !important important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -75,7 +85,6 @@
 
 /* Red — CAUTION */
 .notice--danger {
-  border-left-color: #da3633 !important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
