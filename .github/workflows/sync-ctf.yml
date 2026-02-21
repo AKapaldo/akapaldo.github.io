@@ -69,9 +69,10 @@ jobs:
                 CHALLENGE_TYPE="CTF"
               fi
               
-              # Clean up competition name for category
+              # Clean up competition name for category (remove year)
+              COMPETITION_BASE=$(echo "$COMPETITION" | sed 's/_[0-9]\{4\}$//')
               COMPETITION_CLEAN=$(echo "$COMPETITION" | sed 's/_/ /g')
-              COMPETITION_CATEGORY=$(echo "$COMPETITION" | sed 's/[^a-zA-Z0-9_-]//g')
+              COMPETITION_CATEGORY=$(echo "$COMPETITION_BASE" | sed 's/[^a-zA-Z0-9_-]//g')
               
               # Extract year from competition name if present
               YEAR=$(echo "$COMPETITION" | grep -oE '[0-9]{4}' || echo "")
