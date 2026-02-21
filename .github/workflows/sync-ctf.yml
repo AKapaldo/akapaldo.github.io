@@ -93,7 +93,7 @@ jobs:
                 # Add Problem Type tags if found
                 if [ -n "$PROBLEM_TYPES" ]; then
                   for tag in $PROBLEM_TYPES; do
-                    echo "  - ${tag}"
+                    echo "  - \"${tag}\""
                   done
                 fi
                 echo "platform: ${COMPETITION_CLEAN}"
