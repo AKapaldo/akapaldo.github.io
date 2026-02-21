@@ -6,6 +6,7 @@ categories:
 tags:
   - "Malware"
   - "2025"
+  - "PowerShell"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

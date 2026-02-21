@@ -6,6 +6,7 @@ categories:
 tags:
   - "Binary"
   - "2025"
+  - "CHROOT Escape"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

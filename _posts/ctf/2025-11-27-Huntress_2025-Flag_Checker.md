@@ -6,6 +6,7 @@ categories:
 tags:
   - "Web"
   - "2025"
+  - "Timing Attack"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

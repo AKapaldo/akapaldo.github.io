@@ -6,6 +6,8 @@ categories:
 tags:
   - "Web"
   - "2026"
+  - "React2Shell (CVE-2025-55182)"
+  - "CVE Exploit"
 platform: THM Love at First Breach 2026
 competition_year: 2026
 toc: true
@@ -69,4 +71,3 @@ Then I ran a `sudo -l` and saw the daniel user can run `python3` as root with no
 I then used [GTFO bins Python File Read](https://gtfobins.org/gtfobins/python/#file-read) to see the flag at /root/root.txt:
 <img width="529" height="49" alt="2026-02-15_00-06-35" src="https://github.com/user-attachments/assets/8197922e-729b-4e9c-a4ef-14cfb91b8cfe" />
 
-<p align="right">(<a href="#top">back to top</a>)</p>

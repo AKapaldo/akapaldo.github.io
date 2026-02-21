@@ -6,6 +6,7 @@ categories:
 tags:
   - "OSINT"
   - "2025"
+  - "OSINT"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

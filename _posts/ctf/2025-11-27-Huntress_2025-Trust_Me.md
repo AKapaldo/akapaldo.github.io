@@ -6,6 +6,7 @@ categories:
 tags:
   - "Miscellaneous"
   - "2025"
+  - "Windows Trusted Installer"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

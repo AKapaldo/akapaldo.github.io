@@ -6,6 +6,7 @@ categories:
 tags:
   - "Forensics"
   - "2025"
+  - "Windows Recycle Bin"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

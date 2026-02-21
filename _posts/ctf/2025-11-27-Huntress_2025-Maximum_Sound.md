@@ -6,6 +6,7 @@ categories:
 tags:
   - "CTF"
   - "2025"
+  - "Slow-Scan Television (SSTV)"
 platform: Huntress 2025
 competition_year: 2025
 toc: true
