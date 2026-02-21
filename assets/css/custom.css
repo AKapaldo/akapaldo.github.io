@@ -1,84 +1,93 @@
-/* Custom GitHub-style alert improvements */
+/* GitHub-style alert notices */
 .notice--primary,
 .notice--info,
 .notice--warning,
 .notice--danger,
-.notice--success {
+.notice--important {
   border-left: 4px solid;
-  padding: 1em 1.5em;
+  padding: 0.75em 1em;
   margin: 1.5em 0;
-  border-radius: 6px;
+  border-radius: 0 6px 6px 0;
   font-size: 0.95em;
+  background-color: transparent;
 }
 
-/* Blue - INFO/NOTE */
+/* The colored "NOTE / TIP / etc." header line */
+.notice--primary::before,
+.notice--info::before,
+.notice--warning::before,
+.notice--danger::before,
+.notice--important::before {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
+}
+
+/* Blue — NOTE */
 .notice--primary {
-  border-left-color: #3498db;
-  background-color: rgba(52, 152, 219, 0.1);
+  border-left-color: #1f6feb;
+  background-color: rgba(31, 111, 235, 0.07);
 }
-
 .notice--primary::before {
-  content: "ℹ️ ";
-  font-weight: bold;
+  content: "ℹ️  Note";
+  color: #1f6feb;
 }
 
-/* Cyan - TIP */
+/* Green — TIP */
 .notice--info {
-  border-left-color: #17a2b8;
-  background-color: rgba(23, 162, 184, 0.1);
+  border-left-color: #238636;
+  background-color: rgba(35, 134, 54, 0.07);
 }
-
 .notice--info::before {
-  content: "💡 ";
-  font-weight: bold;
+  content: "💡  Tip";
+  color: #238636;
 }
 
-/* Yellow/Orange - CAUTION */
+/* Purple — IMPORTANT */
+.notice--important {
+  border-left-color: #8957e5;
+  background-color: rgba(137, 87, 229, 0.07);
+}
+.notice--important::before {
+  content: "❗  Important";
+  color: #8957e5;
+}
+
+/* Yellow — WARNING */
 .notice--warning {
-  border-left-color: #f39c12;
-  background-color: rgba(243, 156, 18, 0.1);
+  border-left-color: #9e6a03;
+  background-color: rgba(158, 106, 3, 0.07);
 }
-
 .notice--warning::before {
-  content: "⚠️ ";
-  font-weight: bold;
+  content: "⚠️  Warning";
+  color: #9e6a03;
 }
 
-/* Red - DANGER/WARNING */
+/* Red — CAUTION */
 .notice--danger {
-  border-left-color: #e74c3c;
-  background-color: rgba(231, 76, 60, 0.1);
+  border-left-color: #da3633;
+  background-color: rgba(218, 54, 51, 0.07);
 }
-
 .notice--danger::before {
-  content: "🚨 ";
-  font-weight: bold;
+  content: "🛑  Caution";
+  color: #da3633;
 }
 
-/* Purple - IMPORTANT */
-.notice--success {
-  border-left-color: #8e44ad;
-  background-color: rgba(142, 68, 173, 0.1);
+/* Clean up paragraph spacing inside notices */
+.notice--primary p,
+.notice--info p,
+.notice--warning p,
+.notice--danger p,
+.notice--important p {
+  margin: 0;
 }
 
-.notice--success::before {
-  content: "❗ ";
-  font-weight: bold;
-}
-
-/* Make the notice paragraphs look better */
-.notice--primary p:first-child,
-.notice--info p:first-child,
-.notice--warning p:first-child,
-.notice--danger p:first-child,
-.notice--success p:first-child {
-  margin-top: 0;
-}
-
-.notice--primary p:last-child,
-.notice--info p:last-child,
-.notice--warning p:last-child,
-.notice--danger p:last-child,
-.notice--success p:last-child {
-  margin-bottom: 0;
+.notice--primary p + p,
+.notice--info p + p,
+.notice--warning p + p,
+.notice--danger p + p,
+.notice--important p + p {
+  margin-top: 0.5em;
 }
