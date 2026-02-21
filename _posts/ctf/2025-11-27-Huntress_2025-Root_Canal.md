@@ -4,8 +4,8 @@ date: 2025-11-26
 categories:
   - Huntress_2025
 tags:
-  - Miscellaneous
-  - 2025
+  - "Miscellaneous"
+  - "2025"
 platform: Huntress 2025
 competition_year: 2025
 toc: true
