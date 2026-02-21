@@ -1,5 +1,6 @@
 /* GitHub-style alert notices */
 .page__content .notice--primary,
+.page__content .notice--connect,
 .page__content .notice--info,
 .page__content .notice--warning,
 .page__content .notice--danger,
@@ -17,6 +18,9 @@
 .page__content .notice--primary {
   border-left: 4px solid #1f6feb !important;
 }
+.page__content .notice--connect {
+  border-left: 4px solid #f6ff91 !important;
+}
 .page__content .notice--info {
   border-left: 4px solid #238636 !important;
 }
@@ -32,6 +36,7 @@
 
 /* The colored "NOTE / TIP / etc." header line */
 .notice--primary::before,
+.notice--connect::before,
 .notice--info::before,
 .notice--warning::before,
 .notice--danger::before,
@@ -51,6 +56,16 @@
 .notice--primary::before {
   content: "ℹ️  Note";
   color: #1f6feb;
+}
+
+/* Yellow — CONNECT */
+.notice--connect {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.notice--connect::before {
+  content: "💡  Want to connect?";
+  color: #f6ff91;
 }
 
 /* Green — TIP */
@@ -73,7 +88,7 @@
   color: #8957e5;
 }
 
-/* Yellow — WARNING */
+/* Red — WARNING */
 .notice--warning {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -83,7 +98,7 @@
   color: #da3633;
 }
 
-/* Red — CAUTION */
+/* Dark Yellow — CAUTION */
 .notice--danger {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -95,6 +110,7 @@
 
 /* Clean up paragraph spacing inside notices */
 .notice--primary p,
+.notice--connect p,
 .notice--info p,
 .notice--warning p,
 .notice--danger p,
@@ -103,6 +119,7 @@
 }
 
 .notice--primary p + p,
+.notice--connect p + p,
 .notice--info p + p,
 .notice--warning p + p,
 .notice--danger p + p,
