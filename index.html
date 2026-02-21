@@ -61,7 +61,15 @@ Certifications: CompTIA A+, Network+, Security+, Pentest+, (ISC)² SSCP, CCSP
 
 <h2>Recent Writeups</h2>
 
-<!-- The 5 most recent posts will automatically appear here via the home layout -->
+<div class="grid__wrapper">
+  {% for post in site.posts limit:5 %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>
+
+<div style="text-align: center; margin-top: 1em;">
+  <a href="/writeups/" class="btn btn--primary">View All Writeups →</a>
+</div>
 
 <hr>
 
@@ -117,17 +125,16 @@ Certifications: CompTIA A+, Network+, Security+, Pentest+, (ISC)² SSCP, CCSP
 
 <p>🔍 <strong>Currently Exploring:</strong></p>
 <ul>
-<li>Developing custom Python tools for CTF automation</li>
-<li>Deep diving into Windows privilege escalation vectors</li>
-<li>Building a home lab for malware analysis</li>
+{% for item in site.data.current.exploring %}
+  <li>{{ item.text }}</li>
+{% endfor %}
 </ul>
 
 <p>📚 <strong>Learning Goals:</strong></p>
 <ul>
-<li>CISSP Certification (2026)</li>
-<li>MS Business Cybersecurity Management (2026)</li>
-<li>Advanced web application penetration testing</li>
-<li>Reverse engineering and malware development</li>
+{% for item in site.data.current.goals %}
+  <li>{{ item.text }}</li>
+{% endfor %}
 </ul>
 
 <hr>
