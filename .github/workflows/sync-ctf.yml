@@ -78,6 +78,9 @@ jobs:
               
               # Clean up challenge name for title
               CHALLENGE_TITLE=$(echo "$CHALLENGE" | sed 's/_/ /g')
+
+              # Extract Problem Type tags (more flexible)
+              PROBLEM_TYPES=$(awk '/^[Pp]roblem [Tt]ype/,/^$/ {if (/^[\*\-] /) print}' "$FILE" | sed 's/^[\*\-] //' | xargs)
         
               {
                 echo "---"
@@ -86,9 +89,9 @@ jobs:
                 echo "categories:"
                 echo "  - ${COMPETITION_CATEGORY}"
                 echo "tags:"
-                echo "  - ${CHALLENGE_TYPE}"
+                echo "  - \"${CHALLENGE_TYPE}\""
                 if [ -n "$YEAR" ]; then
-                  echo "  - ${YEAR}"
+                  echo "  - \"${YEAR}\""
                 fi
                 # Add Problem Type tags if found
                 if [ -n "$PROBLEM_TYPES" ]; then
