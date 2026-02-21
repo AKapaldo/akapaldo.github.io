@@ -2,7 +2,7 @@
 title: "Root Canal"
 date: 2025-11-26
 categories:
-  - Huntress_2025
+  - Huntress
 tags:
   - "Miscellaneous"
   - "2025"

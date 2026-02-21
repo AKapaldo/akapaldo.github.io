@@ -2,7 +2,7 @@
 title: "Maximum Sound"
 date: 2025-11-26
 categories:
-  - Huntress_2025
+  - Huntress
 tags:
   - "CTF"
   - "2025"

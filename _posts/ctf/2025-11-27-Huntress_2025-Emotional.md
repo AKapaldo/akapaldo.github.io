@@ -2,7 +2,7 @@
 title: "Emotional"
 date: 2025-11-26
 categories:
-  - Huntress_2025
+  - Huntress
 tags:
   - "Web"
   - "2025"

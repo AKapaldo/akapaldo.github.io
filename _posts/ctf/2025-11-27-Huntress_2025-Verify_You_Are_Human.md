@@ -2,7 +2,7 @@
 title: "Verify You Are Human"
 date: 2025-11-26
 categories:
-  - Huntress_2025
+  - Huntress
 tags:
   - "Malware"
   - "2025"
