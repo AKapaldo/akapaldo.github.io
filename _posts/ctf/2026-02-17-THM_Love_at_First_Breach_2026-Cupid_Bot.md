@@ -5,8 +5,8 @@ categories:
   - THM_Love_at_First_Breach_2026
 tags:
   - "CTF"
-        - "2026"
-        - "Prompt Injection"
+  - "2026"
+  - "Prompt Injection"
 platform: THM Love at First Breach 2026
 competition_year: 2026
 toc: true

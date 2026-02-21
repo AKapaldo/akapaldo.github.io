@@ -5,10 +5,10 @@ categories:
   - Huntress_2025
 tags:
   - "Malware"
-        - "2025"
-        - "Clickfix"
-        - "PowerShell"
-        - "Python"
+  - "2025"
+  - "Clickfix"
+  - "PowerShell"
+  - "Python"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

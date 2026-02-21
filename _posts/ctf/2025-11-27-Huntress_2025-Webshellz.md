@@ -5,9 +5,9 @@ categories:
   - Huntress_2025
 tags:
   - "Forensics"
-        - "2025"
-        - "PCAP"
-        - "EVTX File (Windows Event Log)"
+  - "2025"
+  - "PCAP"
+  - "EVTX File (Windows Event Log)"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

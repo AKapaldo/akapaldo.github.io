@@ -5,8 +5,8 @@ categories:
   - Huntress_2025
 tags:
   - "Miscellaneous"
-        - "2025"
-        - "Shamir's Secret Sharing"
+  - "2025"
+  - "Shamir's Secret Sharing"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

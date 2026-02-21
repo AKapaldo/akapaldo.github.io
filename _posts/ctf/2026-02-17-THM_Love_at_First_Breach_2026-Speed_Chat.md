@@ -5,8 +5,8 @@ categories:
   - THM_Love_at_First_Breach_2026
 tags:
   - "Web"
-        - "2026"
-        - "Unrestricted File Upload"
+  - "2026"
+  - "Unrestricted File Upload"
 platform: THM Love at First Breach 2026
 competition_year: 2026
 toc: true

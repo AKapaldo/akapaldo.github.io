@@ -5,8 +5,8 @@ categories:
   - Huntress_2025
 tags:
   - "Malware"
-        - "2025"
-        - "AutoIT"
+  - "2025"
+  - "AutoIT"
 platform: Huntress 2025
 competition_year: 2025
 toc: true

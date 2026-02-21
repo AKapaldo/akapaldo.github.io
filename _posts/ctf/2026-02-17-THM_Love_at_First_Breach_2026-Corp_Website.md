@@ -5,9 +5,9 @@ categories:
   - THM_Love_at_First_Breach_2026
 tags:
   - "Web"
-        - "2026"
-        - "React2Shell (CVE-2025-55182)"
-        - "CVE Exploit"
+  - "2026"
+  - "React2Shell (CVE-2025-55182)"
+  - "CVE Exploit"
 platform: THM Love at First Breach 2026
 competition_year: 2026
 toc: true
