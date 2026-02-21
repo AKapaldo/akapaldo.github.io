@@ -24,10 +24,10 @@
   border-left: 4px solid #8957e5 !important;
 }
 .page__content .notice--warning {
-  border-left: 4px solid #9e6a03 !important;
+  border-left: 4px solid #da3633  !important;
 }
 .page__content .notice--danger {
-  border-left: 4px solid #da3633 !important;
+  border-left: 4px solid #9e6a03 !important;
 }
 
 /* The colored "NOTE / TIP / etc." header line */
@@ -79,8 +79,8 @@
   box-shadow: none !important;
 }
 .notice--warning::before {
-  content: "⚠️  Warning";
-  color: #9e6a03;
+  content: "🛑  Caution";
+  color: #da3633;
 }
 
 /* Red — CAUTION */
@@ -89,8 +89,8 @@
   box-shadow: none !important;
 }
 .notice--danger::before {
-  content: "🛑  Caution";
-  color: #da3633;
+  content: "⚠️  Warning";
+  color: #9e6a03;
 }
 
 /* Clean up paragraph spacing inside notices */
