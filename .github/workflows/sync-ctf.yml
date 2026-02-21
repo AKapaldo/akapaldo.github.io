@@ -81,7 +81,22 @@ jobs:
 
               # Extract Problem Type tags (handle Windows line endings)
               PROBLEM_TYPES=$(tr -d '\r' < "$FILE" | awk '/^## Problem Type/,/^## Solve/ {if (/^[-*] /) {sub(/^[-*] /, ""); print}}')
-        
+              
+              # Build tags list
+              TAGS_LIST="  - \"${CHALLENGE_TYPE}\""
+              if [ -n "$YEAR" ]; then
+                TAGS_LIST="${TAGS_LIST}
+                - \"${YEAR}\""
+              fi
+              if [ -n "$PROBLEM_TYPES" ]; then
+                while IFS= read -r tag; do
+                  if [ -n "$tag" ]; then
+                    TAGS_LIST="${TAGS_LIST}
+                - \"${tag}\""
+                  fi
+                done <<< "$PROBLEM_TYPES"
+              fi
+              
               {
                 echo "---"
                 echo "title: \"${CHALLENGE_TITLE}\""
@@ -89,18 +104,7 @@ jobs:
                 echo "categories:"
                 echo "  - ${COMPETITION_CATEGORY}"
                 echo "tags:"
-                echo "  - \"${CHALLENGE_TYPE}\""
-                if [ -n "$YEAR" ]; then
-                  echo "  - \"${YEAR}\""
-                fi
-                # Add Problem Type tags if found
-                if [ -n "$PROBLEM_TYPES" ]; then
-                  echo "$PROBLEM_TYPES" | while read -r tag; do
-                    if [ -n "$tag" ]; then
-                      echo "  - \"${tag}\""
-                    fi
-                  done
-                fi
+                echo "$TAGS_LIST"
                 echo "platform: ${COMPETITION_CLEAN}"
                 if [ -n "$YEAR" ]; then
                   echo "competition_year: ${YEAR}"
