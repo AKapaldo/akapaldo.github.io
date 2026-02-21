@@ -2,12 +2,12 @@
 title: "Follow The Money The Sequel"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - OSINT
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---

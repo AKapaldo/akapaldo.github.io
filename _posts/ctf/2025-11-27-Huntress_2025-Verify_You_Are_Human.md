@@ -2,12 +2,12 @@
 title: "Verify You Are Human"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Malware
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -34,8 +34,8 @@ My computer said I needed to update MS Teams, so that is what I have been trying
 
 ## Problem Type
 - Clickfix
-- PowerShell Malware
-- Python Malware
+- PowerShell
+- Python
 
 
 ## Solve

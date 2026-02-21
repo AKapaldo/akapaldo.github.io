@@ -2,12 +2,12 @@
 title: "Flag Checker"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Web
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -25,7 +25,7 @@ We've decided to make this challenge really straight forward. All you have to do
 Juuuust make sure not to trip any of the security controls implemented to stop brute force attacks...
 
 ## Problem Type
-- Web timing attack
+- Timing Attack
 
 ## Solve
 Use Burp to send 1 character change at a time with intruder.

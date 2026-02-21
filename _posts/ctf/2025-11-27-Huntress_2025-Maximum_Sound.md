@@ -2,12 +2,12 @@
 title: "Maximum Sound"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
-  - Audio
-  - "2025"
+  - CTF
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -24,7 +24,7 @@ Dang, this track really hits the target! It sure does get loud though, headphone
 
 
 ## Problem Type
-- SSTV Hidden Image
+- Slow-Scan Television (SSTV)
 
 ## Solve
 Use [SSTV decoder](https://sstv-decoder.mathieurenaud.fr)

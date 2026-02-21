@@ -2,12 +2,12 @@
 title: "Sandy"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Malware
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -31,7 +31,7 @@ Sandy wouldn't lie to me, would she...? Sandy is the best!
 > Please be sure to analyze these files within an isolated virtual machine.
 
 ## Problem Type
-- Cryptocurrency Malware
+- AutoIT
 
 ## Password
 > [!NOTE]

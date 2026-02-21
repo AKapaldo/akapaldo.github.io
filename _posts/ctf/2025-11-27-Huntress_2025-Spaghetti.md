@@ -2,12 +2,12 @@
 title: "Spaghetti"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Malware
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -38,7 +38,7 @@ I'm sure you'll get more understanding of the questions below as you explore!
 > The ZIP archive password is `infected`.
 
 ## Problem Type
-- PowerShell Malware
+- PowerShell
 
 ## Solve 1
 Line 1500 has the filename (AYGIW.tmp)

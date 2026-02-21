@@ -2,12 +2,12 @@
 title: "Trapped"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Binary
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -26,7 +26,6 @@ Well... I'm trapped. Feels like I'm in jail. Can you get the flag?
 > The flag is in the root directory at `/flag.txt`
 
 ## Problem Type
-- Binary Exploitation
 - CHROOT Escape
 
 ## Solve Option 1

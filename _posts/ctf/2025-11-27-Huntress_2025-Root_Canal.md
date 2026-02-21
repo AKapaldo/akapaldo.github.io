@@ -2,12 +2,12 @@
 title: "Root Canal"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Miscellaneous
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -23,8 +23,8 @@ toc_sticky: true
 But what is the real root of the issue?
 
 ## Problem Type
-- “Diamorphine” Rootkit
-- [Diamorphine Rootkit GitHub](https://github.com/m0nad/Diamorphine)
+- Diamorphine Rootkit
+
 
 ## Solve
 
@@ -147,6 +147,9 @@ Then cd squiblydoo worked, revealing flag.txt.
 ```bash
 ctf@ip-10-1-113-7:~/squiblydoo$ cat flag.txt
 ```
+
+## Resources
+- [Diamorphine Rootkit GitHub](https://github.com/m0nad/Diamorphine)
 
 ## Flag
 

@@ -2,12 +2,12 @@
 title: "Love Letter Locker"
 date: 2026-02-17
 categories:
-  - THM
+  - THM_Love_at_First_Breach_2026
 tags:
-  - CTF
-  - "2026"
+  - Web
+  - 2026
 platform: THM Love at First Breach 2026
-competition_year: "2026"
+competition_year: 2026
 toc: true
 toc_sticky: true
 ---
@@ -16,7 +16,7 @@ toc_sticky: true
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-| 🌐 Web         |TryHackMe      |
+|🌐 Web         |TryHackMe      |
 
 ## Challenge Prompt
 
@@ -33,20 +33,25 @@ You can access the web app here: `http://MACHINE_IP:5000`
 ## Solve
 Upon visitng the page, we have 2 options to log in or create an account.<br>
 So, let's make a new account.
-<img width="1917" height="350" alt="image" src="https://github.com/user-attachments/assets/7b640c04-5f6f-4310-8ff7-b77026b1652c" />
+<img width="1917" height="350" alt="2026-02-15_13-35-10" src="https://github.com/user-attachments/assets/88e0bb9c-07f8-4eb2-a7b9-ce911227536f" />
 
-I made my account and was presented with the dashboard. The "Tip from Cupid" that states every love letter gets a unique message made me instantly think this might be an Insecure Direct Object Reference (IDOR) problem.<br>
+
+I made my account and was presented with the dashboard. The "Tip from Cupid" that states every love letter gets a unique number made me instantly think this might be an Insecure Direct Object Reference (IDOR) problem.<br>
 We can also see there are already 2 other letters in the archive.<br>
-<img width="1914" height="502" alt="image" src="https://github.com/user-attachments/assets/7a3d0286-7c87-4037-988d-1108ced428e4" />
+<img width="1914" height="502" alt="2026-02-15_13-36-11" src="https://github.com/user-attachments/assets/3fa6cfb3-939c-4b6e-8f5d-eb71d1635f2f" />
+
 
 Next I made a new letter with the title and message of `Test`.
-<img width="1914" height="569" alt="image" src="https://github.com/user-attachments/assets/aeaede5a-3d89-4b21-8435-3ea1c9792055" />
+<img width="1914" height="569" alt="2026-02-15_13-36-26" src="https://github.com/user-attachments/assets/ca0a042a-ecfc-4732-95d8-48f27af2db0c" />
+
 
 When we save our letter, we are taken to the view page where we can see we are letter #3 and that is refected in the URL. If we change the 3 to 2, can we see another letter?
-<img width="1911" height="467" alt="image" src="https://github.com/user-attachments/assets/34a4ea72-844c-428f-adf7-8b84f1f4789d" />
+<img width="1911" height="467" alt="2026-02-15_13-36-38" src="https://github.com/user-attachments/assets/c88e357e-ca8b-4205-b713-e1a520857bdc" />
+
 
 When we change the 3 to a 2 in the URL and submit we do in fact see a different letter:
-<img width="1917" height="432" alt="image" src="https://github.com/user-attachments/assets/152839b8-8898-4178-99f6-f709812d39b1" />
+<img width="1917" height="432" alt="2026-02-15_13-36-48" src="https://github.com/user-attachments/assets/932f22af-a058-44fc-a6a4-37716f466043" />
+
 
 When we look at letter #1, we see the flag:
-<img width="1917" height="468" alt="image" src="https://github.com/user-attachments/assets/46ed7700-1447-4c2d-b2ac-cfa6a5758392" />
+<img width="1917" height="468" alt="2026-02-15_13-36-58" src="https://github.com/user-attachments/assets/8533dd00-2b67-4e2a-b925-771699edd8c9" />

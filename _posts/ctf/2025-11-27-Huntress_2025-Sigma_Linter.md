@@ -2,12 +2,12 @@
 title: "Sigma Linter"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Web
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -25,7 +25,7 @@ Oh wow, another web app interface for command-line tools that already exist!
 This one seems a little busted, though...
 
 ## Problem Type
-- Web command injection
+- Command Injection
 
 ## Solve
 From the initial YAML

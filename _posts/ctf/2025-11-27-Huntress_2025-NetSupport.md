@@ -2,12 +2,12 @@
 title: "NetSupport"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Malware
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -24,7 +24,7 @@ An unexpected Remote Monitoring and Management (RMM) tool was identified on this
 We identified a suspicious PowerShell script written to disk at a similar time. Can you find the link between the two?
 
 ## Problem Type
-- PowerShell Malware
+- PowerShell
 
 ## Password
 > [!NOTE]

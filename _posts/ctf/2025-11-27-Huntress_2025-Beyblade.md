@@ -2,12 +2,12 @@
 title: "Beyblade"
 date: 2025-11-26
 categories:
-  - Huntress
+  - Huntress_2025
 tags:
   - Forensics
-  - "2025"
+  - 2025
 platform: Huntress 2025
-competition_year: "2025"
+competition_year: 2025
 toc: true
 toc_sticky: true
 ---
@@ -27,7 +27,7 @@ Sheesh! Some threat actor sure did let it rip on this host! We've been able to u
 > 2. This challenge has the flag MD5 hash value separated into chunks. You must uncover all of the different pieces and put them together with the flag{ and } suffix to submit.
 
 ## Problem Type
-- Registry Forensics
+- Windows Registry
 
 ## Solve
 	1. 47cb (run)
