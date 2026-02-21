@@ -1,18 +1,19 @@
 /* GitHub-style alert notices */
-.notice--primary,
-.notice--info,
-.notice--warning,
-.notice--danger,
-.notice--important {
+.page__content .notice--primary,
+.page__content .notice--info,
+.page__content .notice--warning,
+.page__content .notice--danger,
+.page__content .notice--important {
+  background-color: transparent !important;
+  box-shadow: none !important;
   border-left: 4px solid !important;
   border-top: none !important;
   border-right: none !important;
   border-bottom: none !important;
   border-radius: 0 6px 6px 0 !important;
-  padding: 0.75em 1em !important;
   margin: 1.5em 0 !important;
+  padding: 0.75em 1em !important;
   font-size: 0.95em !important;
-  background-color: transparent !important;
 }
 
 /* The colored "NOTE / TIP / etc." header line */
