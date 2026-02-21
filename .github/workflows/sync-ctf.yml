@@ -62,8 +62,7 @@ jobs:
               cd ctf-src
         
               # Extract category from the markdown table
-              # Look for lines like "|🐞 Malware       |" or "|📦 Miscellaneous |"
-              CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐🔈🤖]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🔐🔈🤖 ]*//' | awk '{print $1}' | xargs)
+              CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🔐 ]*//' | awk '{print $1}' | xargs)
               
               # If no category found, default to "CTF"
               if [ -z "$CHALLENGE_TYPE" ]; then
@@ -72,12 +71,12 @@ jobs:
               
               # Clean up competition name for category
               COMPETITION_CLEAN=$(echo "$COMPETITION" | sed 's/_/ /g')
-              COMPETITION_CATEGORY=$(echo "$COMPETITION" | cut -d'_' -f1)
+              COMPETITION_CATEGORY=$(echo "$COMPETITION" | sed 's/[^a-zA-Z0-9_-]//g')
               
-              # Extract year from competition name if present (e.g., "Huntress_2025" -> "2025")
+              # Extract year from competition name if present
               YEAR=$(echo "$COMPETITION" | grep -oE '[0-9]{4}' || echo "")
               
-              # Clean up challenge name for title (replace underscores with spaces)
+              # Clean up challenge name for title
               CHALLENGE_TITLE=$(echo "$CHALLENGE" | sed 's/_/ /g')
         
               {
@@ -89,17 +88,40 @@ jobs:
                 echo "tags:"
                 echo "  - ${CHALLENGE_TYPE}"
                 if [ -n "$YEAR" ]; then
-                  echo "  - \"${YEAR}\""
+                  echo "  - ${YEAR}"
+                fi
+                # Add Problem Type tags if found
+                if [ -n "$PROBLEM_TYPES" ]; then
+                  for tag in $PROBLEM_TYPES; do
+                    echo "  - ${tag}"
+                  done
                 fi
                 echo "platform: ${COMPETITION_CLEAN}"
                 if [ -n "$YEAR" ]; then
-                  echo "competition_year: \"${YEAR}\""
+                  echo "competition_year: ${YEAR}"
                 fi
                 echo "toc: true"
                 echo "toc_sticky: true"
                 echo "---"
                 echo
-                cat "$FILE"
+                
+                # Convert GitHub alerts to Minimal Mistakes notices
+                cat "$FILE" | sed '
+                  # Convert [!NOTE] to notice--primary
+                  s/^\[!NOTE\]/{: .notice--primary}\n**ℹ️ NOTE:**/g
+                  
+                  # Convert [!CAUTION] to notice--warning
+                  s/^\[!CAUTION\]/{: .notice--warning}\n**⚠️ CAUTION:**/g
+                  
+                  # Convert [!WARNING] to notice--danger
+                  s/^\[!WARNING\]/{: .notice--danger}\n**⚠️ WARNING:**/g
+                  
+                  # Convert [!IMPORTANT] to notice--danger
+                  s/^\[!IMPORTANT\]/{: .notice--danger}\n**❗ IMPORTANT:**/g
+                  
+                  # Convert [!TIP] to notice--info
+                  s/^\[!TIP\]/{: .notice--info}\n**💡 TIP:**/g
+                '
               } > "../${OUT}"
           fi
         done
