@@ -62,7 +62,7 @@ jobs:
               cd ctf-src
         
               # Extract category from the markdown table
-              CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🔐 ]*//' | awk '{print $1}' | xargs)
+              CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐🤖 ]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🤖🔐 ]*//' | awk '{print $1}' | xargs)
               
               # If no category found, default to "CTF"
               if [ -z "$CHALLENGE_TYPE" ]; then
