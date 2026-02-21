@@ -16,6 +16,10 @@ teaser: # path to fallback teaser image
 logo: # path to logo image
 masthead_title: # overrides site title displayed in masthead
 
+# Custom CSS
+head_scripts:
+  - /assets/css/custom.css
+
 # Index Page Settings
 paginate: 5
 paginate_path: /page:num/
