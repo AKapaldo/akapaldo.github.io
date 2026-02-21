@@ -55,14 +55,14 @@
   font-weight: bold;
 }
 
-/* Green - SUCCESS */
+/* Purple - IMPORTANT */
 .notice--success {
-  border-left-color: #2ecc71;
-  background-color: rgba(46, 204, 113, 0.1);
+  border-left-color: #8e44ad;
+  background-color: rgba(142, 68, 173, 0.1);
 }
 
 .notice--success::before {
-  content: "✅ ";
+  content: "❗ ";
   font-weight: bold;
 }
 
