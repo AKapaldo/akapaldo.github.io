@@ -28,7 +28,6 @@ Come get your dog today!
 You can access the web app here: `http://MACHINE_IP`
 
 ## Problem Type
-- Web
 - MD5 Collision
 
 ## Solve

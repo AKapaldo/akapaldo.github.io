@@ -27,7 +27,6 @@ Tired of soulless AI algorithms? At Cupid's Matchmaker, real humans read your pe
 You can access the web app here: `http://MACHINE_IP:5000`
 
 ## Problem Type
-- Web
 - XSS
 
 ## Solve

@@ -29,7 +29,6 @@ Intelligence indicates that Cupid may have unintentionally left vulnerabilities 
 You can find the web application here: `http://MACHINE_IP:5000`
 
 ## Problem Type
-- Web
 - Robots.txt
 
 ## Solve

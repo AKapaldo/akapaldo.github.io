@@ -26,7 +26,6 @@ There’s this new dating app called “Valenfind” that just popped up out of 
 You can access it here: `http://MACHINE_IP:5000`
 
 ## Problem Type
-- Web
 - Local File Inclusion (LFI)
 
 

@@ -27,7 +27,6 @@ Welcome to LoverLetterLocker, where you can safely write and store your Valentin
 You can access the web app here: `http://MACHINE_IP:5000`
 
 ## Problem Type
-- Web
 - IDOR
 
 ## Solve
