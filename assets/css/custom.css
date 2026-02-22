@@ -49,6 +49,7 @@
   letter-spacing: 0.02em;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 7 Free";
   font: var(--fa-font-classic-solid);
 }
 
