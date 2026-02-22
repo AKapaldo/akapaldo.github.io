@@ -221,7 +221,6 @@
   .layout--single:not(:has(.sidebar)) .page__meta,
   .layout--single:not(:has(.sidebar)) .page__share {
     width: calc(100% - 300px);
-    padding-right: 0;
     float: left;
   }
 }
