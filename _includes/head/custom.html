@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="/assets/css/custom.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
 <meta property="og:image" content="{{ site.url }}/assets/images/og-banner.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:image" content="{{ site.url }}/assets/images/og-banner.png">
+
+<!-- Twitter/Discord -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ site.url }}/assets/images/og-banner.png">
