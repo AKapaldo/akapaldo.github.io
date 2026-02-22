@@ -48,6 +48,8 @@
   margin-bottom: 0.4em;
   font-size: 0.95em;
   letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  font: var(--fa-font-classic-solid);
 }
 
 /* Blue — NOTE */
