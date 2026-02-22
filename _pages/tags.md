@@ -1,6 +1,6 @@
 ---
 title: "Posts by Tag"
-layout: tags
+layout: archive
 permalink: /tags/
 author_profile: true
 header:
@@ -11,3 +11,33 @@ header:
 
 Browse all writeups organized by challenge type and other tags.
 
+<style>
+.tag-section {
+  margin-bottom: 3em;
+}
+
+.tag-section h2 {
+  border-bottom: 2px solid #1f6feb;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+}
+
+.tag-count {
+  font-size: 0.75em;
+  color: #8b949e;
+  font-weight: normal;
+  margin-left: 0.5em;
+}
+</style>
+
+{% assign tags_sorted = site.tags | sort %}
+{% for tag in tags_sorted %}
+<div class="tag-section" id="{{ tag[0] | downcase | replace: ' ', '-' }}">
+  <h2>{{ tag[0] }}<span class="tag-count">({{ tag[1] | size }})</span></h2>
+  <div class="grid__wrapper">
+    {% for post in tag[1] %}
+      {% include archive-single.html type="grid" %}
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
