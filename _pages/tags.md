@@ -37,10 +37,12 @@ Browse all writeups organized by challenge type and other tags.
 </style>
 
 
-<div class="category-jump">
+<div class="jump-pills">
 {% assign tags_sorted = site.tags | sort %}
 {% for tag in tags_sorted %}
-  <a href="#{{ tag[0] | downcase | replace: ' ', '-' }}" class="filter-btn">{{ tag[0] }} <span>({{ tag[1] | size }})</span></a>
+  <a href="#{{ tag[0] | downcase | replace: ' ', '-' }}" class="jump-pill">
+    {{ tag[0] }}<span class="jump-pill__count">{{ tag[1] | size }}</span>
+  </a>
 {% endfor %}
 </div>
 
