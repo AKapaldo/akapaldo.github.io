@@ -216,7 +216,7 @@
 }
 
 ul.dropdown__menu {
-  display: none !important;
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
