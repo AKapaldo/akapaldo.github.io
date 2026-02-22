@@ -9,6 +9,8 @@ tags:
   - "PHP Malware"
 platform: Huntress 2025
 competition_year: 2025
+header:
+  teaser: /assets/images/teasers/malware.png
 toc: true
 toc_sticky: true
 ---

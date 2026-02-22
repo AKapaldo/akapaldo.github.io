@@ -10,6 +10,8 @@ tags:
   - "CVE Exploit"
 platform: THM 2026
 competition_year: 2026
+header:
+  teaser: /assets/images/teasers/web.png
 toc: true
 toc_sticky: true
 ---

@@ -10,6 +10,8 @@ tags:
   - "WinRAR (CVE-2025-8088)"
 platform: Huntress 2025
 competition_year: 2025
+header:
+  teaser: /assets/images/teasers/ctf.png
 toc: true
 toc_sticky: true
 ---
