@@ -245,15 +245,35 @@
   overflow-wrap: break-word;
 }
 
-/* Category Jumps for Tags and Categories pages */
-.category-jump {
+/* Category/Tag jump pills */
+.jump-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
   margin: 1em 0 2em;
 }
 
-.category-jump span {
+.jump-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.3em 0.85em;
+  border-radius: 20px;
+  border: 1px solid rgba(31,111,235,0.4);
+  background: rgba(31,111,235,0.08);
+  color: #58a6ff;
+  font-size: 0.8em;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.jump-pill:hover {
+  background: rgba(31,111,235,0.2);
+  border-color: rgba(31,111,235,0.8);
+  color: #58a6ff;
+}
+
+.jump-pill__count {
   color: #8b949e;
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
