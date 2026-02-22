@@ -239,3 +239,9 @@
   }
 }
 
+/* Wrap long unbroken strings like Base64, hashes, URLs */
+.page__content p,
+.page__content li {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
