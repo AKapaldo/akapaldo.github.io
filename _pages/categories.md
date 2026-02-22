@@ -28,6 +28,12 @@ Browse all writeups organized by competition platform.
   font-weight: normal;
   margin-left: 0.5em;
 }
+
+.category-section,
+.tag-section {
+  clear: both;
+  margin-bottom: 3em;
+}
 </style>
 
 {% assign categories_sorted = site.categories | sort %}
