@@ -15,6 +15,7 @@
 <meta name="twitter:image" content="{{ site.url }}/assets/images/og-banner.png">
 
 <!-- back to top button markup — rendered at end of body via JS -->
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Back to top button
@@ -28,16 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // Dropdown navigation
-  document.querySelectorAll('.masthead__menu-item.dropdown').forEach(function(item) {
-    item.addEventListener('mouseenter', function() {
-      this.querySelector('.dropdown__menu').style.display = 'block';
-    });
-    item.addEventListener('mouseleave', function() {
-      this.querySelector('.dropdown__menu').style.display = 'none';
-    });
   });
 });
 </script>
