@@ -28,6 +28,12 @@ Browse all writeups organized by challenge type and other tags.
   font-weight: normal;
   margin-left: 0.5em;
 }
+
+.category-section,
+.tag-section {
+  clear: both;
+  margin-bottom: 3em;
+}
 </style>
 
 {% assign tags_sorted = site.tags | sort %}
