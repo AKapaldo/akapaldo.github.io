@@ -161,11 +161,11 @@
 }
 
 /* Dropdown navigation */
-.masthead__menu-item.dropdown {
+.greedy-nav .masthead__menu-item.dropdown {
   position: relative;
 }
 
-.masthead__menu-item.dropdown > a::after {
+.greedy-nav .masthead__menu-item.dropdown > a::after {
   content: " ▾";
   font-size: 0.7em;
   opacity: 0.6;
