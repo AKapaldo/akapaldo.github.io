@@ -4,13 +4,13 @@ date: 2025-11-26
 categories:
   - Huntress
 tags:
-  - "CTF"
+  - "Audio"
   - "2025"
   - "Slow-Scan Television (SSTV)"
 platform: Huntress 2025
 competition_year: 2025
 header:
-  teaser: /assets/images/teasers/ctf.png
+  teaser: /assets/images/teasers/audio.png
 toc: true
 toc_sticky: true
 ---
