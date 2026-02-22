@@ -68,6 +68,18 @@ jobs:
               if [ -z "$CHALLENGE_TYPE" ]; then
                 CHALLENGE_TYPE="CTF"
               fi
+
+              # Map challenge type to teaser image
+              case "${CHALLENGE_TYPE,,}" in
+                malware)   TEASER="/assets/images/teasers/malware.png" ;;
+                forensics) TEASER="/assets/images/teasers/forensics.png" ;;
+                web)       TEASER="/assets/images/teasers/web.png" ;;
+                osint)     TEASER="/assets/images/teasers/osint.png" ;;
+                audio)     TEASER="/assets/images/teasers/audio.png" ;;
+                ai)        TEASER="/assets/images/teasers/ai.png" ;;
+                binary)    TEASER="/assets/images/teasers/binary.png" ;;
+                *)         TEASER="/assets/images/teasers/ctf.png" ;;
+              esac
               
               # Clean up competition name for category (remove year)
               COMPETITION_BASE=$(echo "$COMPETITION" | sed 's/_[0-9]\{4\}$//')
@@ -106,6 +118,8 @@ jobs:
                 if [ -n "$YEAR" ]; then
                   echo "competition_year: ${YEAR}"
                 fi
+                echo "header:"
+                echo "  teaser: ${TEASER}"
                 echo "toc: true"
                 echo "toc_sticky: true"
                 echo "---"
