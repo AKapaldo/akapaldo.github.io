@@ -214,7 +214,18 @@
   background: rgba(31,111,235,0.08);
 }
 
+
 /* Expand content into author sidebar space when no sidebar is present */
+
+@media (min-width: 64em) {
+  .layout--single:not(:has(.sidebar)) .page__content,
+  .layout--single:not(:has(.sidebar)) .page__title,
+  .layout--single:not(:has(.sidebar)) .page__meta,
+  .layout--single:not(:has(.sidebar)) .page__share {
+    width: calc(100% - 300px);
+  }
+}
+
 @media (min-width: 64em) {
   .layout--single:not(:has(.sidebar)) .page__inner-wrap {
     float: left;
