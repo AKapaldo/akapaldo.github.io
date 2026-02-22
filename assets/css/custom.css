@@ -219,8 +219,8 @@
 @media (min-width: 64em) {
   .layout--single:not(:has(.sidebar)) .page__inner-wrap {
     position: relative;
-    margin-left: -300px;
-    width: calc(150% + 300px);
+    margin-left: -125px;
+    width: calc(125% + 125px);
   }
   .layout--single:not(:has(.sidebar)) .page__content {
     width: 100%;
@@ -231,8 +231,8 @@
 
 @media (min-width: 80em) {
   .layout--single:not(:has(.sidebar)) .page__inner-wrap {
-    margin-left: -400px;
-    width: calc(150% + 400px);
+    margin-left: -300px;
+    width: calc(150% + 300px);
   }
   .layout--single:not(:has(.sidebar)) .page__content {
     padding-right: 320px;
