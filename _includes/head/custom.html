@@ -13,3 +13,21 @@
 <!-- Twitter/Discord -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ site.url }}/assets/images/og-banner.png">
+
+<!-- back to top button markup — rendered at end of body via JS -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.createElement('button');
+  btn.id = 'back-to-top';
+  btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+  btn.setAttribute('aria-label', 'Back to top');
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
