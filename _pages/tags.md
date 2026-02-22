@@ -36,6 +36,14 @@ Browse all writeups organized by challenge type and other tags.
 }
 </style>
 
+
+<div class="category-jump">
+{% assign tags_sorted = site.tags | sort %}
+{% for tag in tags_sorted %}
+  <a href="#{{ tag[0] | downcase | replace: ' ', '-' }}" class="filter-btn">{{ tag[0] }} <span>({{ tag[1] | size }})</span></a>
+{% endfor %}
+</div>
+
 {% assign tags_sorted = site.tags | sort %}
 {% for tag in tags_sorted %}
 <div class="tag-section" id="{{ tag[0] | downcase | replace: ' ', '-' }}">
