@@ -244,3 +244,16 @@
 .page__content li {
   overflow-wrap: break-word;
 }
+
+/* Category Jumps for Tags and Categories pages */
+.category-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 1em 0 2em;
+}
+
+.category-jump span {
+  color: #8b949e;
+  font-size: 0.85em;
+}
