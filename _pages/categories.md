@@ -36,6 +36,13 @@ Browse all writeups organized by competition platform.
 }
 </style>
 
+<div class="category-jump">
+{% assign categories_sorted = site.categories | sort %}
+{% for category in categories_sorted %}
+  <a href="#{{ category[0] | downcase | replace: ' ', '-' }}" class="filter-btn">{{ category[0] | replace: '-', ' ' }} <span>({{ category[1] | size }})</span></a>
+{% endfor %}
+</div>
+
 {% assign categories_sorted = site.categories | sort %}
 {% for category in categories_sorted %}
 <div class="category-section" id="{{ category[0] | downcase | replace: ' ', '-' }}">
