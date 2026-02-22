@@ -5,10 +5,12 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
+  - title: "Projects"
+    url: /projects/
+  - title: "Resources"
+    url: /resources/
   - title: "Resume"
     url: /resume/
-  - title: "About"
-    url: /about/
 
 writeups:
   - title: "By Competition"
