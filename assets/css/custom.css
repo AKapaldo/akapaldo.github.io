@@ -42,10 +42,12 @@
 .notice--danger::before,
 .notice--important::before {
   display: block;
-  font-family: "Font Awesome 6 Free";
+  font-family: FontAwesome;
+  font-weight: 900; 
+  font-style: normal;
   margin-bottom: 0.4em;
-  font-size: 0.9em;
-  letter-spacing: 0.01em;
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
 }
 
 /* Blue — NOTE */
@@ -56,7 +58,6 @@
 .notice--primary::before {
   content: "\f05a  Note";
   color: #1f6feb;
-  font-weight: 400;
 }
 
 /* Yellow — CONNECT */
@@ -67,7 +68,6 @@
 .notice--connect::before {
   content: "\f0eb  Want to connect?";
   color: #f6ff91;
-  font-weight: 400;
 }
 
 /* Green — TIP */
@@ -78,7 +78,6 @@
 .notice--info::before {
   content: "\f0eb  Tip";
   color: #238636;
-  font-weight: 400;
 }
 
 /* Purple — IMPORTANT */
@@ -87,9 +86,8 @@
   box-shadow: none !important;
 }
 .notice--important::before {
-  content: "\f06a  Important";
+  content: "\f27a  Important";
   color: #8957e5;
-  font-weight: 900;
 }
 
 /* Red — WARNING */
@@ -98,9 +96,8 @@
   box-shadow: none !important;
 }
 .notice--warning::before {
-  content: "\f8d5  Caution";
+  content: "\f306  Caution";
   color: #da3633;
-  font-weight: 900;
 }
 
 /* Dark Yellow — CAUTION */
@@ -111,7 +108,6 @@
 .notice--danger::before {
   content: "\f071  Warning";
   color: #9e6a03;
-  font-weight: 900;
 }
 
 /* Clean up paragraph spacing inside notices */
