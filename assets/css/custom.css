@@ -187,8 +187,12 @@
   margin: 0;
 }
 
-.masthead__menu-item.dropdown:hover .dropdown__menu {
-  display: block;
+.greedy-nav .masthead__menu-item.dropdown .dropdown__menu {
+  display: none;
+}
+
+.greedy-nav .masthead__menu-item.dropdown:hover .dropdown__menu {
+  display: block !important;
 }
 
 .dropdown__menu li {
