@@ -62,7 +62,7 @@ jobs:
               cd ctf-src
         
               # Extract category from the markdown table
-              CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐🤖 ]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🤖🔐 ]*//' | awk '{print $1}' | xargs)
+              CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐🔈🤖 ]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🔈🤖🔐 ]*//' | awk '{print $1}' | xargs)
               
               # If no category found, default to "CTF"
               if [ -z "$CHALLENGE_TYPE" ]; then
@@ -78,6 +78,7 @@ jobs:
                 audio)     TEASER="/assets/images/teasers/audio.png" ;;
                 ai)        TEASER="/assets/images/teasers/ai.png" ;;
                 binary)    TEASER="/assets/images/teasers/binary.png" ;;
+                crypto) TEASER="/assets/images/teasers/crypto.png" ;;
                 *)         TEASER="/assets/images/teasers/ctf.png" ;;
               esac
               
