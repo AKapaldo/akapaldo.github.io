@@ -163,6 +163,7 @@
 /* Dropdown navigation */
 .greedy-nav .masthead__menu-item.dropdown {
   position: relative;
+  align-self: stretch;  /* makes the li fill full height of flex container */
 }
 
 .greedy-nav .masthead__menu-item.dropdown > a::after {
