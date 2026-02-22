@@ -147,21 +147,6 @@ excerpt: "Personal projects, tools, and scripts I've built for security work and
     </div>
   </div>
 
-  <div class="project-card">
-    <div class="project-card__header">
-      <div class="project-card__title">CleanWSUS</div>
-      <a href="https://github.com/AKapaldo/CleanWSUS" target="_blank" class="project-card__github" title="View on GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="project-card__desc">
-      A PowerShell cleanup script that forces client PCs to re-register with WSUS and SCCM. Resolves common issues where endpoints fall out of sync with patch management infrastructure, ensuring machines remain compliant and visible to administrators.
-    </div>
-    <div class="project-card__footer">
-      <span class="lang-tag lang-powershell"><i class="fas fa-terminal"></i> PowerShell</span>
-      <span class="cat-tag cat-it"><i class="fas fa-briefcase"></i> IT Automation</span>
-    </div>
-  </div>
 
 </div>
 
