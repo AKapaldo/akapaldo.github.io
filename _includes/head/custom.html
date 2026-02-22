@@ -17,17 +17,27 @@
 <!-- back to top button markup — rendered at end of body via JS -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Back to top button
   const btn = document.createElement('button');
   btn.id = 'back-to-top';
   btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
   btn.setAttribute('aria-label', 'Back to top');
   document.body.appendChild(btn);
-
   window.addEventListener('scroll', () => {
     btn.classList.toggle('visible', window.scrollY > 400);
   });
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Dropdown navigation
+  document.querySelectorAll('.masthead__menu-item.dropdown').forEach(function(item) {
+    item.addEventListener('mouseenter', function() {
+      this.querySelector('.dropdown__menu').style.display = 'block';
+    });
+    item.addEventListener('mouseleave', function() {
+      this.querySelector('.dropdown__menu').style.display = 'none';
+    });
   });
 });
 </script>
