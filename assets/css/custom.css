@@ -42,14 +42,10 @@
 .notice--danger::before,
 .notice--important::before {
   display: block;
-  font-weight: 900; 
-  font-style: normal;
+  font-weight: 600; 
   margin-bottom: 0.4em;
   font-size: 0.95em;
   letter-spacing: 0.02em;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Font Awesome 6 Free";
 }
 
 /* Blue — NOTE */
@@ -58,7 +54,7 @@
   box-shadow: none !important;
 }
 .notice--primary::before {
-  content: "\f05a  Note";
+  content: "ℹ️  Note";
   color: #1f6feb;
 }
 
@@ -68,7 +64,7 @@
   box-shadow: none !important;
 }
 .notice--connect::before {
-  content: "\f0eb  Want to connect?";
+  content: "💬  Want to connect?";
   color: #f6ff91;
 }
 
@@ -78,7 +74,7 @@
   box-shadow: none !important;
 }
 .notice--info::before {
-  content: "\f0eb  Tip";
+  content: "💡  Tip";
   color: #238636;
 }
 
@@ -88,7 +84,7 @@
   box-shadow: none !important;
 }
 .notice--important::before {
-  content: "\f27a  Important";
+  content: "❗  Important";
   color: #8957e5;
 }
 
@@ -98,7 +94,7 @@
   box-shadow: none !important;
 }
 .notice--warning::before {
-  content: "\f306  Caution";
+  content: "🛑  Caution";
   color: #da3633;
 }
 
@@ -108,7 +104,7 @@
   box-shadow: none !important;
 }
 .notice--danger::before {
-  content: "\f071  Warning";
+  content: "⚠️  Warning";
   color: #9e6a03;
 }
 
