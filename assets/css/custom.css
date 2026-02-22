@@ -216,25 +216,19 @@
 
 
 /* Expand content into author sidebar space when no sidebar is present */
-
-@media (min-width: 64em) {
-  .layout--single:not(:has(.sidebar)) .page__content,
-  .layout--single:not(:has(.sidebar)) .page__title,
-  .layout--single:not(:has(.sidebar)) .page__meta,
-  .layout--single:not(:has(.sidebar)) .page__share {
-    width: calc(100% - 300px);
-  }
-}
-
 @media (min-width: 64em) {
   .layout--single:not(:has(.sidebar)) .page__inner-wrap {
-    float: left;
-    width: 200%;
+    position: relative;
+  }
+  .layout--single:not(:has(.sidebar)) .page__content {
+    width: 100%;
+    padding-right: 220px;
+    float: none;
   }
 }
 
-@media (min-width: 64em) {
-  .layout--single:not(:has(.sidebar)) #main {
-    margin-left: none;
+@media (min-width: 80em) {
+  .layout--single:not(:has(.sidebar)) .page__content {
+    padding-right: 320px;
   }
 }
