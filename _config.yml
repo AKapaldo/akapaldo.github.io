@@ -20,6 +20,13 @@ masthead_title: # overrides site title displayed in masthead
 paginate: 5
 paginate_path: /page:num/
 
+# Google Analytics
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-3P6LXJ6C0K"
+    anonymize_ip: false
+
 # Site Author
 author:
   name: "Andrew Kapaldo"
