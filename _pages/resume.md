@@ -136,18 +136,18 @@ excerpt: "Cybersecurity Professional | CTF Player | Search & Rescue Volunteer"
 
 <div id="resume-summary">
 
-Dedicated cybersecurity professional with over 10 years of supporting information technology and leadership experience.
+<p>Dedicated cybersecurity professional with over 10 years of supporting information technology and leadership experience.
 B.S. in CyberSecurity and Information Assurance. (ISC)² CCSP and SSCP, CompTIA PenTest+, Security+, Network+, and A+.
 Passionate about keeping systems secure and private.
-Skilled purple teamer focusing on securing systems and internal threat hunting.
+Skilled purple teamer focusing on securing systems and internal threat hunting.</p>
 <br>
-**Security Tools:** Splunk | Tenable.SC | Cisco FirePower | Cisco ISE | Palo Alto
+<p><strong>Security Tools:</strong> Splunk | Tenable.SC | Cisco FirePower | Cisco ISE | Palo Alto</p>
 <br>
-**Languages:** SQL | Python | PowerShell | HTML | CSS | JavaScript
+<p><strong>Languages:</strong> SQL | Python | PowerShell | HTML | CSS | JavaScript</p>
 <br>
-**Platforms:** Windows | Mac OS | iOS | Android | Linux
+<p><strong>Platforms:</strong> Windows | Mac OS | iOS | Android | Linux</p>
 <br>
-**Software:** nmap | Wireshark | Burpsuite | Active Directory
+<p><strong>Software:</strong> nmap | Wireshark | Burpsuite | Active Directory</p>
 <br>
 </div>
 
