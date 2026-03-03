@@ -142,13 +142,13 @@ Passionate about keeping systems secure and private.
 Skilled purple teamer focusing on securing systems and internal threat hunting.</p>
 <br>
 <p><strong>Security Tools:</strong> Splunk | Tenable.SC | Cisco FirePower | Cisco ISE | Palo Alto</p>
-<br>
+
 <p><strong>Languages:</strong> SQL | Python | PowerShell | HTML | CSS | JavaScript</p>
-<br>
+
 <p><strong>Platforms:</strong> Windows | Mac OS | iOS | Android | Linux</p>
-<br>
+
 <p><strong>Software:</strong> nmap | Wireshark | Burpsuite | Active Directory</p>
-<br>
+
 </div>
 
 ---
@@ -164,9 +164,9 @@ Skilled purple teamer focusing on securing systems and internal threat hunting.<
 
 Make risk-based decisions for implementation of hardware, software, and policies for the Office of Legacy Management. Perform analysis and verification of policies, procedures, and network hardware in the organization to ensure it conforms with all US government and Department of Energy directives, orders, and policies.
 
-- Support network security and risk analysis of network threats and policies for a geographically distributed network across the US.
-- Responsible for Morgantown, WV data center.
-- Perform oversight of Information Technology contractor staff.
+- Support network security and risk analysis of network threats and policies for a geographically distributed network across the US.<br>
+- Responsible for Morgantown, WV data center.<br>
+- Perform oversight of Information Technology contractor staff.<br>
 </div>
 </div>
 
@@ -179,11 +179,11 @@ Make risk-based decisions for implementation of hardware, software, and policies
 
 Ensure the secure operation of computer hardware, software systems, and network infrastructure, including routers, switches, servers, and VOIP telephony. Supporting confidentiality, integrity, and availability of information systems owned by the Department of Energy.
 
-- Create and monitor dashboards in Tenable.SC to identify vulnerabilities and compliance issues.
-- Perform daily monitoring activities, including analysis of logs and reports from firewalls using Splunk.
-- Work with system and network administrators to track corrective action and mitigation of vulnerabilities.
-- Support Security Operations Center (SOC) operations on a rotating basis for event and incident response.
-- Participate in security control reviews and provide improvement guidance using NIST and CIS guidelines.
+- Create and monitor dashboards in Tenable.SC to identify vulnerabilities and compliance issues.<br>
+- Perform daily monitoring activities, including analysis of logs and reports from firewalls using Splunk.<br>
+- Work with system and network administrators to track corrective action and mitigation of vulnerabilities.<br>
+- Support Security Operations Center (SOC) operations on a rotating basis for event and incident response.<br>
+- Participate in security control reviews and provide improvement guidance using NIST and CIS guidelines.<br>
 </div>
 </div>
 
@@ -196,10 +196,10 @@ Ensure the secure operation of computer hardware, software systems, and network 
 
 Supporting end users and capturing information regarding their needs and requests via phone, email, and in person. Entering them into the ticket tracking system and following up to completion.
 
-- Resolve end user requests and verified full functionality of repairs.
-- Collaborate with End User Services, Networking, Database, Solutions, and Cyber Security teams.
-- Basic Cisco switch configuration (Port descriptions, sticky MAC addresses, VLAN lookups).
-- Update user information, distribution groups, and certificate mappings in Active Directory.
+- Resolve end user requests and verified full functionality of repairs.<br>
+- Collaborate with End User Services, Networking, Database, Solutions, and Cyber Security teams.<br>
+- Basic Cisco switch configuration (Port descriptions, sticky MAC addresses, VLAN lookups).<br>
+- Update user information, distribution groups, and certificate mappings in Active Directory.<br>
 </div>
 </div>
 
@@ -212,9 +212,9 @@ Supporting end users and capturing information regarding their needs and request
 
 Supporting all aspects of managing the lifecycle of Federal records, including creation, capture, retrieval, operations, and disposition.
 
-- Design and implement SharePoint 2016 pages and assist in the transition from SharePoint 2010.
-- Perform searches and record requests for EEOICP Act, Privacy Act, and Freedom of Information Act.
-- Protect and identify sensitive information from unauthorized disclosure according to policy and regulatory guidance.
+- Design and implement SharePoint 2016 pages and assist in the transition from SharePoint 2010.<br>
+- Perform searches and record requests for EEOICP Act, Privacy Act, and Freedom of Information Act.<br>
+- Protect and identify sensitive information from unauthorized disclosure according to policy and regulatory guidance.<br>
 </div>
 </div>
 
@@ -227,9 +227,9 @@ Supporting all aspects of managing the lifecycle of Federal records, including c
 
 Managed all store operations including opening, securing at closing, safe balancing, sales goals, and employee schedules.
 
-- Troubleshoot and repair customer owned Nook devices and store POS systems.
-- Interview, hire, and onboard booksellers, department leads, and managers.
-- Coach and develop booksellers to create bench for future leadership positions.
+- Troubleshoot and repair customer owned Nook devices and store POS systems.<br>
+- Interview, hire, and onboard booksellers, department leads, and managers.<br>
+- Coach and develop booksellers to create bench for future leadership positions.<br>
 </div>
 </div>
 
@@ -242,8 +242,8 @@ Managed all store operations including opening, securing at closing, safe balanc
 
 Content and device management, troubleshooting, and support of NOOK and Samsung branded Android devices. Outside sales and marketing to schools and businesses.
 
-- Top outside sales over goal for the Pittsburgh district for 2017 with 22.5% over goal.
-- Social media marketing and content curation — store was in the top 10 most Facebook likes in the company.
+- Top outside sales over goal for the Pittsburgh district for 2017 with 22.5% over goal.<br>
+- Social media marketing and content curation — store was in the top 10 most Facebook likes in the company.<br>
 </div>
 </div>
 
@@ -258,11 +258,11 @@ Content and device management, troubleshooting, and support of NOOK and Samsung 
 <div class="job-title">Search & Rescue | Secretary | Social Media</div>
 <div class="job-date">September 2017 - Present | Morgantown, WV</div>
 
-- Search for lost and missing persons and, when found, medically stabilize and evacuate them in wilderness and urban-facing environments.
-- Assisting in and leading rescue of lost and missing persons.
-- Content curation and social media marketing for the group's Facebook page.
-- Serving on the board of directors as currently as Secretary, and previously as Treasurer, Vice President, and President.
-- Assisted in creation of Standard Operating Procedures/Guidelines (SOPs/SOGs) for systems and operations.
+- Search for lost and missing persons and, when found, medically stabilize and evacuate them in wilderness and urban-facing environments.<br>
+- Assisting in and leading rescue of lost and missing persons.<br>
+- Content curation and social media marketing for the group's Facebook page.<br>
+- Serving on the board of directors as currently as Secretary, and previously as Treasurer, Vice President, and President.<br>
+- Assisted in creation of Standard Operating Procedures/Guidelines (SOPs/SOGs) for systems and operations.<br>
 </div>
 </div>
 
