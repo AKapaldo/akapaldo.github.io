@@ -162,7 +162,7 @@ Skilled purple teamer focusing on securing systems and internal threat hunting.<
 <div class="job-title">IT Cybersecurity Specialist</div>
 <div class="job-date">July 2023 - Present | Morgantown, WV</div>
 
-Make risk-based decisions for implementation of hardware, software, and policies for the Office of Legacy Management. Perform analysis and verification of policies, procedures, and network hardware in the organization to ensure it conforms with all US government and Department of Energy directives, orders, and policies.
+Make risk-based decisions for implementation of hardware, software, and policies for the Office of Legacy Management. Perform analysis and verification of policies, procedures, and network hardware in the organization to ensure it conforms with all US government and Department of Energy directives, orders, and policies.<br><br>
 
 - Support network security and risk analysis of network threats and policies for a geographically distributed network across the US.<br>
 - Responsible for Morgantown, WV data center.<br>
@@ -177,7 +177,7 @@ Make risk-based decisions for implementation of hardware, software, and policies
 <div class="job-title">Cybersecurity Analyst</div>
 <div class="job-date">December 2022 - July 2023 | Morgantown, WV</div>
 
-Ensure the secure operation of computer hardware, software systems, and network infrastructure, including routers, switches, servers, and VOIP telephony. Supporting confidentiality, integrity, and availability of information systems owned by the Department of Energy.
+Ensure the secure operation of computer hardware, software systems, and network infrastructure, including routers, switches, servers, and VOIP telephony. Supporting confidentiality, integrity, and availability of information systems owned by the Department of Energy.<br><br>
 
 - Create and monitor dashboards in Tenable.SC to identify vulnerabilities and compliance issues.<br>
 - Perform daily monitoring activities, including analysis of logs and reports from firewalls using Splunk.<br>
@@ -194,7 +194,7 @@ Ensure the secure operation of computer hardware, software systems, and network 
 <div class="job-title">Help Desk Technician</div>
 <div class="job-date">November 2019 - December 2022 | Morgantown, WV</div>
 
-Supporting end users and capturing information regarding their needs and requests via phone, email, and in person. Entering them into the ticket tracking system and following up to completion.
+Supporting end users and capturing information regarding their needs and requests via phone, email, and in person. Entering them into the ticket tracking system and following up to completion.<br><br>
 
 - Resolve end user requests and verified full functionality of repairs.<br>
 - Collaborate with End User Services, Networking, Database, Solutions, and Cyber Security teams.<br>
@@ -210,7 +210,7 @@ Supporting end users and capturing information regarding their needs and request
 <div class="job-title">Records Management Specialist</div>
 <div class="job-date">January 2019 - November 2019 | Morgantown, WV</div>
 
-Supporting all aspects of managing the lifecycle of Federal records, including creation, capture, retrieval, operations, and disposition.
+Supporting all aspects of managing the lifecycle of Federal records, including creation, capture, retrieval, operations, and disposition.<br><br>
 
 - Design and implement SharePoint 2016 pages and assist in the transition from SharePoint 2010.<br>
 - Perform searches and record requests for EEOICP Act, Privacy Act, and Freedom of Information Act.<br>
@@ -225,7 +225,7 @@ Supporting all aspects of managing the lifecycle of Federal records, including c
 <div class="job-title">Assistant Store Manager</div>
 <div class="job-date">January 2019 - November 2019 | Morgantown, WV</div>
 
-Managed all store operations including opening, securing at closing, safe balancing, sales goals, and employee schedules.
+Managed all store operations including opening, securing at closing, safe balancing, sales goals, and employee schedules.<br><br>
 
 - Troubleshoot and repair customer owned Nook devices and store POS systems.<br>
 - Interview, hire, and onboard booksellers, department leads, and managers.<br>
@@ -240,10 +240,10 @@ Managed all store operations including opening, securing at closing, safe balanc
 <div class="job-title">Community Business Development Manager</div>
 <div class="job-date">October 2015 - June 2018 | Morgantown, WV</div>
 
-Content and device management, troubleshooting, and support of NOOK and Samsung branded Android devices. Outside sales and marketing to schools and businesses.
+Content and device management, troubleshooting, and support of NOOK and Samsung branded Android devices. Outside sales and marketing to schools and businesses.<br><br>
 
 - Top outside sales over goal for the Pittsburgh district for 2017 with 22.5% over goal.<br>
-- Social media marketing and content curation — store was in the top 10 most Facebook likes in the company.<br>
+- Social media marketing and content curation; store was in the top 10 most Facebook likes in the company.<br>
 </div>
 </div>
 
