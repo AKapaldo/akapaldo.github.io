@@ -238,81 +238,69 @@ PicoCTF is a free computer security education program with a capture-the-flag st
     placeholder="🔍 Search by title, tag, or competition..."
     autocomplete="off"
   />
-  <div id="search-meta"></div>
 </div>
-
+<div class="year-filter">
+  <span class="year-filter__label">Filter by year:</span>
+  <span class="year-pill active" data-year="all">All Years</span>
+  <span class="year-pill" data-year="2025">2025</span>
+  <span class="year-pill" data-year="2026">2026</span>
+</div>
+<div id="search-meta"></div>
 <div id="search-results">
   {% for post in site.posts %}
   <div class="search-item"
     data-title="{{ post.title | downcase }}"
     data-tags="{{ post.tags | join: ' ' | downcase }}"
-    data-category="{{ post.categories | first | downcase }}">
+    data-category="{{ post.categories | first | downcase }}"
+    data-year="{{ post.competition_year }}">
     {% include archive-single.html %}
   </div>
   {% endfor %}
 </div>
-
-<style>
-.search-container {
-  margin: 1.5em 0;
-}
-
-#writeup-search {
-  width: 100%;
-  padding: 0.75em 1em;
-  font-size: 1em;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 6px;
-  color: #eaeaea;
-  outline: none;
-  transition: border-color 0.2s;
-  font-family: inherit;
-}
-
-#writeup-search:focus {
-  border-color: #1f6feb;
-  box-shadow: 0 0 0 3px rgba(31,111,235,0.15);
-}
-
-#writeup-search::placeholder {
-  color: #555;
-}
-
-#search-meta {
-  margin-top: 0.5em;
-  font-size: 0.85em;
-  color: #888;
-  min-height: 1.2em;
-}
-
-.search-item--hidden {
-  display: none;
-}
-</style>
-
 <script>
 const input = document.getElementById('writeup-search');
 const meta  = document.getElementById('search-meta');
 const items = document.querySelectorAll('.search-item');
+const yearPills = document.querySelectorAll('.year-pill');
 
-input.addEventListener('input', function () {
-  const query = this.value.trim().toLowerCase();
+let activeYear = 'all';
+
+function filterItems() {
+  const query = input.value.trim().toLowerCase();
   let visible = 0;
 
   items.forEach(item => {
-    const matches = !query
+    const matchesSearch = !query
       || item.dataset.title.includes(query)
       || item.dataset.tags.includes(query)
       || item.dataset.category.includes(query);
 
+    const matchesYear = activeYear === 'all' || item.dataset.year === activeYear;
+
+    const matches = matchesSearch && matchesYear;
     item.classList.toggle('search-item--hidden', !matches);
     if (matches) visible++;
   });
 
-  meta.textContent = query
-    ? (visible === 0 ? 'No writeups found.' : `Showing ${visible} of ${items.length} writeups`)
-    : '';
+  const total = items.length;
+  if (query || activeYear !== 'all') {
+    meta.textContent = visible === 0
+      ? 'No writeups found.'
+      : `Showing ${visible} of ${total} writeups`;
+  } else {
+    meta.textContent = '';
+  }
+}
+
+input.addEventListener('input', filterItems);
+
+yearPills.forEach(pill => {
+  pill.addEventListener('click', function() {
+    yearPills.forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    activeYear = this.dataset.year;
+    filterItems();
+  });
 });
 </script>
 
