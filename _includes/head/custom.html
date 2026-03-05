@@ -14,8 +14,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ site.url }}/assets/images/og-banner.png">
 
-<!-- back to top button markup — rendered at end of body via JS -->
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Back to top button
@@ -32,10 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-// Lightbox for writeup images
 document.addEventListener('DOMContentLoaded', function() {
-  // Create lightbox elements
+  // Lightbox for writeup images
   const overlay = document.createElement('div');
   overlay.id = 'lightbox-overlay';
   const img = document.createElement('img');
@@ -47,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
   overlay.appendChild(img);
   document.body.appendChild(overlay);
 
-  // Add click handlers to all post images
   document.querySelectorAll('.page__content img').forEach(function(image) {
     image.style.cursor = 'zoom-in';
     image.addEventListener('click', function() {
@@ -58,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Close on overlay or button click
   overlay.addEventListener('click', function(e) {
     if (e.target === overlay || e.target === close) {
       overlay.classList.remove('active');
@@ -66,38 +60,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Close on Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
   });
-// Code block copy buttons
-document.querySelectorAll('.page__content div.highlighter-rouge, .page__content figure.highlight').forEach(function(block) {
-  const wrapper = document.createElement('div');
-  wrapper.className = 'code-copy-wrapper';
-  block.parentNode.insertBefore(wrapper, block);
-  wrapper.appendChild(block);
+});
 
-  const btn = document.createElement('button');
-  btn.className = 'code-copy-btn';
-  btn.innerHTML = '<i class="far fa-copy"></i> Copy';
-  wrapper.appendChild(btn);
+document.addEventListener('DOMContentLoaded', function() {
+  // Code block copy buttons
+  document.querySelectorAll('.page__content div.highlighter-rouge, .page__content figure.highlight').forEach(function(block) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-copy-wrapper';
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(block);
 
-  btn.addEventListener('click', function() {
-    const code = block.querySelector('code');
-    if (!code) return;
-    navigator.clipboard.writeText(code.innerText).then(function() {
-      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-      btn.classList.add('copied');
-      setTimeout(function() {
-        btn.innerHTML = '<i class="far fa-copy"></i> Copy';
-        btn.classList.remove('copied');
-      }, 2000);
+    const btn = document.createElement('button');
+    btn.className = 'code-copy-btn';
+    btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+    wrapper.appendChild(btn);
+
+    btn.addEventListener('click', function() {
+      const code = block.querySelector('code');
+      if (!code) return;
+      navigator.clipboard.writeText(code.innerText).then(function() {
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
     });
   });
-});
-  
 });
 </script>
