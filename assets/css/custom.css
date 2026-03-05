@@ -325,3 +325,43 @@
 #lightbox-close:hover {
   background: rgba(255,255,255,0.2);
 }
+
+/* Code block copy button */
+.code-copy-wrapper {
+  position: relative;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  color: #8b949e;
+  font-size: 0.75em;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.code-copy-wrapper:hover .code-copy-btn {
+  opacity: 1;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: #e6edf3;
+}
+
+.code-copy-btn.copied {
+  color: #3fb950;
+  border-color: rgba(63,185,80,0.4);
+  background: rgba(63,185,80,0.08);
+  opacity: 1;
+}
