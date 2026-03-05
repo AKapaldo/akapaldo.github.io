@@ -73,5 +73,31 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = '';
     }
   });
+// Code block copy buttons
+document.querySelectorAll('.page__content div.highlighter-rouge, .page__content figure.highlight').forEach(function(block) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'code-copy-wrapper';
+  block.parentNode.insertBefore(wrapper, block);
+  wrapper.appendChild(block);
+
+  const btn = document.createElement('button');
+  btn.className = 'code-copy-btn';
+  btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+  wrapper.appendChild(btn);
+
+  btn.addEventListener('click', function() {
+    const code = block.querySelector('code');
+    if (!code) return;
+    navigator.clipboard.writeText(code.innerText).then(function() {
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  });
+});
+  
 });
 </script>
