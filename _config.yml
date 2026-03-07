@@ -9,7 +9,7 @@ title_separator: " | "
 subtitle: "Capture The Flag Writeups & Security Research"
 name: "Andrew Kapaldo"
 description: "CTF writeups, security challenges, and penetration testing notes"
-url: "https://AKapaldo.github.io"
+url: "https://www.andrewkapaldo.com"
 baseurl: ""
 repository: "AKapaldo/AKapaldo.github.io"
 teaser: # path to fallback teaser image
