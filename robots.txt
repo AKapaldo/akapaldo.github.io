@@ -1,0 +1,14 @@
+---
+layout: none
+---
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: {{ site.url }}/sitemap.xml
+
+# Disallow admin/system paths
+Disallow: /assets/
+Disallow: /images/
+Disallow: /resume/
+Disallow: /404.html
