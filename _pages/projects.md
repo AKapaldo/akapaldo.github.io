@@ -8,6 +8,7 @@ header:
   overlay_color: "#1e3a5f"
   overlay_filter: "0.8"
   overlay_image: /assets/images/hero-banner.jpg
+  og_image: /assets/images/og-banner.png
 excerpt: "Personal projects, tools, and scripts I've built for security work and IT automation"
 ---
 
