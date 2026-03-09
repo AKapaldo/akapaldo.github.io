@@ -8,6 +8,7 @@ header:
   overlay_color: "#1e3a5f"
   overlay_filter: "0.8"
   overlay_image: /assets/images/hero-banner.jpg
+  og_image: /assets/images/og-banner.png
 excerpt: "Tools, references, and cheat sheets I use for security research and CTF competitions"
 ---
 
