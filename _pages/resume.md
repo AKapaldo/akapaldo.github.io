@@ -8,6 +8,7 @@ header:
   overlay_color: "#000"
   overlay_filter: "0.5"
   overlay_image: /assets/images/resume-header.jpg
+  og_image: /assets/images/og-banner.png
 excerpt: "Cybersecurity Professional | CTF Player | Search & Rescue Volunteer"
 ---
 
