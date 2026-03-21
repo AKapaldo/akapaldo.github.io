@@ -208,6 +208,7 @@ HackTheBox offers realistic penetration testing labs with vulnerable machines an
 {% endif %}
 
 ---
+{% endcomment %}
 
 ## 🏴‍☠️ PicoCTF {#picoctf}
 
@@ -228,7 +229,7 @@ PicoCTF is a free computer security education program with a capture-the-flag st
 {% endif %}
 
 ---
-{% endcomment %}
+
 
 ## 📚 All Writeups (Chronological)
 
