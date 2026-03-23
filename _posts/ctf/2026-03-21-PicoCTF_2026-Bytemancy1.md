@@ -73,5 +73,3 @@ We can then `nc` to the machine and paste our `e` characters into the box:
 
 When we do that, we are presented with the flag!
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-

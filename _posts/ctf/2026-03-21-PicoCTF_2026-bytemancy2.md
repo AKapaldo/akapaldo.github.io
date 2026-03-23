@@ -95,7 +95,3 @@ Make sure you use your host and port from the challenge instance you are given:
 
 We can run the program and when we do that, we are presented with the flag!
 <img width="779" height="263" alt="2026-03-21_13-37-28" src="https://github.com/user-attachments/assets/9ab93ab6-3af5-4ab8-85e9-f8f5da1dc88c" />
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-

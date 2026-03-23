@@ -64,5 +64,3 @@ So we can connect to the machine using `nc` and then send the box the 3 `e` char
 <img width="532" height="242" alt="2026-03-21_12-55-00" src="https://github.com/user-attachments/assets/c0b57d46-31f6-424f-bf4d-aa4e8608f9c7" />
 
 When we do that, we are presented with the flag!
-
-<p align="right">(<a href="#top">back to top</a>)</p>
