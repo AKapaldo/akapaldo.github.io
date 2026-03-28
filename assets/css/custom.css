@@ -190,9 +190,7 @@
   list-style: none;
 }
 
-.greedy-nav .masthead__menu-item.dropdown:hover .dropdown__menu {
-  display: block !important;
-}
+
 
 .greedy-nav .dropdown__menu li {
   margin: 0;
