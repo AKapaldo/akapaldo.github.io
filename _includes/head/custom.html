@@ -95,4 +95,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Dropdown with delay to prevent gap-triggered close
+  document.querySelectorAll('.masthead__menu-item.dropdown').forEach(function(item) {
+    const menu = item.querySelector('.dropdown__menu');
+    let closeTimer;
+    item.addEventListener('mouseenter', function() {
+      clearTimeout(closeTimer);
+      menu.style.display = 'block';
+    });
+    item.addEventListener('mouseleave', function() {
+      closeTimer = setTimeout(function() {
+        menu.style.display = 'none';
+      }, 150);
+    });
+    menu.addEventListener('mouseenter', function() {
+      clearTimeout(closeTimer);
+    });
+    menu.addEventListener('mouseleave', function() {
+      closeTimer = setTimeout(function() {
+        menu.style.display = 'none';
+      }, 150);
+    });
+  });
+});
 </script>
