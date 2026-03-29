@@ -63,6 +63,11 @@ jobs:
         
               # Extract category from the markdown table
               CHALLENGE_TYPE=$(grep -m 1 "^|[🐞📦🔍🌐⚒️🕵️🔐🔈🤖 ]" "$FILE" | sed 's/|//g' | sed 's/^[🐞📦🔍🌐⚒️🕵️🔈🤖🔐 ]*//' | awk '{print $1}' | xargs)
+
+              # Normalize crypto variations to a single value
+              case "${CHALLENGE_TYPE,,}" in
+                crypto|cryptography|cryptanalysis|cipher) CHALLENGE_TYPE="Crypto" ;;
+              esac
               
               # If no category found, default to "CTF"
               if [ -z "$CHALLENGE_TYPE" ]; then
