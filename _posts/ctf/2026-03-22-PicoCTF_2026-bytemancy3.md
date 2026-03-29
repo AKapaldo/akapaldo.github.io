@@ -156,7 +156,7 @@ Near the bottom of the output we can see the 4 functions we need addresses for:
 
 
 To solve this, we will need to use pwntools.<br>
-If you don't have pwntools you will need to install it, it doens't come with Kali by default.
+If you don't have pwntools you will need to install it, it doesn't come with Kali by default.
 You can install using:
 ```bash
 sudo apt update
@@ -168,7 +168,7 @@ Connecting to the machine we can see it gives us a random spell from the spellbo
 <img width="905" height="229" alt="image" src="https://github.com/user-attachments/assets/0eb5238f-b4e1-4e71-85b2-1bf3349f92e9" />
 
 
-For our script we will use the below. This will read in our prompt and look for the matching spellbook item before seding the location:
+For our script we will use the below. This will read in our prompt and look for the matching spellbook item before sending the location:
 ```python
 from pwn import *
 
