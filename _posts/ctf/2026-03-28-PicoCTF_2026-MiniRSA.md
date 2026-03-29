@@ -4,23 +4,23 @@ date: 2026-03-28
 categories:
   - PicoCTF
 tags:
-  - "CTF"
+  - "Cryptography"
   - "2026"
   - "RSA"
   - "Cube Root Attack"
 platform: PicoCTF 2026
 competition_year: 2026
 header:
-  teaser: /assets/images/teasers/ctf.png
+  teaser: /assets/images/teasers/crypto.png
 toc: true
 toc_sticky: true
 ---
 
-# 🔒 Mini RSA
+# 🔐 Mini RSA
 
 |Category         |	Author                |
 |-----------------|-----------------------|
-|🔒 Cryptography         |Sara     |
+|🔐 Cryptography         |Sara     |
 
 ## Challenge Prompt
 
