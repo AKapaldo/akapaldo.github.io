@@ -51,7 +51,7 @@ If m<sup>3</sup><N, the modulo operation (the "wrap-around" effect of the clock 
 c=m<sup>3</sup>
 
 So to get the flag, we don't need to factor N. We just need to calculate the integer cube root of the ciphertext.<br>
-m=&cupbrt;c​
+m = &#8731;c​
 
 ```python
 from Cryptodome.Util.number import long_to_bytes
