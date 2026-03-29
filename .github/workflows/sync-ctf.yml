@@ -78,7 +78,7 @@ jobs:
                 audio)     TEASER="/assets/images/teasers/audio.png" ;;
                 ai)        TEASER="/assets/images/teasers/ai.png" ;;
                 binary)    TEASER="/assets/images/teasers/binary.png" ;;
-                crypto) TEASER="/assets/images/teasers/crypto.png" ;;
+                crypto|cryptography) TEASER="/assets/images/teasers/crypto.png" ;;
                 *)         TEASER="/assets/images/teasers/ctf.png" ;;
               esac
               
