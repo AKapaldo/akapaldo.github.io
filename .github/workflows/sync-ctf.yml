@@ -71,15 +71,15 @@ jobs:
 
               # Map challenge type to teaser image
               case "${CHALLENGE_TYPE,,}" in
-                malware)   TEASER="/assets/images/teasers/malware.png" ;;
-                forensics) TEASER="/assets/images/teasers/forensics.png" ;;
-                web)       TEASER="/assets/images/teasers/web.png" ;;
-                osint)     TEASER="/assets/images/teasers/osint.png" ;;
-                audio)     TEASER="/assets/images/teasers/audio.png" ;;
-                ai)        TEASER="/assets/images/teasers/ai.png" ;;
-                binary)    TEASER="/assets/images/teasers/binary.png" ;;
-                crypto|cryptography) TEASER="/assets/images/teasers/crypto.png" ;;
-                *)         TEASER="/assets/images/teasers/ctf.png" ;;
+                malware)                             TEASER="/assets/images/teasers/malware.png" ;;
+                forensics)                           TEASER="/assets/images/teasers/forensics.png" ;;
+                web)                                 TEASER="/assets/images/teasers/web.png" ;;
+                osint)                               TEASER="/assets/images/teasers/osint.png" ;;
+                audio)                               TEASER="/assets/images/teasers/audio.png" ;;
+                ai|"artificial intelligence")        TEASER="/assets/images/teasers/ai.png" ;;
+                binary|"binary exploitation")        TEASER="/assets/images/teasers/binary.png" ;;
+                crypto|cryptography)                 TEASER="/assets/images/teasers/crypto.png" ;;
+                *)                                   TEASER="/assets/images/teasers/ctf.png" ;;
               esac
               
               # Clean up competition name for category (remove year)
