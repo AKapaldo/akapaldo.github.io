@@ -95,6 +95,7 @@ excerpt: "Documented solutions and learning from CTF competitions"
   <p><strong>Quick Navigation:</strong></p>
   <div class="filter-buttons">
     <a href="#huntress" class="filter-btn">🦌 Huntress CTF</a>
+    <a href="#TCM" class="filter-btn">🐺 The Cyber Mentor</a>
     <a href="#flare-on" class="filter-btn">🔥 Flare-On</a>
     <a href="#flare-io" class="filter-btn">💻 Flare.io</a>
     <a href="#hackthebox" class="filter-btn">📦 HackTheBox</a>
@@ -123,6 +124,26 @@ Huntress CTF is an annual cybersecurity competition focused on realistic threat 
 </div>
 {% else %}
 <p><em>No Huntress writeups yet. Check back soon!</em></p>
+{% endif %}
+
+---
+
+## 🐺 The Cyber Mentor (TCM) CTF {#TCM}
+
+The Cyber Mentor puts on occasional CTF challenges for prizes.
+
+{% assign huntress_posts = site.categories.TCM %}
+{% if huntress_posts.size > 0 %}
+<div class="grid__wrapper">
+  {% for post in huntress_posts limit:20 %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>
+<div style="clear: both; text-align: center; margin-top: 2em;">
+  <a href="/categories/#huntress" class="btn btn--primary">View All The Cyber Mentor (TCM) Writeups ({{ tcm_posts.size }}) →</a>
+</div>
+{% else %}
+<p><em>No TCM writeups yet. Check back soon!</em></p>
 {% endif %}
 
 ---
