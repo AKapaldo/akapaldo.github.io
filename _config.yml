@@ -118,6 +118,10 @@ collections:
   writeups:
     output: true
     permalink: /:collection/:path/
+  cve:
+    output: true
+    permalink: /cve/:name/
+
 
 # Defaults
 defaults:
@@ -153,6 +157,16 @@ defaults:
       toc_sticky: true
       sidebar:
         nav: "writeups"
+  # CVE      
+  - scope:
+      path: ""
+      type: cve
+    values:
+      layout: single
+      author_profile: false
+      share: true
+      toc: true
+      toc_sticky: true
 
 # Plugins
 plugins:
