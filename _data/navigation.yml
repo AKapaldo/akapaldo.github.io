@@ -6,6 +6,8 @@ main:
         url: /categories/
       - title: "Tags"
         url: /tags/
+  - title: "CVE Research"
+    url: /cve/
   - title: "Projects"
     url: /projects/
   - title: "Resources"
