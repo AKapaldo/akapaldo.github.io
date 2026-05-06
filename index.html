@@ -19,31 +19,40 @@ excerpt: "Breaking things to understand how they work | CTF Player | Security En
 
 <div class="language-bash highlighter-rouge">
 <div class="highlight">
-<pre class="highlight"><code>┌──(andrew㉿kali)-[~/ctf]
-└─$ cat profile.txt
+<pre class="highlight"><code>
+┌──(andrew㉿kali)-[~]
+└─$ cat about.txt
 
-Name: Andrew Kapaldo
-Location: USA-WV
-Role: Security Researcher | CTF Player
-Certifications: CompTIA A+, Network+, Security+, Pentest+, (ISC)² SSCP, CCSP
+  Name     : Andrew Kapaldo
+  Location : Morgantown, WV
+  Role     : IT Cybersecurity Specialist | Security Researcher | CTF Player
+  Certs    : CompTIA A+, Network+, Security+, PenTest+ | (ISC)² SSCP, CCSP
 
-┌──(andrew㉿kali)-[~/ctf]
-└─$ ./get_skills.sh --list-domains
+  Cybersecurity professional with 10+ years in IT and security. I enjoy
+  tackling complex security challenges and documenting my learning through
+  detailed writeups and CVE proof of concept research.
 
-[+] Core Competencies:
-    ├── Web Application Security
-    ├── Digital Forensics
-    ├── Network Analysis
-    └── OSINT & Reconnaissance
+  When I'm not breaking into virtual machines or solving cryptography
+  puzzles, I volunteer with my local search and rescue team — helping
+  find lost and missing persons in wilderness and urban environments.
 
-[+] Languages & Tools:
-    ├── Python (Scripting & Exploit Dev)
-    ├── PowerShell (Windows Security)
-    ├── Bash (Linux Administration)
-    ├── Burp Suite, Wireshark, Ghidra
-    └── Metasploit, SQLmap, Nmap
+┌──(andrew㉿kali)-[~]
+└─$ ./get_skills.sh --list
 
-┌──(andrew㉿kali)-[~/ctf]
+  [+] Core Competencies:
+      ├── Web Application Security
+      ├── Digital Forensics
+      ├── Network Analysis
+      └── OSINT & Reconnaissance
+
+  [+] Languages & Tools:
+      ├── Python (Scripting & Exploit Dev)
+      ├── PowerShell (Windows Security)
+      ├── Bash (Linux Administration)
+      ├── Burp Suite, Wireshark, Ghidra
+      └── Metasploit, SQLmap, Nmap
+
+┌──(andrew㉿kali)-[~]
 └─$ █
 </code></pre>
 </div>
@@ -51,17 +60,7 @@ Certifications: CompTIA A+, Network+, Security+, Pentest+, (ISC)² SSCP, CCSP
 
 <hr>
 
-<h2>About Me</h2>
-
-<p>I'm a technology enthusiast with a passion for cybersecurity and CTF competitions. With certifications in CompTIA A+, Network+, Security+, Pentest+ and (ISC)² SSCP and CCSP, I enjoy tackling complex security challenges and documenting my learning journey through detailed writeups.</p>
-
-<p>When I'm not breaking into virtual machines or solving cryptography puzzles, I volunteer with my local search and rescue team helping find lost and missing persons. I believe in using technology to make people's lives better and safer.</p>
-
-<p>This site serves as my knowledge base and portfolio, documenting CTF challenges from platforms like HackTheBox, TryHackMe, Huntress CTF, and others.</p>
-
-<hr>
-
-<h2>Recent Writeups</h2>
+<h2>cat writeups | tail -n 8</h2>
 
 <div class="grid__wrapper">
   {% for post in site.posts limit:8 %}
@@ -75,7 +74,21 @@ Certifications: CompTIA A+, Network+, Security+, Pentest+, (ISC)² SSCP, CCSP
 
 <hr>
 
-<h2>Recent Achievements</h2>
+<h2>cat cve | tail -n 4</h2>
+
+<div class="grid__wrapper">
+  {% assign cve_posts = site.cve | sort: 'date' | reverse %} {% if cve_posts.size > 0 %}
+    {% for post in cve_posts limit:4 %} {% include archive-single.html type="grid" %} 
+  {% endfor %} 
+</div>
+
+<div style="text-align: center; margin-top: 1em;">
+  <a href="/writeups/" class="btn btn--primary">View All Writeups →</a>
+</div>
+
+<hr>
+
+<h2>ls -la ./Achievements/</h2>
 
 <div class="feature__wrapper">
   <div class="feature__item">
@@ -123,7 +136,7 @@ Certifications: CompTIA A+, Network+, Security+, Pentest+, (ISC)² SSCP, CCSP
 
 
 
-<h2>What I'm Working On</h2>
+<h2>cat current.log</h2>
 
 <p>🔍 <strong>Currently Exploring:</strong></p>
 <ul>
@@ -137,22 +150,6 @@ Certifications: CompTIA A+, Network+, Security+, Pentest+, (ISC)² SSCP, CCSP
 {% for item in site.data.current.goals %}
   <li>{{ item.text }}</li>
 {% endfor %}
-</ul>
-
-<hr>
-
-<h2>Categories</h2>
-
-<p>Explore writeups by category:</p>
-
-<ul>
-<li><a href="/tags/#web">🌐 Web Exploitation</a> - SQL injection, XSS, SSRF, and more</li>
-<li><a href="/tags/#binary">💾 Binary Exploitation</a> - Buffer overflows, ROP chains, format strings</li>
-<li><a href="/tags/#crypto">🔐 Cryptography</a> - Ciphers, encoding, cryptanalysis</li>
-<li><a href="/tags/#forensics">🔍 Forensics</a> - Memory dumps, disk analysis, steganography</li>
-<li><a href="/tags/#malware">🦠 Malware Analysis</a> - Reverse engineering malicious software</li>
-<li><a href="/tags/#osint">🕵️ OSINT</a> - Open source intelligence gathering</li>
-<li><a href="/tags/#ai">🤖 AI</a> - Artificial Intelligence</li>
 </ul>
 
 <hr>
