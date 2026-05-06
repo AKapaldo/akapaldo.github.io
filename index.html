@@ -19,8 +19,7 @@ excerpt: "Breaking things to understand how they work | CTF Player | Security En
 
 <div class="language-bash highlighter-rouge">
 <div class="highlight">
-<pre class="highlight"><code>
-┌──(andrew㉿kali)-[~]
+<pre class="highlight"><code>┌──(andrew㉿kali)-[~]
 └─$ cat about.txt
 
   Name     : Andrew Kapaldo
@@ -77,8 +76,9 @@ excerpt: "Breaking things to understand how they work | CTF Player | Security En
 <h2>cat cve | tail -n 4</h2>
 
 <div class="grid__wrapper">
-  {% assign cve_posts = site.cve | sort: 'date' | reverse %} {% if cve_posts.size > 0 %}
-    {% for post in cve_posts limit:4 %} {% include archive-single.html type="grid" %} 
+  {% assign cve_posts = site.cve | sort: 'date' | reverse %}
+  {% for post in cve_posts limit:4 %} 
+    {% include archive-single.html type="grid" %} 
   {% endfor %} 
 </div>
 
