@@ -60,7 +60,7 @@ As you can see, however, 2 of the bytes were bad, filling in any letters will gi
 Based on the other characters, I assumed it was just hex letters and numbers so I wrote a quick PowerShell script to get the page sizes. I knew `00` wasn't the right combo beacuse I manually visited that page, so I looked for any page not that size:
 <img width="1096" height="60" alt="image" src="https://github.com/user-attachments/assets/e0abe21f-3f99-428e-b663-015716914392" />
 
-```Powershell
+```powershell
 $wrong = ((Invoke-WebRequest -UseBasicParsing -Uri "https://ctf.tcmsecurity.com/3c7d799700a7/freq.txt").Content.Length / 1KB)
 
 0..0xFF | ForEach-Object {
