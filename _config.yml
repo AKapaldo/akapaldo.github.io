@@ -37,6 +37,9 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/andrew-kapaldo/"
+    - label: "Bugcrowd"
+      icon: "fas fa-fw fa-bug"
+      url: "https://bugcrowd.com/h/AndrewKapaldo"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/akapaldo"
@@ -56,6 +59,9 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/andrew-kapaldo/"
+    - label: "Bugcrowd"
+      icon: "fas fa-fw fa-bug"
+      url: "https://bugcrowd.com/h/AndrewKapaldo"
 
 # Reading Files
 include:
