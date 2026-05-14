@@ -38,7 +38,7 @@ What is interesting here is that `N` is normally 2 large random primes multiplie
 
 Unless... one of the primes is 2. If we look at our `N` we can see it is an even number and with that we can break this.
 
-You could also use [FactoDB](https://factordb.com/index.php) to figure out `p` and `q`:
+You could also use [FactorDB](https://factordb.com/index.php) to figure out `p` and `q`:
 <img width="1905" height="391" alt="2026-03-28_19-42-10" src="https://github.com/user-attachments/assets/b1f02442-edfd-4b94-af14-bc1cf2e685ec" />
 
 So we can solve this with some Python:
