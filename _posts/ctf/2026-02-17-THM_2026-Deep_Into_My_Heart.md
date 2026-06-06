@@ -44,7 +44,7 @@ If we look at the `robots.txt` file we see there is a `/cupids_secret_vault`:
 <img width="683" height="169" alt="2026-02-14_17-04-40" src="https://github.com/user-attachments/assets/5e2e5350-2946-4fb2-b5b5-d80dbdc81dbe" />
 
 
-When we visit that page we get the message that we discovered the secret vault but there is more to discover:
+When we visit that page we get the message that we discovered the secret vault but there is more to discover:<br>
 <img width="698" height="249" alt="2026-02-14_17-07-13" src="https://github.com/user-attachments/assets/1926e81f-fb25-4e07-bc2a-cb3ff5c8d696" />
 
 
