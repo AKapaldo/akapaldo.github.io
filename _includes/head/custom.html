@@ -134,3 +134,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<!-- Mermaid diagrams -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1f6feb',
+        primaryTextColor: '#e6edf3',
+        primaryBorderColor: '#30363d',
+        lineColor: '#8b949e',
+        secondaryColor: '#1b2028',
+        tertiaryColor: '#0d1117',
+        background: '#0d1117',
+        mainBkg: '#1b2028',
+        nodeBorder: '#30363d',
+        clusterBkg: '#1b2028',
+        titleColor: '#e6edf3',
+        edgeLabelBackground: '#1b2028',
+        fontFamily: 'Share Tech Mono, monospace'
+      }
+    });
+  });
+</script>
