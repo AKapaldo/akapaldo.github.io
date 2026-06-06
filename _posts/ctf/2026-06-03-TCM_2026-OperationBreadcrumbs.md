@@ -43,16 +43,41 @@ Operation Breadcrumbs is a multi-stage challenge that seamlessly blends web appl
 
 ### Atack Path Visualization
 ```mermaid
-graph TD
-    A[Web App Interface] -->|Inspect Headers| B(x-debug-trace Header)
-    B -->|Base64 Decode| C[GitHub Gist Notes]
-    C -->|Discover Internal API| D[API Fuzzing & IDOR]
-    D -->|Hash Sequential IDs| E(Extract IMG28 Payload)
-    E -->|Decompress Gzip| F[JSON Token & YouTube Link]
-    F -->|OSINT Sweep| G[XML Error]
-    G -->|Extract Token/IDs| H[Download Polyglot Image]
-    H -->|Identify as ZIP| I[Extract flag.xor]
-    I -->|Known Plaintext Attack| J((TCM FLAG))
+flowchart TD
+    %% Define the stages as subgraphs and force them to flow Left-to-Right
+    subgraph S1 [Stage 1: Enumeration]
+        direction LR
+        A[Web App Interface] -->|Inspect Headers| B(x-debug-trace Header)
+        B -->|Base64 Decode| C[GitHub Gist Notes]
+    end
+
+    subgraph S2 [Stage 2: API & Payload]
+        direction LR
+        D[API Fuzzing & IDOR] -->|Hash Sequential IDs| E(Extract IMG28 Payload)
+        E -->|Decompress Gzip| F[JSON Token & YouTube Link]
+    end
+
+    subgraph S3 [Stage 3: OSINT & Polyglot]
+        direction LR
+        G[XML Error] -->|Extract Token/IDs| H[Download Polyglot Image]
+        H -->|Identify as ZIP| I[Extract flag.xor]
+    end
+
+    subgraph S4 [Stage 4: Cryptography]
+        direction LR
+        J((TCM FLAG))
+    end
+
+    %% Link the subgraphs directly with the transition labels
+    S1 -->|Discover Internal API| S2
+    S2 -->|OSINT Sweep| S3
+    S3 -->|Decrypt/Known Plaintext Attack| S4
+
+    %% Styling for clean borders
+    style S1 fill:transparent,stroke:#555,stroke-width:2px,stroke-dasharray: 5 5
+    style S2 fill:transparent,stroke:#555,stroke-width:2px,stroke-dasharray: 5 5
+    style S3 fill:transparent,stroke:#555,stroke-width:2px,stroke-dasharray: 5 5
+    style S4 fill:transparent,stroke:none
 ```
 
 ## Solve
