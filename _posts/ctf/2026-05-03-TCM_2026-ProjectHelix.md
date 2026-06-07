@@ -69,7 +69,7 @@ flowchart TD
     subgraph S4 [Stage 4: Cryptography]
         direction LR
         J[Convert Audio to RNA String] -->|Base-4 to Binary Decode| K(Extract Password)
-        K -->|Unzip Archive| L((TCM_FLAG))
+        K -->|Unzip Archive| L((TCM FLAG))
     end
 
     %% Cross-stage links

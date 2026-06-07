@@ -77,7 +77,7 @@ flowchart TD
     style S1 fill:transparent,stroke:#555,stroke-width:2px,stroke-dasharray: 5 5
     style S2 fill:transparent,stroke:#555,stroke-width:2px,stroke-dasharray: 5 5
     style S3 fill:transparent,stroke:#555,stroke-width:2px,stroke-dasharray: 5 5
-    style S4 fill:transparent,stroke:none
+    style S4 fill:transparent,stroke:#555,stroke-width:2px,stroke-dasharray: 5 5
 ```
 
 ## Solve
